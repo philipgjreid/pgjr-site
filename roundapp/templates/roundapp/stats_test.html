@@ -32,8 +32,8 @@
 
 .content-box {
     border: 2px solid #ccc;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 5px;
+    margin: 5px;
     width: 80%;
     max-width: 650px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -67,6 +67,137 @@
     margin: 0;
 }
 
+
+/* Default button styles - Testing how to size things based on screen size */
+.custom-button-fwy {
+    height: 50px;
+    width: 100px;
+    font-size: 16px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+/* Styles for screens between 600px and 1200px */
+@media (min-width: 780px) and (max-width: 1000px) {
+    .custom-button-fwy {
+        height: 55px;
+        width: 80px;
+        font-size: 14px;
+    }
+}
+/* Styles for screens smaller than 600px */
+@media (max-width: 780px) {
+    .custom-button-fwy {
+        height: 50px;
+        width: 50px;
+        font-size: 12px;
+    }
+}
+
+/* Default button styles - Testing how to size things based on screen size */
+.custom-button {
+    height: 50px;
+    width: 50px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+/* Styles for screens between 600px and 1200px */
+@media (min-width: 780px) and (max-width: 1000px) {
+    .custom-button {
+        height: 45px;
+        width: 45px;
+        font-size: 14px;
+    }
+}
+/* Styles for screens smaller than 600px */
+@media (max-width: 780px) {
+    .custom-button {
+        height: 40px;
+        width: 40px;
+        font-size: 12px;
+    }
+}
+
+.custom-button-yesno {
+    height: 50px;
+    width: 70px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+/* Styles for screens between 600px and 1200px */
+@media (min-width: 780px) and (max-width: 1000px) {
+    .custom-button-yesno {
+        height: 45px;
+        width: 60px;
+        font-size: 14px;
+    }
+}
+/* Styles for screens smaller than 600px */
+@media (max-width: 780px) {
+    .custom-button-yesno {
+        height: 40px;
+        width: 50px;
+        font-size: 12px;
+    }
+}
+
+
+
+.grid-container {
+/*    height: 50px;
+    border-radius: 0;*/
+
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 0px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+@media (max-width: 1000px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-gap: 0px;
+        margin: 0 auto;
+        width: fit-content;
+/*        height: 45px;
+        font-size: 14px;*/
+    }
+}
+
+@media (max-width: 780px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 80px);
+        grid-gap: 0px;
+        margin: 0 auto;
+        width: fit-content;
+/*        height: 40px;
+        font-size: 12px;*/
+    }
+}
+
+.custom-button-green {
+    height: 50px;
+    margin-right: 0px;
+    border-radius: 0;
+}
+/* Styles for screens between 600px and 1200px */
+@media (min-width: 780px) and (max-width: 1000px) {
+    .custom-button-green {
+        height: 45px;
+        font-size: 14px;
+    }
+}
+/* Styles for screens smaller than 600px */
+@media (max-width: 780px) {
+    .custom-button-green {
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+
 </style>
 
 <!-- <h1>Testing Page for Stats</h1>
@@ -80,6 +211,8 @@
     <form action="" method="POST">
 
     <div class="nav-bar">
+
+    <!-- User: {{ user.first_name }}  To consider putting user details on the screen. This should work.-->
 
         <button type="submit" class="btn btn-primary" name="back">Back</button>
         <div id="hole-info">Hole {{ hole.hole_number }}: Par {{ hole.par }}</div>
@@ -313,11 +446,11 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button-fwy';
                 button.style.marginRight = '0px';
                 button.style.backgroundColor = fairwayField.value === option.value ? option.color : 'gray'; // Set initial color based on value
-                button.style.height = '50px'; // Set fixed height for buttons
-                button.style.width = '100px'; // Set fixed width for buttons
+                // button.style.height = '50px'; // Set fixed height for buttons
+                // button.style.width = '100px'; // Set fixed width for buttons
                 button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (fairwayField.value === option.value) {
@@ -385,17 +518,18 @@
 
             // Create a container for the buttons
             var container = document.createElement('div');
-            container.style.display = 'grid';
-            container.style.gridTemplateColumns = 'repeat(3, 120px)'; // Set fixed width for buttons
-            container.style.gridGap = '0px';
-            container.style.margin = '0 auto'; // Center align the container
-            container.style.width = 'fit-content'; // Adjust the container width
+            container.classList.add('grid-container'); // Add the grid-container class
+            // container.style.display = 'grid';
+            // container.style.gridTemplateColumns = 'repeat(3, 120px)'; // Set fixed width for buttons
+            // container.style.gridGap = '0px';
+            // container.style.margin = '0 auto'; // Center align the container
+            // container.style.width = 'fit-content'; // Adjust the container width
 
             options.forEach(function(option, index) {
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button-green';
                 button.style.backgroundColor = greenField.value === option.value ? option.color : 'gray'; // Set initial color based on value
                 button.style.height = '50px'; // Set fixed height for buttons
                 button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
@@ -489,11 +623,11 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button';
                 button.style.backgroundColor = puttsField.value === option.value ? option.color : 'gray'; // Set initial color based on value
-                button.style.height = '50px'; // Set fixed height for buttons
-                button.style.width = '50px'; // Set fixed width for buttons
-                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                // button.style.height = '50px'; // Set fixed height for buttons
+                // button.style.width = '50px'; // Set fixed width for buttons
+                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (puttsField.value === option.value) {
                         puttsField.value = 'na';
@@ -561,12 +695,12 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button-yesno';
                 button.style.marginRight = '0px';
                 button.style.backgroundColor = updownField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
-                button.style.height = '50px'; // Set height.
-                button.style.width = '70px'; // Set width.
-                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                // button.style.height = '50px'; // Set height.
+                // button.style.width = '70px'; // Set width.
+                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (updownField.value === option.value) {
                         updownField.value = 'na';
@@ -627,12 +761,12 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button-yesno';
                 button.style.marginRight = '0px';
                 button.style.backgroundColor = sandsaveField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
-                button.style.height = '50px'; // Set height.
-                button.style.width = '70px'; // Set width.
-                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                // button.style.height = '50px'; // Set height.
+                // button.style.width = '70px'; // Set width.
+                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (sandsaveField.value === option.value) {
                         sandsaveField.value = 'na';
@@ -714,11 +848,11 @@
                 var button = document.createElement('button');
                 button.type = 'button';
                 button.innerHTML = option.label;
-                button.className = 'btn btn-secondary';
+                button.className = 'btn btn-secondary custom-button';
                 button.style.backgroundColor = penaltiesField.value === option.value ? option.color : 'gray'; // Set initial color based on value
-                button.style.height = '50px'; // Set fixed height for buttons
-                button.style.width = '50px'; // Set fixed width for buttons
-                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                // button.style.height = '50px'; // Set fixed height for buttons
+                // button.style.width = '50px'; // Set fixed width for buttons
+                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (penaltiesField.value === option.value) {
                         penaltiesField.value = 'na';
