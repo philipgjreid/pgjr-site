@@ -1,0 +1,75 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+{% if user.is_authenticated %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Review Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Review Data (this was a test for temp data so likely will be deleted)</h1>
+        {% if data_dict %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Course</th>
+                        <th>Tee Name</th>
+                        <th>Date Played</th>
+                        <th>Type</th>
+                        <th>Weather</th>
+                        <th>Wind</th>
+                        <th>Comments</th>
+                        <!-- Add other headers as needed -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data_dict %}
+                        <tr>
+                            <td>{{ row.player }}</td>
+                            <td>{{ row.course }}</td>
+                            <td>{{ row.tee_name }}</td>
+                            <td>{{ row.date_played }}</td>
+                            <td>{{ row.round_type }}</td>
+                            <td>{{ row.weather }}</td>
+                            <td>{{ row.wind }}</td>
+                            <td>{{ row.comments }}</td>
+                            <!-- Add other data fields as needed round_type, weather, wind, comments-->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+{{ data_dict }}
+
+            <form method="post" action="{% url 'save-round' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Save Data</button>
+            </form>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! You Must Be Logged In To View This Page...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Return to Home Page</a>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

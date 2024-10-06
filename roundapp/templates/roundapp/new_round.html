@@ -1,0 +1,157 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+{% if user.is_authenticated %}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+</head>
+
+<style>
+    .custom-width {
+        width: 90px;
+        padding: 2px;
+    }
+
+/*    .cont-width: {
+        max-width: 500px,
+    };
+
+@media (min-width: 400px) {
+    .container-md{
+        max-width: 600px;
+    }
+}*/
+
+.content-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+</style>
+
+<title>New Round</title>
+<!-- <div class="container"> -->
+<div class="content-box">
+	<h1>Hi {{ user.first_name }} - Enter Your Round Details:</h1>
+        <!-- Logged In User: {{ user.first_name }} {{ user.last_name }} -->
+
+    {% if submitted %}
+        Your round has been submitted - now enter your round data.
+    {% else %}
+    <form action="" method="post" id="roundForm">
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+<!--         <div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Player:</span>
+        	{{ form.player }}
+    	</div> -->
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Course:</span>
+        	{{ form.course }}
+    	</div>
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Tee:</span>
+        	{{ form.tee_name }}
+    	</div>
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Date:</span>
+        	{{ form.date_played }}
+    	</div>
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Type:</span>
+        	{{ form.round_type }}
+    	</div>
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Weather:</span>
+        	{{ form.weather }}
+    	</div>
+        <div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Wind:</span>
+        	{{ form.wind }}
+    	</div>
+    	<div class="input-group mb-3">
+        	<span class="input-group-text custom-width">Comments:</span>
+        	{{ form.comments }}
+    	</div>
+
+<!--     <div class="input-group mb-3">
+      <span class="input-group-text">Wind:</span>
+      <input type="text" class="form-control" placeholder="Wind" name="wind">
+    </div> -->
+    
+    <center>
+    <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <a href="{% url 'golf-home' %}" class="btn btn-secondary">
+            <i class="bi bi-x-circle"></i> Cancel </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-pencil-fill"></i> Start Round </button>
+   </div>
+   </center>
+
+    </form>
+</div>
+
+<!-- 	<form method="post">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <button type="submit">Submit</button>
+	</form> -->
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var courseSelect = document.getElementById('id_course');
+        var teeSelect = document.getElementById('id_tee_name');
+        
+        courseSelect.addEventListener('change', function() {
+            var courseId = this.value;
+            console.log("Course ID selected: ", courseId);
+
+            if (courseId) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '{% url "ajax-load-tees" %}?course_id=' + courseId, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var data = JSON.parse(xhr.responseText);
+                        console.log("Tee data received: ", data);
+
+                        teeSelect.innerHTML = '<option value="">Select a tee</option>';
+                        data.forEach(function(item) {
+                            var option = document.createElement('option');
+                            option.value = item.id;
+                            option.text = item.tee_name;
+                            teeSelect.appendChild(option);
+                        });
+                    }
+                };
+                xhr.send();
+            } else {
+                teeSelect.innerHTML = '';
+            }
+        });
+    });
+</script>
+
+    {% endif %}
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! You Must Be Logged In To View This Page...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock%}

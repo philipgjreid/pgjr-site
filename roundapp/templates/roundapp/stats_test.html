@@ -1,0 +1,788 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+{% if user.is_authenticated %}
+
+<style>
+.nav-bar {
+    display: flex;
+    max-width: 550px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.nav-button:hover {
+    background-color: #ddd;
+}
+
+.content-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.custom-numeric-input-dd,
+.custom-numeric-input-fp {
+    font-size: 20px; /* Change the font size */
+    width: 200px; /* Set the width of the input box */
+    text-align: center;
+    border-bottom: 2px solid #000; /* Keep the lower border visible */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    -moz-appearance: textfield; /* Remove up and down arrows in Firefox */
+}
+
+.custom-numeric-input-score {
+    -moz-appearance: textfield; /* Remove up and down arrows in Firefox */
+}
+
+/* Remove up and down arrows in Chrome, Safari, Edge, and Opera */
+.custom-numeric-input-score::-webkit-outer-spin-button,
+.custom-numeric-input-score::-webkit-inner-spin-button,
+.custom-numeric-input-dd::-webkit-outer-spin-button,
+.custom-numeric-input-dd::-webkit-inner-spin-button,
+.custom-numeric-input-fp::-webkit-outer-spin-button,
+.custom-numeric-input-fp::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+</style>
+
+<!-- <h1>Testing Page for Stats</h1>
+    <p><strong>Round Details</strong> Rnd ID: {{ round_number.id }} / Rnd Date: {{ round_number.date_played }} /
+    Course: {{ round_number.course.name }} / Weather: {{ round_number.weather }}</p>
+
+<h5>Hole {{ hole.hole_number }}: Par {{ hole.par }}</h5> -->
+
+<center>
+<div class="content-box">
+    <form action="" method="POST">
+
+    <div class="nav-bar">
+
+        <button type="submit" class="btn btn-primary" name="back">Back</button>
+        <div id="hole-info">Hole {{ hole.hole_number }}: Par {{ hole.par }}</div>
+        <button type="submit" class="btn btn-primary" name="next">
+            {% if hole.hole_number < 18 %}
+                Next
+            {% else %}
+                Complete
+            {% endif %}
+        </button>
+
+    </div><br>
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+    </form>
+</div>
+</center>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const parValue = {{ hole.par }};
+        const fairwayField = document.getElementById('id_fairway').parentElement;
+        const driveDistanceField = document.getElementById('custom-numeric-input-dd').parentElement;
+
+        function toggleFields() {
+            if (parValue === 3) {
+                fairwayField.style.display = 'none';
+                driveDistanceField.style.display = 'none';
+            } else {
+                fairwayField.style.display = 'block';
+                driveDistanceField.style.display = 'block';
+            }
+        }
+
+        toggleFields();  // Initial check
+    });
+</script>
+
+<!-- <script>
+    // This confirmed the par value is 3 (or 4 or 5) so this bit of code to reference the par should work.
+    document.addEventListener('DOMContentLoaded', function() {
+        const parValue = {{ hole.par }};
+        console.log('Par value:', parValue);
+
+        if (parValue === 3) {
+            console.log('Par is 3');
+        } else {
+            console.log('Par is not 3');
+        }
+    });
+</script> -->
+
+<!-- <script>
+    // This confirmed that the fairway input boxes can be hidden using this code.
+    document.addEventListener('DOMContentLoaded', function() {
+        const fairwayField = document.getElementById('id_fairway').parentElement;
+        const ddField = document.getElementById('custom-numeric-input-dd').parentElement;
+        fairwayField.style.display = 'none';
+        ddField.style.display = 'none';
+    });
+</script> -->
+
+<!-- <script>
+    // This confirmed the drivedistance can be hidden with the adjusted id reference.
+    document.addEventListener('DOMContentLoaded', function() {
+        const driveDistanceField = document.getElementById('custom-numeric-input-dd');
+        if (driveDistanceField) {
+            driveDistanceField.parentElement.style.display = 'none';
+        } else {
+            console.log('Drive distance field not found');
+        }
+    });
+</script> -->
+
+<!-- <script>
+    // This works to hide the fairway field when the par is 3.
+    document.addEventListener('DOMContentLoaded', function() {
+        const parValue = {{ hole.par }};
+        const fairwayField = document.getElementById('id_fairway').parentElement;
+
+        function toggleFields() {
+            if (parValue === 3) {
+                fairwayField.style.display = 'none';
+            } else {
+                fairwayField.style.display = 'block';
+            }
+        }
+
+        toggleFields();  // Initial check
+    });
+</script> -->
+
+
+
+
+
+<script>
+    // Score button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreInput = document.getElementById('id_score');
+        if (scoreInput) {
+            // Get the parent element of the score input
+            var parentElement = scoreInput.parentNode;
+            parentElement.style.display = 'flex';
+            parentElement.style.alignItems = 'center';
+            parentElement.style.justifyContent = 'center'; // Center the elements horizontally
+            parentElement.style.gap = '10px'; // Add gaps between the elements
+
+            // Create increment button
+            var incrementButton = document.createElement('button');
+            incrementButton.type = 'button';
+            incrementButton.innerHTML = '+';
+            incrementButton.className = 'btn btn-secondary';
+            incrementButton.style.backgroundColor = 'blue';
+            incrementButton.style.color = 'white';
+            incrementButton.style.height = '60px';
+            incrementButton.style.width = '60px';
+            incrementButton.style.fontSize = '40px';
+            incrementButton.style.display = 'flex';
+            incrementButton.style.alignItems = 'center';
+            incrementButton.style.justifyContent = 'center';
+            incrementButton.onclick = function() {
+                var currentValue = parseInt(scoreInput.value, 10);
+                scoreInput.value = currentValue + 1;
+            };
+
+            // Create decrement button
+            var decrementButton = document.createElement('button');
+            decrementButton.type = 'button';
+            decrementButton.innerHTML = '-';
+            decrementButton.className = 'btn btn-secondary';
+            decrementButton.style.backgroundColor = 'red';
+            decrementButton.style.color = 'white';
+            decrementButton.style.height = '60px';
+            decrementButton.style.width = '60px';
+            decrementButton.style.fontSize = '40px';
+            decrementButton.style.display = 'flex';
+            decrementButton.style.alignItems = 'center';
+            decrementButton.style.justifyContent = 'center';
+            decrementButton.onclick = function() {
+                var currentValue = parseInt(scoreInput.value, 10);
+                if (currentValue > 1) {
+                    scoreInput.value = currentValue - 1;
+                }
+            };
+
+            // Insert the buttons before and after the score input
+            parentElement.insertBefore(decrementButton, scoreInput);
+            parentElement.insertBefore(incrementButton, scoreInput.nextSibling);
+        }
+    });
+</script>
+
+
+
+
+
+<!-- <script>
+    // Score button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreInput = document.getElementById('id_score');
+        if (scoreInput) {
+            var incrementButton = document.createElement('button');
+            incrementButton.type = 'button';
+            incrementButton.innerHTML = '+';
+            incrementButton.className = 'btn btn-secondary';
+            incrementButton.style.backgroundColor = 'blue';
+            incrementButton.style.color = 'white';
+            incrementButton.style.height = '60px';
+            incrementButton.style.fontSize = '40px';
+            incrementButton.style.marginLeft = '5px';
+            incrementButton.onclick = function() {
+                var currentValue = parseInt(scoreInput.value, 10);
+                scoreInput.value = currentValue + 1;
+            };
+
+   
+            incrementButton.style.width = '60px';
+            incrementButton.style.display = 'flex';
+            incrementButton.style.alignItems = 'center';
+            incrementButton.style.justifyContent = 'center';
+
+
+
+            var decrementButton = document.createElement('button');
+            decrementButton.type = 'button';
+            decrementButton.innerHTML = '-';
+            decrementButton.className = 'btn btn-secondary';
+            decrementButton.style.backgroundColor = 'red';
+            decrementButton.style.color = 'white';
+            decrementButton.style.height = '60px';
+            decrementButton.style.fontSize = '40px';
+            decrementButton.style.marginRight = '5px';
+            decrementButton.onclick = function() {
+                var currentValue = parseInt(scoreInput.value, 10);
+                if (currentValue > 1) {
+                    scoreInput.value = currentValue - 1;
+                }
+            };
+
+            scoreInput.style.width = '100px';
+            scoreInput.style.height = '60px';
+            scoreInput.style.textAlign = 'center';
+            scoreInput.style.fontSize = '30px';
+            scoreInput.style.fontWeight = 'semibold';
+
+            scoreInput.parentNode.insertBefore(decrementButton, scoreInput);
+            scoreInput.parentNode.insertBefore(incrementButton, scoreInput.nextSibling);
+        }
+    });
+</script> -->
+
+<script>
+    // Fairway button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var fairwayField = document.getElementById('id_fairway'); // Replace with your field's ID
+        if (fairwayField) {
+            var options = [
+                { value: 'wayleft', label: 'Way Left', color: 'red' },
+                { value: 'left', label: 'Left', color: 'orange' },
+                { value: 'hit', label: 'Hit', color: 'green' },
+                { value: 'right', label: 'Right', color: 'orange' },
+                { value: 'wayright', label: 'Way Right', color: 'red' }
+            ];
+            var buttons = [];
+
+            options.forEach(function(option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.marginRight = '0px';
+                button.style.backgroundColor = fairwayField.value === option.value ? option.color : 'gray'; // Set initial color based on value
+                button.style.height = '50px'; // Set fixed height for buttons
+                button.style.width = '100px'; // Set fixed width for buttons
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (fairwayField.value === option.value) {
+                        fairwayField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        fairwayField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.color;
+                    }
+                };
+                buttons.push(button);
+                fairwayField.parentNode.insertBefore(button, fairwayField);
+            });
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = fairwayField.name;
+            hiddenInput.id = fairwayField.id;
+            hiddenInput.value = fairwayField.value || 'na';
+            fairwayField.parentNode.insertBefore(hiddenInput, fairwayField);
+            fairwayField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.color;
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+<script>
+    // Green button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var greenField = document.getElementById('id_green'); // Replace with your field's ID
+        if (greenField) {
+            var options = [
+                { value: 'longleft', label: 'Long Left', color: 'red' },
+                { value: 'long', label: 'Long', color: 'orange' },
+                { value: 'longright', label: 'Long Right', color: 'red' },
+                { value: 'left', label: 'Left', color: 'orange' },
+                { value: 'hit', label: 'Hit', color: 'green' },
+                { value: 'right', label: 'Right', color: 'orange' },
+                { value: 'shortleft', label: 'Short Left', color: 'red' },
+                { value: 'short', label: 'Short', color: 'orange' },
+                { value: 'shortright', label: 'Short Right', color: 'red' },
+                { value: 'notreach', label: 'Could Not Reach', color: 'purple' }
+            ];
+            var buttons = [];
+
+            // Create a container for the buttons
+            var container = document.createElement('div');
+            container.style.display = 'grid';
+            container.style.gridTemplateColumns = 'repeat(3, 120px)'; // Set fixed width for buttons
+            container.style.gridGap = '0px';
+            container.style.margin = '0 auto'; // Center align the container
+            container.style.width = 'fit-content'; // Adjust the container width
+
+            options.forEach(function(option, index) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.backgroundColor = greenField.value === option.value ? option.color : 'gray'; // Set initial color based on value
+                button.style.height = '50px'; // Set fixed height for buttons
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (greenField.value === option.value) {
+                        greenField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        greenField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.color;
+                    }
+                };
+                buttons.push(button);
+                container.appendChild(button);
+
+                // Make the 10th button span all columns
+                if (index === 9) {
+                    button.style.gridColumn = 'span 3';
+                }
+            });
+
+            // Add the container before the hidden input
+            greenField.parentNode.insertBefore(container, greenField);
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = greenField.name;
+            hiddenInput.id = greenField.id;
+            hiddenInput.value = greenField.value || 'na';
+            greenField.parentNode.insertBefore(hiddenInput, greenField);
+            greenField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.color;
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+
+<script>
+    // Putts button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var puttsField = document.getElementById('id_putts'); // Replace with your field's ID
+        if (puttsField) {
+            var options = [
+                { value: '0', label: '0', color: 'green' }, // Can use hex like'#00ff00' (bright green!!)
+                { value: '1', label: '1', color: 'green' },
+                { value: '2', label: '2', color: 'green' },
+                { value: '3', label: '3', color: 'red' },
+                { value: '4', label: '4', color: 'red' }
+            ];
+            var buttons = [];
+
+            // Create a container for the label and buttons
+            var flexContainer = document.createElement('div');
+            flexContainer.style.display = 'flex';
+            flexContainer.style.alignItems = 'center';
+            flexContainer.style.justifyContent = 'center'; // Center align the content
+            flexContainer.style.gap = '10px';
+            flexContainer.style.width = '100%'; // Ensure the container takes the full width
+
+            // Create the label
+            var label = document.createElement('label');
+            label.innerHTML = 'Putts:';
+            label.htmlFor = 'id_putts';
+
+            // Create a container for the buttons
+            var buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+            buttonContainer.style.gap = '0px'; // Gap between buttons. Set to 0.
+
+            options.forEach(function(option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.backgroundColor = puttsField.value === option.value ? option.color : 'gray'; // Set initial color based on value
+                button.style.height = '50px'; // Set fixed height for buttons
+                button.style.width = '50px'; // Set fixed width for buttons
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (puttsField.value === option.value) {
+                        puttsField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        puttsField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.color;
+                    }
+                };
+                buttons.push(button);
+                buttonContainer.appendChild(button);
+            });
+
+            // Add the label and button container to the flex container
+            flexContainer.appendChild(label);
+            flexContainer.appendChild(buttonContainer);
+
+            // Add the flex container before the hidden input
+            puttsField.parentNode.insertBefore(flexContainer, puttsField);
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = puttsField.name;
+            hiddenInput.id = puttsField.id;
+            hiddenInput.value = puttsField.value || '-1'; // Default value set to -1.
+            puttsField.parentNode.insertBefore(hiddenInput, puttsField);
+            puttsField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = '-1';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.color;
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+<script>
+    // Up and Down button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var updownField = document.getElementById('id_updown');
+        if (updownField) {
+            var options = [
+                { value: 'yes', label: 'Yes' },
+                { value: 'no', label: 'No' }
+            ];
+            var buttons = [];
+
+            options.forEach(function(option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.marginRight = '0px';
+                button.style.backgroundColor = updownField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
+                button.style.height = '50px'; // Set height.
+                button.style.width = '70px'; // Set width.
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (updownField.value === option.value) {
+                        updownField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        updownField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.value === 'yes' ? 'green' : 'red';
+                    }
+                };
+                buttons.push(button);
+                updownField.parentNode.insertBefore(button, updownField);
+            });
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = updownField.name;
+            hiddenInput.id = updownField.id;
+            hiddenInput.value = updownField.value || 'na';
+            updownField.parentNode.insertBefore(hiddenInput, updownField);
+            updownField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.value === 'yes' ? 'green' : 'red';
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+<script>
+    // Sandsave button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var sandsaveField = document.getElementById('id_sandsave');
+        if (sandsaveField) {
+            var options = [
+                { value: 'yes', label: 'Yes' },
+                { value: 'no', label: 'No' }
+            ];
+            var buttons = [];
+
+            options.forEach(function(option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.marginRight = '0px';
+                button.style.backgroundColor = sandsaveField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
+                button.style.height = '50px'; // Set height.
+                button.style.width = '70px'; // Set width.
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (sandsaveField.value === option.value) {
+                        sandsaveField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        sandsaveField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.value === 'yes' ? 'green' : 'red';
+                    }
+                };
+                buttons.push(button);
+                sandsaveField.parentNode.insertBefore(button, sandsaveField);
+            });
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = sandsaveField.name;
+            hiddenInput.id = sandsaveField.id;
+            hiddenInput.value = sandsaveField.value || 'na';
+            sandsaveField.parentNode.insertBefore(hiddenInput, sandsaveField);
+            sandsaveField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.value === 'yes' ? 'green' : 'red';
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+<script>
+    // Penalties button code.
+    document.addEventListener("DOMContentLoaded", function() {
+        var penaltiesField = document.getElementById('id_penalties'); // Replace with your field's ID
+        if (penaltiesField) {
+            var options = [
+                { value: '1', label: '1', color: 'red' }, // Can use hex like'#00ff00' (bright green!!)
+                { value: '2', label: '2', color: 'red' },
+                { value: '3', label: '3', color: 'red' },
+                { value: '4', label: '4', color: 'red' },
+                { value: '5', label: '5', color: 'red' }
+            ];
+            var buttons = [];
+
+            // Create a container for the label and buttons
+            var flexContainer = document.createElement('div');
+            flexContainer.style.display = 'flex';
+            flexContainer.style.alignItems = 'center';
+            flexContainer.style.justifyContent = 'center'; // Center align the content
+            flexContainer.style.gap = '10px';
+            flexContainer.style.width = '100%'; // Ensure the container takes the full width
+
+            // Create the label
+            var label = document.createElement('label');
+            label.innerHTML = 'Penalties:';
+            label.htmlFor = 'id_penalties';
+
+            // Create a container for the buttons
+            var buttonContainer = document.createElement('div');
+            buttonContainer.style.display = 'flex';
+            buttonContainer.style.gap = '0px'; // Gap between buttons. Set to 0.
+
+            options.forEach(function(option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.innerHTML = option.label;
+                button.className = 'btn btn-secondary';
+                button.style.backgroundColor = penaltiesField.value === option.value ? option.color : 'gray'; // Set initial color based on value
+                button.style.height = '50px'; // Set fixed height for buttons
+                button.style.width = '50px'; // Set fixed width for buttons
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.onclick = function() {
+                    if (penaltiesField.value === option.value) {
+                        penaltiesField.value = 'na';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        penaltiesField.value = option.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = option.color;
+                    }
+                };
+                buttons.push(button);
+                buttonContainer.appendChild(button);
+            });
+
+            // Add the label and button container to the flex container
+            flexContainer.appendChild(label);
+            flexContainer.appendChild(buttonContainer);
+
+            // Add the flex container before the hidden input
+            penaltiesField.parentNode.insertBefore(flexContainer, penaltiesField);
+
+            // Add a hidden input field to store the value
+            var hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = penaltiesField.name;
+            hiddenInput.id = penaltiesField.id;
+            hiddenInput.value = penaltiesField.value || '0'; // Default value set to 0
+            penaltiesField.parentNode.insertBefore(hiddenInput, penaltiesField);
+            penaltiesField.remove(); // Remove the original input field
+
+            // Update the hidden input value when a button is clicked
+            buttons.forEach(function(button) {
+                button.onclick = function() {
+                    var selectedOption = options.find(opt => opt.label === button.innerHTML);
+                    if (hiddenInput.value === selectedOption.value) {
+                        hiddenInput.value = '0';
+                        button.style.backgroundColor = 'gray';
+                    } else {
+                        hiddenInput.value = selectedOption.value;
+                        buttons.forEach(function(btn) {
+                            btn.style.backgroundColor = 'gray';
+                        });
+                        button.style.backgroundColor = selectedOption.color;
+                    }
+                };
+            });
+        }
+    });
+</script>
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! You Must Be Logged In To View This Page...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Return to Home Page</a>
+  </div>
+</div>
+
+{% endif%}
+
+{% endblock%}

@@ -1,0 +1,191 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+{% if user.is_authenticated %}
+
+<!-- 	<h1>Round stats page - to add form for each hole and next / back navigation here.</h1>
+	<br> -->
+
+	<h1>Round Details - This was the first version - Either replace with new version or update this one!</h1>
+	<p>Round ID: {{ round_number.id }}</p>
+	<p>Date Played: {{ round_number.date_played }}</p>
+	<p>Course: {{ round_number.course.name }}</p>
+	<p>Weather: {{ round_number.weather }}</p>
+	<!-- Add more fields as needed -->
+
+	{{round_number.}}
+
+
+
+<style>
+
+</style>
+
+
+<h1>Round Stats for Hole {{ hole.hole_number }}: Par {{ hole.par }}</h1>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+ <!-- Render other form fields except score -->
+<!--     {% for field in form %}
+        {% if field.name != 'score' %}
+            {{ field }}
+        {% endif %}
+    {% endfor %} -->
+    <div>
+        <label for="id_score">Score:</label>
+        <button type="button" onclick="decrementScore()">-</button>
+        <input type="text" id="id_score" name="score" value="{{ form.score.value|default:hole.par }}">
+        <button type="button" onclick="incrementScore()">+</button>
+    </div>
+
+	{% if previous_hole_number %}
+	    <button type="submit" class="btn btn-outline-primary" name="back">
+	    <a href="{% url 'round-stats' round_number.id previous_hole_number %}">Back</a></button>
+	{% endif %}
+	{% if next_hole_number %}
+		<button type="submit" class="btn btn-outline-primary" name="next">
+	    <a href="{% url 'round-stats' round_number.id next_hole_number %}">Next</a></button>
+	{% endif %}
+
+    <button type="submit">Submit</button>
+
+    		<button type="submit" class="btn btn-outline-primary" name="next">
+	    <a href="{% url 'round-stats' round_number.id next_hole_number %}">Next</a></button>
+</form>
+
+<script>
+    function incrementScore() {
+        var scoreInput = document.getElementById('id_score');
+        var currentValue = parseInt(scoreInput.value, 10);
+        scoreInput.value = currentValue + 1;
+    }
+
+    function decrementScore() {
+        var scoreInput = document.getElementById('id_score');
+        var currentValue = parseInt(scoreInput.value, 10);
+        if (currentValue > 1) {
+            scoreInput.value = currentValue - 1;
+        }
+    }
+
+    // THIS WAS THE ORIGINAL JAVASCRIPT
+    // function increase() {
+    //     var input = document.getElementById('id_score');
+    //     input.value = parseInt(input.value) + 1;
+    // }
+
+    // function decrementScore() {
+    //     var input = document.getElementById('id_score');
+    //     input.value = parseInt(input.value) - 1;
+    // }
+
+</script>
+
+
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const radioButtons = document.querySelectorAll('.form-check-input');
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', function() {
+            radioButtons.forEach(rb => {
+                rb.nextElementSibling.classList.remove('selected');
+            });
+            this.nextElementSibling.classList.add('selected');
+        });
+    });
+});
+
+
+    // To handle fairway selection buttons.
+    function selectOption(button, hiddenInputId, value) {
+        let hiddenInput = document.getElementById(hiddenInputId);
+        let btnGroup = button.closest('.btn-group');
+        let buttons = btnGroup.querySelectorAll('.btn');
+
+        if (button.classList.contains('active')) {
+            // If the button is already active, deselect it
+            button.classList.remove('active');
+            hiddenInput.value = '';
+        } else {
+            // If the button is not active, select it and deselect others
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            hiddenInput.value = value;
+        }
+    }
+
+
+        function selectgreenOption(button, hiddenInputId, value) {
+        let hiddenInput = document.getElementById(hiddenInputId);
+        let btnGroup = button.closest('.btn-group-vertical');
+        let buttons = btnGroup.querySelectorAll('.btn');
+
+        if (button.classList.contains('active')) {
+            // If the button is already active, deselect it
+            button.classList.remove('active');
+            hiddenInput.value = '';
+        } else {
+            // If the button is not active, select it and deselect others
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+            hiddenInput.value = value;
+        }
+    }
+
+
+
+
+
+    function incrementScore() {
+        var scoreInput = document.getElementById('id_score');
+        var currentValue = parseInt(scoreInput.value, 10);
+        scoreInput.value = currentValue + 1;
+    }
+
+    function decrementScore() {
+        var scoreInput = document.getElementById('id_score');
+        var currentValue = parseInt(scoreInput.value, 10);
+        if (currentValue > 1) {
+            scoreInput.value = currentValue - 1;
+        }
+    }
+
+    // THIS WAS THE ORIGINAL JAVASCRIPT
+    // function increase() {
+    //     var input = document.getElementById('id_score');
+    //     input.value = parseInt(input.value) + 1;
+    // }
+
+    // function decrementScore() {
+    //     var input = document.getElementById('id_score');
+    //     input.value = parseInt(input.value) - 1;
+    // }
+
+</script>
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! You Must Be Logged In To View This Page...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Return to Home Page</a>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock%}

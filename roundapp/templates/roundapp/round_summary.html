@@ -1,0 +1,501 @@
+{% extends 'mainapp/base.html' %}
+{% load custom_filters %}
+
+{% block content%}
+
+{% if user.is_authenticated %}
+
+<style>
+    .fairway.wayleft { background-color: red; color: white; }
+    .fairway.left { background-color: orange; color: white; }
+    .fairway.hit { background-color: green; color: white; }
+    .fairway.right { background-color: orange; color: white; }
+    .fairway.wayright { background-color: red; color: white; }
+    .fairway.na { background-color: gray; color: white; }
+
+    .green.longleft { background-color: red; color: white; }
+    .green.long { background-color: orange; color: white; }
+    .green.longright { background-color: red; color: white; }
+    .green.left { background-color: orange; color: white; }
+    .green.hit { background-color: green; color: white; }
+    .green.right { background-color: orange; color: white; }
+    .green.shortleft { background-color: red; color: white; }
+    .green.short { background-color: orange; color: white; }
+    .green.shortright { background-color: red; color: white; }
+    .green.notreach { background-color: purple; color: white; }
+    .green.na { background-color: gray; color: white; }
+
+    .score.twoover-par { background-color: black; color: white; }
+    .score.oneover-par { background-color: blue; color: white; }
+    .score.even-par { background-color: white; color: black; }
+    .score.oneunder-par { background-color: red; color: white; }
+    .score.twounder-par { background-color: green; color: white; }
+
+    .putts.oneputt { background-color: green; color: white; }
+    .putts.threeputt { background-color: red; color: white; }
+    .putts.nullputt {background-color: #FFFF00; color: black; }
+
+    .dd.nodd {background-color: darkgrey; color: white; }
+
+    .fpd.nofpd {background-color: darkgrey; color: white; }
+
+    .updown.yes { background-color: green; color: white; }
+    .updown.no { background-color: red; color: white; }
+    .updown.na { background-color: darkgrey; color: white; }
+
+    .sandsave.yes { background-color: green; color: white; }
+    .sandsave.no { background-color: red; color: white; }
+    .sandsave.na { background-color: darkgrey; color: white; }
+
+    .penalties.yespen { background-color: red; color: white; }
+    .penalties.nopen { background-color: white; color: black; }
+
+.content-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 950px;
+    min-width: 950px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.fixed-width {
+    width: 800px;
+}
+
+</style>
+
+
+<!-- <h1>Round Summary</h1>
+<p>Date Played: {{ round_number.date_played }}</p>
+<p>Course: {{ round_number.course.name }}</p>
+<p>Type: {{ round_number.round_type }}</p>
+<p>Weather: {{ round_number.weather }}</p>
+<p>Comments: {{ round_number.comments }}</p> -->
+
+<!-- <p>Score: {{ total_score }}</p>
+<p>Par: {{ total_par }}</p>
+<p>Score to Par: {% if total_score|subtract:total_par > 0 %}
+        +{{ total_score|subtract:total_par }}
+    {% elif total_score|subtract:total_par < 0 %}
+        -{{ total_score|subtract:total_par }}
+    {% else %}
+        Even
+    {% endif%}
+</p>
+
+{{ total_score|divide:total_par }} -->
+
+<div class="content-box">
+
+<div class="container">
+
+    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+        <a href="{% url 'round-csv' round_number.id%}" class="btn btn-primary">Download Round Stats CSV File</a>
+        <a href="{% url 'golf-home' %}" class="btn btn-success">Round Complete - Return Home</a>
+    </div><br>
+
+
+    <div class="row">
+        <div class="col-md-6">
+
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h4 class="card-title">Round Summary</h4>
+    <h5 class="card-title">Course: {{ round_number.course.name }}</h5>
+    <h5 class="card-title">Date: {{ round_number.date_played|date:"l jS M Y" }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{ round_number.round_type|get_label:round_type_choices }} round - {{ round_number.tee_name }} tees</h6>
+
+    <p class="card-text"><strong>Score:</strong> {{ total_score }} ({% if total_score|subtract:total_par > 0 %}
+            +{{ total_score|subtract:total_par }}
+        {% elif total_score|subtract:total_par < 0 %}
+            -{{ total_score|subtract:total_par }}
+        {% else %}
+            Even
+        {% endif%})
+    </p>
+
+    <p class="card-text"><strong>Weather:</strong> {{ round_number.weather|get_label:weather_choices }} and {{ round_number.wind|get_label:wind_choices }}</p>
+
+    {% if round_number.comments == '' %}
+    {% else %}
+        <p class="card-text"><strong>Comments:</strong> {{ round_number.comments }}</p>
+    {% endif %}
+<!--     <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a> -->
+  </div>
+</div>
+
+    </div>
+<div class="col-md-6">
+
+<table class="table table-striped table-bordered w-auto">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Statistic</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Scores</td>
+      <td>Eagles: {{eagles}} / Birdies: {{birdies}} / Pars: {{pars}} / Bogeys: {{bogeys}} / Others: {{others}}</td>
+    </tr>
+    <tr>
+      <td>Driving</td>
+      <td>
+      <!-- Average Distance: {{drive_dist_total|divide:drive_dist_count}} -->
+      <!-- The avg dist below is from the javascript. The one above is based on passed through values-->
+        <div id="average-drive-distance"></div>
+        Direction: {{fairway_hit}} / {{fairway_wayleft|add_up:fairway_left|add_up:fairway_right |add_up:fairway_wayright|add_up:fairway_hit}} (Left: {{fairway_wayleft|add_up:fairway_left}} / Hit: {{fairway_hit}} / Right: {{fairway_wayright|add_up:fairway_right}})</td>
+    </tr>
+    <tr>
+      <td>Greens</td>
+      <td>{{green_hit}} / {{green_small_miss|add_up:green_big_miss|add_up:green_notreach}} (Small: {{green_small_miss}} / Big: {{green_big_miss}} / Unreachable: {{green_notreach}})</td>
+    </tr>
+    <tr>
+      <td>Putts</td>
+      <td> {{ total_putts }}</td>
+    </tr>
+    <tr>
+      <td>U/D</td>
+      <td>{{updown_yes}} / {{updown_yes|add_up:updown_no}}</td>
+    </tr>
+    <tr>
+      <td>S/S</td>
+      <td>{{sandsave_yes}} / {{sandsave_yes|add_up:sandsave_no}}</td>
+    </tr>
+    <tr>
+      <td>Penalties</td>
+      <td> {{total_penalties}}</td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+
+        </div>
+    </div>
+</div>
+
+<!-- Test DataFrame - Use this for checking values -->
+<!--     <div class="container">
+        <h1>Round Summary</h1>
+        <p>Drive Total: {{ drive_dist_total }}</p>
+        <p>Drive Count: {{ drive_dist_count }}</p>
+        <div>
+            {{ df_html|safe }}
+        </div>
+    </div> -->
+
+
+<!-- <h2>Hole Stats</h2> -->
+<table class="table table-striped table-hover table-bordered w-auto">
+    <thead>
+        <tr>
+            <th scope="col">Hole</th>
+            <th scope="col">Par</th>
+            <th scope="col">Score</th>
+            <th scope="col">Fairway</th>
+            <th scope="col">Drive Dist</th>
+            <th scope="col">Green</th>
+            <th scope="col">Putts</th>
+            <th scope="col">1st Putt Dist</th>
+            <th scope="col">Up/Down</th>
+            <th scope="col">Sand Save</th>
+            <th scope="col">Penalties</th>
+        </tr>
+    </thead>
+    <tbody id="round-stats">
+        {% for stat in round_stats %}
+        <tr>
+            <td>{{ stat.hole_number.hole_number }}</td>
+            <td class="par">{{ stat.par }}</td>
+            <!-- <td class="score">{{ stat.score }}</td> -->
+            <!--THIS IS A TEST THAT REQUIRES THE CALCULATED VALUES FROM VIEWS.PY-->
+            <td class="score {% if stat.score_diff > 1 %}twoover-par
+                            {% elif stat.score_diff == 1 %}oneover-par
+                            {% elif stat.score_diff == -1 %}oneunder-par
+                            {% elif stat.score_diff < -1 %}twounder-par
+                            {% else %}even-par{% endif %}">
+                {{ stat.score }}
+            </td> 
+
+            <!-- <td>{{ stat.fairway }}</td> -->
+            <td class="fairway {{ stat.fairway }}">{{ stat.fairway|get_label:fairway_choices }}</td>
+            <td class="dd {% if stat.drivedistance == -1 or stat.drivedistance == None %}nodd
+                            {% else %}yesdd{% endif %}"> 
+                {% if stat.drivedistance == -1 or stat.drivedistance == None %}
+                    na
+                {% else %}
+                    {{ stat.drivedistance }}
+                {% endif %}
+            </td>
+            <!-- <td>{{ stat.green }}</td> -->
+            <!-- <td class="green {{ stat.green }}">{{ stat.green }}</td> --> 
+            <!-- Just cannot pass the user friendly label. I need a custom template filter apparently.-->
+            <td class="green {{ stat.green }}">{{ stat.green|get_label:green_choices }}</td>
+            <td class="putts {% if stat.putts == -1 %}nullputt
+                            {% elif stat.putts > 2 %}threeputt
+                            {% elif stat.putts < 2 %}oneputt
+                            {% else %}twoputt{% endif %}">
+                {% if stat.putts == -1 %}
+                    null
+                {% else %}
+                    {{ stat.putts }}
+                {% endif %}
+            </td>
+            <td class="fpd {% if stat.firstputtdistance == -1 or stat.firstputtdistance == None %}nofpd
+                            {% else %}yesfpd{% endif %}">
+                {% if stat.firstputtdistance == -1 or stat.firstputtdistance == None %}
+                    na
+                {% else %}
+                    {{ stat.firstputtdistance }}
+                {% endif %}
+            </td>
+            <!-- <td>{{ stat.updown }}</td>   {{ stat.updown }} taken out of class below-->
+            <td class="updown  {{ stat.updown }}">
+
+                    {{ stat.updown|get_label:updown_choices }}
+            </td>
+            <!-- <td>{{ stat.sandsave }}</td> -->
+            <td class="sandsave {{ stat.sandsave }}">{{ stat.sandsave|get_label:sandsave_choices }}</td>
+            <td class="penalties {% if stat.penalties == 0 %}nopen
+                            {% else %}yespen{% endif %}">
+                {{ stat.penalties }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- This stuff is all based on the javascript. There must be a better way.
+<div id="total-score"></div><br>
+<div id="total-par"></div><br>
+<div id="score-to-par-difference"></div><br>
+<div id="fairway-stats"></div><br>
+<div id="average-drive-distance"></div>
+<div id="updown-percentage"></div><br>
+<div id="sandsave-percentage"></div><br> -->
+
+
+</div>
+
+<script>
+    // I can remove totalScore and totalPar from here as it is calculated in views by round_summary.
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreCells = document.querySelectorAll("#round-stats .score");
+        var parCells = document.querySelectorAll("#round-stats .par");
+        var driveDistanceCells = document.querySelectorAll("#round-stats .dd");
+        
+        var totalScore = 0;
+        var totalPar = 0;
+        var totalDriveDistance = 0;
+        var driveDistanceCount = 0;
+
+        scoreCells.forEach(function(cell) {
+            var score = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(score)) {
+                totalScore += score;
+            }
+        });
+
+        parCells.forEach(function(cell) {
+            var par = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(par)) {
+                totalPar += par;
+            }
+        });
+
+        driveDistanceCells.forEach(function(cell) {
+            var driveDistance = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(driveDistance) && driveDistance !== -1) {
+                totalDriveDistance += driveDistance;
+                driveDistanceCount++;
+            }
+        });
+
+        var averageDriveDistance = driveDistanceCount > 0 ? (totalDriveDistance / driveDistanceCount) : 0;
+
+        document.getElementById("total-score").textContent = totalScore;
+        document.getElementById("total-par").textContent = totalPar;
+        document.getElementById("average-drive-distance").textContent = "Average Drive (metres): " +averageDriveDistance.toFixed(0);
+
+        // Example calculation using totalScore and totalPar
+        var scoreToParDifference = totalScore - totalPar;
+        document.getElementById("score-to-par-difference").textContent = scoreToParDifference;
+    });
+</script>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreCells = document.querySelectorAll("#round-stats .score");
+        var parCells = document.querySelectorAll("#round-stats .par");
+        var totalScore = 0;
+        var totalPar = 0;
+
+        scoreCells.forEach(function(cell) {
+            var score = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(score)) {
+                totalScore += score;
+            }
+        });
+
+        parCells.forEach(function(cell) {
+            var par = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(par)) {
+                totalPar += par;
+            }
+        });
+
+        document.getElementById("total-score").textContent = totalScore;
+        document.getElementById("total-par").textContent = totalPar;
+
+        // Example calculation using totalScore and totalPar
+        var scoreToParDifference = totalScore - totalPar;
+        document.getElementById("score-to-par-difference").textContent = scoreToParDifference;
+    });
+</script> -->
+
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var parCells = document.querySelectorAll("#round-stats .par");
+        var totalPar = 0;
+
+        parCells.forEach(function(cell) {
+            var par = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(par)) {
+                totalPar += par;
+            }
+        });
+
+        document.getElementById("total-par").textContent = "Total Par: " + totalPar;
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreCells = document.querySelectorAll("#round-stats .score");
+        var totalScore = 0;
+
+        scoreCells.forEach(function(cell) {
+            var score = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(score)) {
+                totalScore += score;
+            }
+        });
+
+        document.getElementById("total-score").textContent = "Total Score: " + totalScore;
+    });
+</script> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var scoreCells = document.querySelectorAll("#round-stats .score");
+        var totalScore = 0;
+
+        scoreCells.forEach(function(cell) {
+            var score = parseInt(cell.textContent.trim(), 10);
+            if (!isNaN(score)) {
+                totalScore += score;
+            }
+        });
+
+        document.getElementById("total-score").textContent = "Total Score: " + totalScore;
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var fairwayCells = document.querySelectorAll(".fairway");
+        var counts = {
+            "Way Left": 0,
+            "Left": 0,
+            "Hit": 0,
+            "Right": 0,
+            "Way Right": 0
+        };
+        var totalAttempts = 0;
+
+        fairwayCells.forEach(function(cell) {
+            var cellText = cell.textContent.trim();
+            if (counts.hasOwnProperty(cellText)) {
+                counts[cellText]++;
+                totalAttempts++;
+            }
+        });
+
+        var results = [];
+        for (var key in counts) {
+            if (counts.hasOwnProperty(key)) {
+                var percentage = totalAttempts > 0 ? (counts[key] / totalAttempts) * 100 : 0;
+                results.push(key + ": " + counts[key] + " out of " + totalAttempts + " = " + percentage.toFixed(2) + "%");
+            }
+        }
+
+        document.getElementById("fairway-stats").innerHTML = results.join("<br>");
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var updownCells = document.querySelectorAll(".updown");
+        var yesCount = 0;
+        var yesNoCount = 0;
+
+        updownCells.forEach(function(cell) {
+            var cellText = cell.textContent.trim();
+            if (cellText === "Yes") {
+                yesCount++;
+                yesNoCount++;
+            } else if (cellText === "No") {
+                yesNoCount++;
+            }
+        });
+
+        var percentage = yesNoCount > 0 ? (yesCount / yesNoCount) * 100 : 0;
+        var resultText = yesCount + " out of " + yesNoCount + " = " + percentage.toFixed(2) + "%";
+        document.getElementById("updown-percentage").textContent = "Up and Down Success Rate: " + resultText;
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var sandsaveCells = document.querySelectorAll(".sandsave");
+        var yesCount = 0;
+        var yesNoCount = 0;
+
+        sandsaveCells.forEach(function(cell) {
+            var cellText = cell.textContent.trim();
+            if (cellText === "Yes") {
+                yesCount++;
+                yesNoCount++;
+            } else if (cellText === "No") {
+                yesNoCount++;
+            }
+        });
+
+        var percentage = yesNoCount > 0 ? (yesCount / yesNoCount) * 100 : 0;
+        var resultText = yesCount + " out of " + yesNoCount + " = " + percentage.toFixed(2) + "%";
+        document.getElementById("sandsave-percentage").textContent = "Sand Save Success Rate: " + resultText;
+    });
+</script>
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! You Must Be Logged In To View This Page...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-primary">Return to Home Page</a>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock%}

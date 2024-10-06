@@ -1,0 +1,40 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+<style>
+
+.content-box {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+</style>
+
+<div class="content-box">
+	<h1>Golf Stats App - Login</h1><br>
+
+	<form method="post">
+    {% csrf_token %}
+
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+
+	<input type="submit" value="Submit" class="btn btn-secondary">
+</form>
+</form>
+</div>
+{% endblock%}

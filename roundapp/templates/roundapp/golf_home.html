@@ -1,0 +1,14 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+<title>Golf App Home</title>
+
+<h1>Golf App Home Page</h1>
+<h3>This can be the landing page for the golf app...</h3>
+To look at putting login / register here, or if logged in then option to begin round.
+
+<br><br>
+<a href="{% url 'new-round' %}" class="btn btn-primary">Enter New Round</a>
+
+{% endblock%}

@@ -1,0 +1,44 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if form.errors %}
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    There was an error with your form...
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+{% endif %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+
+	<h1>Register</h1>
+
+		<form action="{% url 'register-user' %}" method="POST">
+			{% csrf_token %}
+		  
+      {{ form.as_p }}
+
+      <br>
+			<input type="submit" value="Submit" class="btn btn-secondary">
+		</form>
+</div>
+
+{% else %}
+
+<div class="card" style="width: 35rem;">
+  <div class="card-body">
+    <h5 class="card-title">Sorry! We Are Not Accepting New Users At The Moment...</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+    <p class="card-text"></p>
+    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
+  </div>
+</div>
+
+{% endif %}
+
+{% endblock %}
