@@ -11,12 +11,20 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li> -->
 
+<!--         <li class="nav-item">
+          <a class="nav-link" href="{% url 'new-round' %}">New Round</a>
+        </li> -->
+
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'golf-home' %}">Golf App</a>
+          <a class="nav-link" href="{% url 'resume' %}">Resume</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'new-round' %}">New Round</a>
+          <a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'golf-home' %}">Golf App</a>
         </li>
 
         {% if user.is_authenticated %}
@@ -52,10 +60,12 @@
         </li> -->
       
       </ul>
-      <form class="d-flex" role="search">
+
+<!--       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> -->
+      
     </div>
   </div>
 </nav>

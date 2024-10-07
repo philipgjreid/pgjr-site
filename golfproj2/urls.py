@@ -7,4 +7,5 @@ urlpatterns = [
     path('', include('roundapp.urls')),
     path('members/', include('django.contrib.auth.urls')),
     path('members/', include('membersapp.urls')),
+    path('', include('resumeapp.urls')),
 ]

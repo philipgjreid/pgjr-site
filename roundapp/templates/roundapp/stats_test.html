@@ -15,6 +15,7 @@
     padding: 10px;
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 16px;
 }
 
 /* Styles for screens between 600px and 1200px */
@@ -25,6 +26,7 @@
         color: white;
         padding: 10px;
         font-size: 28px;
+        margin-bottom: 16px;
     }
 }
 /* Styles for screens smaller than 600px */
@@ -35,6 +37,7 @@
         color: white;
         padding: 8px;
         font-size: 25px;
+        margin-bottom: 10px;
     }
 }
 
@@ -55,11 +58,18 @@
     border: 2px solid #ccc;
     padding: 0px;
     margin: 0px;
+    margin-top: 10px;
     margin-bottom: 0px;
     width: 100%;
     max-width: 650px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+}
+
+@media (max-width: 780px) {
+    .content-box {
+        margin-top: 0px;
+    }
 }
 
 .custom-numeric-input-dd,
@@ -276,7 +286,7 @@ p {
             {% endif %}
         </button>
 
-    </div><br>
+    </div>
 
         {% csrf_token %}
         {{ form.as_p }}
