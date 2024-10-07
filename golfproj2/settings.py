@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-zn$2=g6!j!-+%a$c=%z+=-gya)sckqvb&^=bts12m#c_q85ruu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['philipgjreid.pythonanywhere.com'] # Add 'philipgjreid.pythonanywhere.com', to this when deploying.
+ALLOWED_HOSTS = ['localhost', 'philipgjreid.pythonanywhere.com'] # Add 'philipgjreid.pythonanywhere.com', to this when deploying.
 
 
 # Application definition
@@ -110,7 +110,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected') # This worked to get PythonAnywhere to work.
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
 
 MEDIA_URL = '/media/'
