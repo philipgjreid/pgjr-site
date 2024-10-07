@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'mainapp.apps.MainappConfig',
     'roundapp.apps.RoundappConfig',
     'membersapp.apps.MembersappConfig',
+    'resumeapp.apps.ResumeappConfig',
 ]
 
 MIDDLEWARE = [
