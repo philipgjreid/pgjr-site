@@ -7,7 +7,7 @@
 <style>
 .nav-bar {
     display: flex;
-    max-width: 550px;
+/*    max-width: 550px;*/
     justify-content: space-between;
     align-items: center;
     background-color: #333;
@@ -15,6 +15,27 @@
     padding: 15px;
     font-size: 24px;
     font-weight: bold;
+}
+
+/* Styles for screens between 600px and 1200px */
+@media (min-width: 780px) and (max-width: 1000px) {
+    .nav-bar {
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        padding: 15px;
+        font-size: 22px;
+    }
+}
+/* Styles for screens smaller than 600px */
+@media (max-width: 780px) {
+    .nav-bar {
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        padding: 15px;
+        font-size: 20px;
+    }
 }
 
 .nav-button {
@@ -32,9 +53,9 @@
 
 .content-box {
     border: 2px solid #ccc;
-    padding: 5px;
-    margin: 5px;
-    width: 80%;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
     max-width: 650px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
@@ -197,6 +218,21 @@
     }
 }
 
+/* Overriding formatting of the overall container from the base.html file. */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0px;
+/*    background-color: lightblue;
+    
+    margin: 0;
+    align-self: center;*/
+}   
+@media (max-width: 780px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
 
 </style>
 
