@@ -141,7 +141,12 @@ def stats_test(request, round_number_id=None, hole_number=1):
 
 					# Retrieve the relevant model instances
 					round_instance = get_object_or_404(Round, id=round_number_id)
-					round_instance.is_complete = True
+					# messages.success(request, f'Round_number_id = {round_number_id}; Round_instance = {round_instance}')
+					rnd = Round.objects.get(id=round_number_id)
+					rnd.is_complete = True
+					rnd.save(update_fields=['is_complete'])
+					# messages.success(request, f'Round is_complete = {rnd.is_complete}')
+
 					stats = RoundStats.objects.filter(round_number=round_instance)
 					# messages.success(request, f'Update round #{round_number_id}')
 
