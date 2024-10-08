@@ -24,4 +24,7 @@ urlpatterns = [
 
     path('stats_test/<int:round_number_id>/<int:hole_number>/', views.stats_test, name='stats-test'),
     path('round_csv/<int:round_number_id>', views.round_csv, name="round-csv"),
+
+    path('check_incomplete_rounds/', views.check_incomplete_rounds, name="check-incomplete-rounds"),
+    path('continue_round/<int:round_number_id>', views.continue_round, name="continue-round"),
 ]

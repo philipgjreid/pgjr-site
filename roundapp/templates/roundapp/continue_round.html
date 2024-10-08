@@ -1,0 +1,14 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content%}
+
+
+<br><h2>Incomplete Round</h2>
+<p>You have an incomplete round from {{ round_instance.date_played }} at {{ round_instance.course }}.</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="continue">Continue Round</button>
+    <button type="submit" name="delete">Delete Round</button>
+</form>
+
+{% endblock %}

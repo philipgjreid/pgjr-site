@@ -29,6 +29,7 @@ class Round(models.Model):
 	weather = models.CharField(max_length=50, choices=WEATHER_CHOICES, blank=True, null=True)
 	wind = models.CharField(max_length=50, choices=WIND_CHOICES, blank=True, null=True)
 	comments = models.CharField(max_length=300, blank=True, null=True)
+	is_complete = models.BooleanField(default=False)
 
 	def __str__(self):
 		return f'Round on {self.date_played} {self.course.name if self.course else "Unknown Course"}'
