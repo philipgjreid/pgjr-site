@@ -4,7 +4,40 @@
 
 <title>Golf App Home</title>
 
-<h1>Golf App Home Page</h1>
+<style>
+
+.container-golfhome {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 2rem;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 0.5rem;
+  	background-color: #fff;
+}
+
+/* Custom CSS for the jumbotron box */
+.jumbotron-box {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+
+/* Custom CSS for the heading */
+.jumbotron-box h1 {
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 10px; /* Adjust the spacing between buttons */
+}
+
+</style>
+
+
+<br>
+<!-- <h1>Golf App Home Page</h1>
 <h3>This can be the landing page for the golf app...</h3>
 To look at putting login / register here, or if logged in then option to begin round.
 <br>
@@ -12,5 +45,61 @@ To look at putting login / register here, or if logged in then option to begin r
 
 <br><br>
 <a href="{% url 'new-round' %}" class="btn btn-primary">Enter New Round</a>
+
+<br>
+
+<ul>
+	{% if user.is_authenticated %}
+
+	  <li class="nav-item">
+	    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+	  </li>  
+	{% else %}
+	  <li class="nav-item">
+	    <a class="nav-link" href="{% url 'register-user' %}">Register</a>
+	  </li>
+
+	  <li class="nav-item">
+	    <a class="nav-link" href="{% url 'login' %}">Login</a>
+	  </li>
+	{% endif %}
+
+</ul> -->
+
+<div class="container-golfhome">
+	<div class="jumbotron-box text-center">
+	  <h1 class="display-4">Welcome to My Golf Stats App</h1>
+	  <p class="lead">Track and analyze your golf rounds with ease.</p>
+	  <hr class="my-4">
+
+	{% if user.is_authenticated %}
+	<!-- Logged In User: {{ user.first_name }} {{ user.last_name }}<br> -->
+
+		<h3>Hello {{ user.first_name }}, Time to Get Started!!</h3><br>
+		<div class="d-flex justify-content-center">
+			<a class="btn btn-primary btn-lg" href="{% url 'new-round' %}" role="button">Enter New Round</a>
+		</div>
+		<div class="d-flex justify-content-end mt-2">
+			<a class="btn btn-secondary btn-lg float-right" href="{% url 'logout' %}" role="button">Log Out</a>
+		</div>
+
+	{% else %}
+
+	  <p>Sign up to get started or log in to continue.</p>
+	  	<div class="d-flex justify-content-center">
+	  		<div>
+	  		<a class="btn btn-primary btn-lg mb-2" href="{% url 'login' %}" role="button">Log In</a><br>
+	  		<a class="btn btn-secondary btn-lg mb-2" href="#" role="button">Log In as Guest</a>
+			</div>
+		</div>
+		<div class="d-flex justify-content-end mt-2">
+	  		<a class="btn btn-primary btn-lg" href="{% url 'register-user' %}" role="button">Register</a>
+	  	</div>		
+	
+	{% endif %}
+
+	</div>
+</div>
+
 
 {% endblock%}
