@@ -14,6 +14,43 @@ import json
 import pandas as pd
 import csv
 
+
+# Test to check for incomplete rounds.
+def check_incomplete_rounds(request):	
+	if request.user.is_authenticated:
+		incomplete_round = Round.objects.filter(player_id=request.user.id, is_complete=False).first()
+		# messages.success(request, ("You have an incomplete round..."))
+		if incomplete_round:
+			# messages.success(request, ("To continue updating round or delete..."))
+			return redirect('continue-round', round_number_id=incomplete_round.id)
+			# return redirect('continue-round', round_id=incomplete_round.id)
+		return redirect('golf-home')
+	return None
+
+
+def continue_round(request, round_number_id):
+	round_instance = get_object_or_404(Round, id=round_number_id)
+	if request.method =="POST":
+		if 'continue'in request.POST:
+			return redirect('stats-test', round_number_id=round_number_id, hole_number=1)
+		elif 'delete' in request.POST:
+			round_instance.delete()
+			return redirect('golf-home')
+
+	return render(request, 'roundapp/continue_round.html', {'round_instance': round_instance})
+
+	# if request.method == 'POST':
+	# 	if 'continue' in request.POST:
+	# 		return redirect('enter_hole_stats', round_id=round.id)
+	# 	elif 'delete' in request.POST:
+	# 		round.delete()
+	# 		return redirect('start_new_round')
+	# return render(request, 'continue_round.html', {'round': round})
+
+
+
+
+
 # Testing how to allow user values to show in summary page.
 
 ROUND_TYPE_CHOICES = {
@@ -102,8 +139,9 @@ def stats_test(request, round_number_id=None, hole_number=1):
 				if hole_number > 18: #18: # Changed to 3 for testing purposes.
 					#messages.success(request, f'Finishing round worked!! Moving to summary page!')
 
-						# Retrieve the relevant model instances
+					# Retrieve the relevant model instances
 					round_instance = get_object_or_404(Round, id=round_number_id)
+					round_instance.is_complete = True
 					stats = RoundStats.objects.filter(round_number=round_instance)
 					# messages.success(request, f'Update round #{round_number_id}')
 
@@ -245,6 +283,12 @@ def new_round(request):
 			return redirect('stats-test', round_number_id=new_round.id, hole_number=1)
 			# #return HttpResponseRedirect('/round_details?submitted=True') #redirect('success_url')
 	else:
+		# To put incomplete round check here before getting new form.
+		incomplete_round = Round.objects.filter(player_id=request.user.id, is_complete=False).first()
+		# messages.success(request, ("You have an incomplete round..."))
+		if incomplete_round:			
+			return redirect('continue-round', round_number_id=incomplete_round.id)
+
 		form = RoundForm(user=request.user)
 		if 'submitted' in request.GET:
 			submitted = True
