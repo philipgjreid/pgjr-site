@@ -136,7 +136,7 @@ def stats_test(request, round_number_id=None, hole_number=1):
 				hole_number += 1
 				par=hole_instance.par # This is for testing the par value only.
 				#messages.success(request, f'Next worked!! Moving to hole {hole_number} with par {par}!')
-				if hole_number > 18: #18: # Changed to 3 for testing purposes.
+				if hole_number > 3: #18: # Changed to 3 for testing purposes.
 					#messages.success(request, f'Finishing round worked!! Moving to summary page!')
 
 					# Retrieve the relevant model instances
