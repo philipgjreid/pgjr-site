@@ -24,3 +24,7 @@ def int_null_label(value):
     if value == -1:
         return '-'
     return value
+
+@register.filter(name='startswith')
+def startswith(value, arg):
+    return value.startswith(arg)
