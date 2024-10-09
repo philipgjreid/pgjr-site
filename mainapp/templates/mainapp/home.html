@@ -1,10 +1,51 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
+
 
 {% block content%}
+
+
 <title>PGJR Home</title>
 
 <h1>Home Page</h1>
 <h3>This can be the landing page for my personal site...</h3>
 <p>To begin making updates to this content once GitHub is sorted...</p>
+
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left side with logo and summary statement -->
+        <div class="col-md-6">
+            <div class="p-4 mb-4" style="background-color: #f8f9fa; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="d-flex align-items-center">
+                    <img src="{% static 'mainapp/assets/logo.png' %}" alt="logo" class="img-fluid" style="max-width: 100px; margin-right: 20px;">
+                    <div>
+                        <h1>Summary Statement</h1>
+                        <p>Your summary statement goes here. This can be a brief introduction or a tagline for your website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right side with icons and text -->
+        <div class="col-md-6">
+            <div class="p-4 mb-4" style="background-color: #e9ecef; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'path/to/icon1.png' %}" alt="Icon 1" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
+                    <p>Text related to icon 1.</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'path/to/icon2.png' %}" alt="Icon 2" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
+                    <p>Text related to icon 2.</p>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="{% static 'path/to/icon3.png' %}" alt="Icon 3" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
+                    <p>Text related to icon 3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 {% endblock%}
