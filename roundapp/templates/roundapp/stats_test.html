@@ -133,7 +133,9 @@
     margin-right: 0px;
     border-radius: 0;
     font-size: 18px;
+/*    color: red;*/
 }
+
 /* Styles for screens between 600px and 1200px */
 @media (min-width: 780px) and (max-width: 1000px) {
     .custom-button {
@@ -689,7 +691,7 @@ p {
                 button.style.backgroundColor = puttsField.value === option.value ? option.color : 'gray'; // Set initial color based on value
                 // button.style.height = '50px'; // Set fixed height for buttons
                 // button.style.width = '50px'; // Set fixed width for buttons
-                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (puttsField.value === option.value) {
                         puttsField.value = 'na';
@@ -762,7 +764,7 @@ p {
                 button.style.backgroundColor = updownField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
                 // button.style.height = '50px'; // Set height.
                 // button.style.width = '70px'; // Set width.
-                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (updownField.value === option.value) {
                         updownField.value = 'na';
@@ -828,7 +830,7 @@ p {
                 button.style.backgroundColor = sandsaveField.value === option.value ? (option.value === 'yes' ? 'green' : 'red') : 'gray';
                 // button.style.height = '50px'; // Set height.
                 // button.style.width = '70px'; // Set width.
-                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (sandsaveField.value === option.value) {
                         sandsaveField.value = 'na';
@@ -914,7 +916,7 @@ p {
                 button.style.backgroundColor = penaltiesField.value === option.value ? option.color : 'gray'; // Set initial color based on value
                 // button.style.height = '50px'; // Set fixed height for buttons
                 // button.style.width = '50px'; // Set fixed width for buttons
-                // button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
+                button.style.borderRadius = '0'; // Set border radius to 0 for straight corners
                 button.onclick = function() {
                     if (penaltiesField.value === option.value) {
                         penaltiesField.value = 'na';

@@ -1,9 +1,39 @@
 {% extends 'mainapp/base.html' %}
 
-{% block content%}
+{% block content %}
+
+
 <title>PGJR Portfolio</title>
 
 <h1>Portfolio Page</h1>
 <h3>This is my Portfolio Home Page...</h3>
 
-{% endblock%}
+
+
+ <div class="section" id="work"><h1>Recent Work</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well">
+            <a href="http://teamflightbasketball.com"><img src="http://timothy.expert/codepen-resources/teamflightbasketball.png" alt="teamflightbasketball.com" height="150px" class="pull-left" style="padding-right: 15px; padding-bottom: 10px; padding-top:20px;"></a>
+            <h3>Team Flight Basketball</h3>
+            <p>A website for the youth basketball organization, Team Flight Basketball</p>
+            <div class="spacer"></div><div class="spacer"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="well">
+            <a href="http://givingshops.com"><img src="http://timothy.expert/codepen-resources/givingshops.png" alt="GivingShops.com" height="150px" class="pull-left" style="padding-right: 15px; padding-bottom: 10px; padding-top:20px;"></a>
+            <h3>GivingShops</h3>
+            <p>An organization that aims to help people earn for their causes, just by shopping.</p>
+            <div class="spacer"></div><div class="spacer"></div>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div><!--/.container-->
+
+
+
+
+{% endblock %}

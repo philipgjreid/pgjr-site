@@ -1,162 +1,3 @@
-{% extends 'mainapp/base.html' %}
-{% load static %}
-
-
-{% block content %}
-
-
-<title>PGJR Home</title>
-
-<!-- <h1>Home Page</h1>
-<h3>This can be the landing page for my personal site...</h3>
-<p>To begin making updates to this content once GitHub is sorted...</p> -->
-
-
-
-    <div class="jumbotron">
-      <div style="margin-top:0px" class="container">
-<!--         <a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
-        <a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a> -->
-        <h1>I'm Philip</h1>
-        <div class="spacer"></div>
-        <h1>Analyst + Advisor</h1>
-        <div class="spacer"></div>
-        <hr><hr>
-        <h2 class="text-center">I Make Data Useful</h2>
-      </div>
-    </div>
-
-    <div class="section" id="about"><h1>About</h1><hr></div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="well">
-            <img src="{% static 'mainapp/assets/logo.png' %}" style="height:100%; width:100%">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="well">
-            <h3>Philip Reid</h3>
-            <p>I'm a Wellington based... (TEST CONTENT TO REPLACE freelance full-stack web developer and I would love to help you with your project. Currently, I do all web related jobs and specialize in HTML5/CSS3, PHP, SQL. I can build any website, from huge dynamic apps to small static sites, on any budget. See my work below.)</p>
-            <p><a href="{% url 'resume' %}" class="btn btn-default">See My Resume / CV</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="section" id="what-i-do"><h1>What I Do</h1><hr></div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="well">
-            <h3>Skills</h3>
-            <div class="spacer"></div><div class="spacer"></div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="html"></div> <h4 style="font-weight: 400; display: inline;">HTML5</h4><br>
-                <div class="css"></div> <h4 style="font-weight: 400; display: inline;">CSS3</h4><br>
-                <div class="php"></div> <h4 style="font-weight: 400; display: inline;">PHP</h4><br>
-                <div class="sql"></div> <h4 style="font-weight: 400; display: inline; margin-bottom:5px;">SQL</h4>
-              </div>
-              <div class="col-md-8">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-html" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                    <span class="sr-only">HTML5 90%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-css" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                    <span class="sr-only">CSS3 90%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-php" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                    <span class="sr-only">PHP 70%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-sql" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                    <span class="sr-only">SQL 80%</span>
-                  </div>
-                </div>
-              </div><!--/.col-6-->
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="well">
-            <h3>I Build Great Websites</h3>
-            <p>Being a full stack developer, I can develop any website from a database driven web app to a small static site. Every custom website built uses higher grade techniques and is fast, mobile friendly, scalable.</p>
-          </div>
-        </div>
-      </div><!--/.row-->
-    </div><!--/.container-->
-
-
-    <div class="work visible-lg" style="height:250px !important;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <h3><i class="fa fa-code"></i>&nbsp; Beautiful Code</h3>
-            <p>I write clean, semantic, organized, and valid markup that eliminates excess code and allows others to easily understand and therfore update content in the future.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fa fa-fighter-jet"></i>&nbsp; Fast</h3>
-            <p>I build fast and efficient web sites. Fast websites always attract more visitors, and those visitors are more likely to choose you over the competition. In addition, website speed is essential for <abbr title="Search Engine Optimization">SEO</abbr> &mdash; <a href="http://moz.com/blog/how-website-speed-actually-impacts-search-ranking">faster websites rank higher</a>.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fa fa-arrows-alt"></i>&nbsp; Responsive</h3>
-            <p>Responsive web design means that your website will work on any screen size, from desktops to mobile phones alike. Having a website that works well across all devices and screen sizes means your website has a broader reach, appealing to more visitors.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fa fa-bolt"></i>&nbsp; Powerful</h3>
-            <p>From a static single page website to a full fledged database driven web app, I build websites that give your organization the potential to succeed.</p>
-          </div>
-        </div><!--/.row-->
-      </div><!--/.container-->
-    </div><!--/.work-->
-
-
-<!-- <div class="container mt-5">
-    <div class="row">
-
-        <div class="col-md-6">
-            <div class="p-4 mb-4" style="background-color: #f8f9fa; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="d-flex align-items-center">
-                    <img src="{% static 'mainapp/assets/logo.png' %}" alt="logo" class="img-fluid" style="max-width: 300px; margin-right: 20px;">
-                    <div>
-                        <h1>Hi, I'm Philip, an experienced analyst and advisor who supports others to do more.</h1>
-                        <p>Hi, I'm Philip, an experienced analyst and advisor who supports others to do more.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="p-4 mb-4" style="background-color: #e9ecef; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon1.png' %}" alt="Icon 1" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 1.</p>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon2.png' %}" alt="Icon 2" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 2.</p>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon3.png' %}" alt="Icon 3" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 3.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
 <style type="text/css">
 
 html {
@@ -176,7 +17,7 @@ footer,
 header,
 hgroup,
 main,
-/*nav,*/
+nav,
 section,
 summary {
   display: block;
@@ -348,12 +189,12 @@ th {
   box-sizing: border-box;
 }
 html {
-/*  font-size: 62.5%;*/
+  font-size: 62.5%;
   -webkit-tap-highlight-color: transparent;
 }
 body {
-/*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-/*  font-size: 14px;*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.42857;
   color: #333;
   background-color: #f2f3f8;
@@ -414,7 +255,6 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #34495e;
-  margin: 0 auto;
 }
 .sr-only {
   position: absolute;
@@ -822,9 +662,8 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 0px;
-  padding-right: 0px;
-  max-width: 100% !important;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .container:before,
 .container:after {
@@ -834,7 +673,7 @@ pre code {
 .container:after {
   clear: both;
 }
-/*@media (min-width: 768px) {
+@media (min-width: 768px) {
   .container {
     width: 750px;
   }
@@ -848,7 +687,7 @@ pre code {
   .container {
     width: 1170px;
   }
-}*/
+}
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
@@ -2409,7 +2248,7 @@ input[type="button"].btn-block {
   -webkit-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
-/*.nav {
+.nav {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
@@ -2564,25 +2403,25 @@ input[type="button"].btn-block {
   .nav-tabs.nav-justified > .active > a:focus {
     border-bottom-color: #f2f3f8;
   }
-}*/
+}
 .tab-content > .tab-pane {
   display: none;
 }
 .tab-content > .active {
   display: block;
 }
-/*.nav-tabs .dropdown-menu {
+.nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-}*/
+}
 .page-wrap {
   float: right;
   width: 100%;
   -webkit-transition: width 0.2s ease;
   transition: width 0.2s ease;
 }
-/*.main-nav {
+.main-nav {
   position: fixed;
   top: 0;
   width: 0;
@@ -2615,12 +2454,12 @@ input[type="button"].btn-block {
 #main-nav:target + .page-wrap .main-header {
   width: 60%;
   left: 40%;
-}*/
+}
 .jumbotron {
   padding: 30px;
   color: #fff;
   background-color: #eee;
-  height: 330px;
+  height: 700px;
   background: -webkit-linear-gradient(
       rgba(52, 73, 94, 0.8),
       rgba(52, 73, 94, 0.8)
@@ -2683,9 +2522,6 @@ input[type="button"].btn-block {
   .jumbotron .h2 {
     font-size: 21px;
   }
-  .jumbotron {
-    height: 240px;
-  }
 }
 .section {
   font-size: 56px;
@@ -2698,7 +2534,7 @@ input[type="button"].btn-block {
 }
 .section hr {
   width: 100px;
-  height: 30px;
+  height: 50px;
 }
 .work {
   background: -webkit-linear-gradient(
@@ -3261,7 +3097,234 @@ a.list-group-item-danger.active:focus {
 
 </style>
 
+<html lang="en">
+<body>
+
+  <nav class="main-nav" id="main-nav">
+    <div style="height:80px;background: rgb(51,74,92);padding-top: 1px;"><h2 class="text-center" style="color:#fff; letter-spacing:2px;">MENU</h2></div>
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+      <li><a href="#about"><i class="fa fa-user fa-fw"></i>&nbsp; About</a></li>
+      <li><a href="#what-i-do"><i class="fa fa-signal fa-fw"></i>&nbsp; What I do</a></li>
+      <li><a href="#work"><i class="fa fa-briefcase fa-fw"></i>&nbsp; Recent Work</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope-o fa-fw"></i>&nbsp; Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="jumbotron">
+      <div style="margin-top:130px" class="container">
+        <a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
+        <a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a>
+        <h1>I'm Tim</h1>
+        <div class="spacer"></div>
+        <h1>Designer + Developer</h1>
+        <div class="spacer"></div>
+        <hr><hr>
+        <h2 class="text-center">I build awesome web apps</h2>
+      </div>
+    </div>
+
+    <div class="section" id="about"><h1>About</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="well">
+            <img src="http://timothy.expert/codepen-resources/person_laptop.jpg" style="height:100%; width:100%">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="well">
+            <h3>Tim Robert-Fitzgerald</h3>
+            <p>I'm a Chicago based freelance full-stack web developer and I would love to help you with your project. Currently, I do all web related jobs and specialize in HTML5/CSS3, PHP, SQL. I can build any website, from huge dynamic apps to small static sites, on any budget. See my work below.</p>
+            <p><a href="#form" class="btn btn-default">Hire me</a></p>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div><!--/.container-->
+
+    <div class="section" id="what-i-do"><h1>What I Do</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="well">
+            <h3>Skills</h3>
+            <div class="spacer"></div><div class="spacer"></div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="html"></div> <h4 style="font-weight: 400; display: inline;">HTML5</h4><br>
+                <div class="css"></div> <h4 style="font-weight: 400; display: inline;">CSS3</h4><br>
+                <div class="php"></div> <h4 style="font-weight: 400; display: inline;">PHP</h4><br>
+                <div class="sql"></div> <h4 style="font-weight: 400; display: inline; margin-bottom:5px;">SQL</h4>
+              </div>
+              <div class="col-md-8">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-html" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                    <span class="sr-only">HTML5 90%</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-css" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                    <span class="sr-only">CSS3 90%</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-php" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                    <span class="sr-only">PHP 70%</span>
+                  </div>
+                </div>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-sql" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                    <span class="sr-only">SQL 80%</span>
+                  </div>
+                </div>
+              </div><!--/.col-6-->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="well">
+            <h3>I Build Great Websites</h3>
+            <p>Being a full stack developer, I can develop any website from a database driven web app to a small static site. Every custom website built uses higher grade techniques and is fast, mobile friendly, scalable.</p>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div><!--/.container-->
+    
+    <div class="work visible-lg" style="height:250px !important;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h3><i class="fa fa-code"></i>&nbsp; Beautiful Code</h3>
+            <p>I write clean, semantic, organized, and valid markup that eliminates excess code and allows others to easily understand and therfore update content in the future.</p>
+          </div>
+          <div class="col-md-3">
+            <h3><i class="fa fa-fighter-jet"></i>&nbsp; Fast</h3>
+            <p>I build fast and efficient web sites. Fast websites always attract more visitors, and those visitors are more likely to choose you over the competition. In addition, website speed is essential for <abbr title="Search Engine Optimization">SEO</abbr> &mdash; <a href="http://moz.com/blog/how-website-speed-actually-impacts-search-ranking">faster websites rank higher</a>.</p>
+          </div>
+          <div class="col-md-3">
+            <h3><i class="fa fa-arrows-alt"></i>&nbsp; Responsive</h3>
+            <p>Responsive web design means that your website will work on any screen size, from desktops to mobile phones alike. Having a website that works well across all devices and screen sizes means your website has a broader reach, appealing to more visitors.</p>
+          </div>
+          <div class="col-md-3">
+            <h3><i class="fa fa-bolt"></i>&nbsp; Powerful</h3>
+            <p>From a static single page website to a full fledged database driven web app, I build websites that give your organization the potential to succeed.</p>
+          </div>
+        </div><!--/.row-->
+      </div><!--/.container-->
+    </div><!--/.work-->
+    <!--mobile work-->
+    <div class="container hidden-lg">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="well">
+            <h3><i class="fa fa-code"></i>&nbsp; Beautiful Code</h3>
+            <p>I write clean, semantic, organized, and valid markup that eliminates excess code and allows others to easily understand and therfore update content in the future.</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="well">
+            <h3><i class="fa fa-fighter-jet"></i>&nbsp; Fast</h3>
+            <p>I build fast and efficient web sites. Fast websites always attract more visitors, and those visitors are more likely to choose you over the competition. In addition, website speed is essential for <abbr title="Search Engine Optimization">SEO</abbr> &mdash; <a href="http://moz.com/blog/how-website-speed-actually-impacts-search-ranking">faster websites rank higher</a>.</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="well">
+            <h3><i class="fa fa-arrows-alt"></i>&nbsp; Responsive</h3>
+            <p>Responsive web design means that your website will work on any screen size, from desktops to mobile phones alike. Having a website that works well across all devices and screen sizes means your website has a broader reach, appealing to more visitors.</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="well">
+            <h3><i class="fa fa-bolt"></i>&nbsp; Powerful</h3>
+            <p>From a static single page website to a full fledged database driven web app, I build websites that give your organization the potential to succeed.</p>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div><!--/.container and mobile work-->
 
 
-{% endblock %}
+    <div class="section" id="work"><h1>Recent Work</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well">
+            <a href="http://teamflightbasketball.com"><img src="http://timothy.expert/codepen-resources/teamflightbasketball.png" alt="teamflightbasketball.com" height="150px" class="pull-left" style="padding-right: 15px; padding-bottom: 10px; padding-top:20px;"></a>
+            <h3>Team Flight Basketball</h3>
+            <p>A website for the youth basketball organization, Team Flight Basketball</p>
+            <div class="spacer"></div><div class="spacer"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="well">
+            <a href="http://givingshops.com"><img src="http://timothy.expert/codepen-resources/givingshops.png" alt="GivingShops.com" height="150px" class="pull-left" style="padding-right: 15px; padding-bottom: 10px; padding-top:20px;"></a>
+            <h3>GivingShops</h3>
+            <p>An organization that aims to help people earn for their causes, just by shopping.</p>
+            <div class="spacer"></div><div class="spacer"></div>
+          </div>
+        </div>
+      </div><!--/.row-->
+    </div><!--/.container-->
+
+
+    <!--<div class="hidden-xs"><div class="work-together" id="contact">LETS WORK TOGETHER</div></div>-->
+    <div class="section" id="contact"><h1>Let&apos;s Work Together</h1><hr></div>
+
+    <div class="work-together">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <h3>Send Me a Message</h3>
+            <div class="spacer"></div>
+            <form class="form-horizontal" role="form" id="form" method="post">
+              <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="contact form-control" name="name" id="name" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input type="email" class="contact form-control" name="email" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject" class="col-sm-2 control-label">Subject</label>
+                <div class="col-sm-10">
+                  <input type="text" class="contact form-control" name="subject" id="subject" placeholder="Subject">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message" class="col-sm-2 control-label">Message</label>
+                <div class="col-sm-10">
+                  <textarea class="contact form-control" rows="3" name="message" id="message" placeholder="Message"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <input type="submit" value="Send" class="btn btn-default" name="submit">
+                </div>
+              </div>
+            </form>
+          </div><!--/.col-->
+          <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
+            <h3>Contact Details</h3><div class="spacer"></div>
+            <p class="lead" style="margin-bottom:0px;"><i class="fa fa-map-marker"></i>&nbsp; 6519 N. Fairfield Avenue</p><p class="lead" style="text-indent:24px">Chicago, IL, 60645</p>
+            <p class="lead"><i class="fa fa-phone"></i>&nbsp; 312 576-9620</p>
+            <p class="lead"><i class="fa fa-envelope"></i>&nbsp; contact@timothy.expert</p>
+          </div>
+        </div><!--/.row-->
+      </div><!--/.container-->
+      <div class="container hidden-sm hidden-xs"><div class="spacer"></div><div class="spacer"></div><footer><p class="pull-right">Made in Chicago by Tim</p></footer></div>
+    </div><!--/.work-together-->
+
+  </div><!--/.page-wrap-->
+</body>
+</html>
+
 
