@@ -7,22 +7,59 @@
 
 <title>PGJR Home</title>
 
+<style type="text/css">
+
+
+</style>
+
 <!-- <h1>Home Page</h1>
 <h3>This can be the landing page for my personal site...</h3>
 <p>To begin making updates to this content once GitHub is sorted...</p> -->
 
 
+<div class="jumbotron">
+  <div style="margin-top:0px" class="container">
+    <h1>Philip Reid</h1>
+    <div class="spacer"></div>
+    <h1>Analyst + Advisor</h1>
+    <div class="spacer"></div>
+    <hr><hr>
+    <h2 class="text-center">Passionate about making data usable and helping others do more</h2>
+  </div>
+</div>
 
-    <div class="jumbotron">
+<div class="section" id="about">
+  <h1>About</h1>
+  <hr>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="well">
+        <!-- <h3>Philip Reid</h3> -->
+        <p>I'm a Wellington based analyst who loves to tinker with data and business processes. From generating quick answers to curly questions to building long-term value through improved processes and use of data, this is where I thrive.</p>
+        <div class="d-flex align-items-center">
+            <p><a href="{% url 'resume' %}" class="btn btn-default me-2">See My Resume / CV</a></p>
+            <p><a href="{% url 'portfolio' %}" class="btn btn-default">See My Portfolio</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--     <div class="jumbotron">
       <div style="margin-top:0px" class="container">
-<!--         <a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
-        <a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a> -->
-        <h1>I'm Philip</h1>
+        <h1>Philip Reid</h1>
         <div class="spacer"></div>
         <h1>Analyst + Advisor</h1>
         <div class="spacer"></div>
         <hr><hr>
-        <h2 class="text-center">I Make Data Useful</h2>
+        <h2 class="text-center">Passionate about making data usable and helping others do more</h2>
       </div>
     </div>
 
@@ -32,7 +69,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="well">
-            <img src="{% static 'mainapp/assets/logo.png' %}" style="height:100%; width:100%">
+            <img src="{% static 'mainapp/assets/logo.png' %}" class="img-size">
           </div>
         </div>
         <div class="col-md-8">
@@ -43,7 +80,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
@@ -51,16 +88,16 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-4">
           <div class="well">
             <h3>Skills</h3>
             <div class="spacer"></div><div class="spacer"></div>
             <div class="row">
               <div class="col-md-4">
-                <div class="html"></div> <h4 style="font-weight: 400; display: inline;">HTML5</h4><br>
-                <div class="css"></div> <h4 style="font-weight: 400; display: inline;">CSS3</h4><br>
-                <div class="php"></div> <h4 style="font-weight: 400; display: inline;">PHP</h4><br>
-                <div class="sql"></div> <h4 style="font-weight: 400; display: inline; margin-bottom:5px;">SQL</h4>
+                <div class="html"></div> <h4 style="font-weight: 400; display: inline;">SQL</h4><br>
+                <div class="css"></div> <h4 style="font-weight: 400; display: inline;">Excel</h4><br>
+                <div class="php"></div> <h4 style="font-weight: 400; display: inline;">Power BI</h4><br>
+                <div class="sql"></div> <h4 style="font-weight: 400; display: inline; margin-bottom:5px;">Python</h4>
               </div>
               <div class="col-md-8">
                 <div class="progress">
@@ -89,32 +126,38 @@
         </div>
         <div class="col-md-4">
           <div class="well">
-            <h3>I Build Great Websites</h3>
-            <p>Being a full stack developer, I can develop any website from a database driven web app to a small static site. Every custom website built uses higher grade techniques and is fast, mobile friendly, scalable.</p>
+            <h3>I Help Others Do More</h3>
+            <p>Everything I do is aimed at helping others do more. It is my purpose and I fulfil this through looking for improvement opportunities and ways to make best use of data. Whether I am improving a process, performing a piece of analysis and packaging it up, learning a new tool or technique, or training someone on tools and techniques in my repertoire, I'm always looking to help others do more.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="well">
+            <h3>Make The Complex Simple</h3>
+            <p>I appreciate that most people are not numbers people. They baulk at the word "spreadsheet", so that is where I come in. Being an experienced analyst and advisor I can take a business problem and make use of data to help find a solution. From understanding the where data has come from, how fit-for-purpose the data is, and turning it into a format that is digestable to the "not-another-spreadsheet" people, this is what I do.</p>
           </div>
         </div>
       </div><!--/.row-->
     </div><!--/.container-->
 
 
-    <div class="work visible-lg" style="height:250px !important;">
-      <div class="container">
+    <div class="work visible-lg" style="height:250px !important; padding-top: 0;">
+      <div class="container p-3">
         <div class="row">
           <div class="col-md-3">
-            <h3><i class="fa fa-code"></i>&nbsp; Beautiful Code</h3>
-            <p>I write clean, semantic, organized, and valid markup that eliminates excess code and allows others to easily understand and therfore update content in the future.</p>
+            <h3><i class="fas fa-search"></i>&nbsp; Analysis</h3>
+            <p>I analyse, interpret, and present findings using a range of techniques to suit the situation. My experience has allowed me to work in many different environments, so I appreciate the need for tailoring solutions to suit.</p>
           </div>
           <div class="col-md-3">
-            <h3><i class="fa fa-fighter-jet"></i>&nbsp; Fast</h3>
-            <p>I build fast and efficient web sites. Fast websites always attract more visitors, and those visitors are more likely to choose you over the competition. In addition, website speed is essential for <abbr title="Search Engine Optimization">SEO</abbr> &mdash; <a href="http://moz.com/blog/how-website-speed-actually-impacts-search-ranking">faster websites rank higher</a>.</p>
+            <h3><i class="fas fa-chart-pie"></i>&nbsp; Visualisation</h3>
+            <p>I am experienced with visualisation methods that include Excel charts, PowerPoint presentations, A3 One-pagers, and dashboarding in tools like Power BI. My ability to pick up new tools and skillsets allows me to pivot to whatever options are available to me and make the most of the available mediums.</p>
           </div>
           <div class="col-md-3">
-            <h3><i class="fa fa-arrows-alt"></i>&nbsp; Responsive</h3>
-            <p>Responsive web design means that your website will work on any screen size, from desktops to mobile phones alike. Having a website that works well across all devices and screen sizes means your website has a broader reach, appealing to more visitors.</p>
+            <h3><i class="fas fa-users"></i>&nbsp; Collaboration</h3>
+            <p>My preference is to collaborate wherever possible as I believe it will always provide a better result. I enjoy working with others, so that I can learn from them and they can learn from me. Whether it is business stakeholders, senior executives, or my peers, I am comfortable with managing relationships to enhance collorative opportunities.</p>
           </div>
           <div class="col-md-3">
-            <h3><i class="fa fa-bolt"></i>&nbsp; Powerful</h3>
-            <p>From a static single page website to a full fledged database driven web app, I build websites that give your organization the potential to succeed.</p>
+            <h3><i class="fas fa-sync"></i>&nbsp; Improvement</h3>
+            <p>Always on the lookout for opportunities to improve. Improve the way things work, improve myself or others, improve how things will be done next time. I bring a mindset of challenging what is to consider what could be...and when the conditions are right, bringing those changes to fruition.</p>
           </div>
         </div><!--/.row-->
       </div><!--/.container-->

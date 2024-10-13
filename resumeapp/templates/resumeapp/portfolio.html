@@ -1,12 +1,200 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
 {% block content %}
 
+<style type="text/css">
+
+.dev-icons .fa-python { color: #306998; } /* Python Blue */
+.dev-icons .fa-r-project { color: #276DC3; } /* R Blue */
+.dev-icons .fa-file-excel { color: #207245; } /* Excel Green */
+.dev-icons .fa-database { color: #4DB33D; } /* Database Green */
+.dev-icons .fa-chart-bar { color: #EF6C00; } /* Chart Orange */
+.dev-icons .fa-chart-pie { color: #D32F2F; } /* Chart Red */
+.dev-icons .fa-js { color: #F7DF1E; } /* JavaScript Yellow */
+.dev-icons .fa-css3-alt { color: #1572B6; } /* CSS Blue */
+.dev-icons .fa-bootstrap { color: #563D7C; } /* Bootstrap Purple */
+
+.mb-3 {
+    margin-bottom: 15px !important; /* Set your preferred margin */
+}
+
+.icon-size {
+    width: 35px; /* Adjust to your preferred width */
+    padding-left: 10px;
+    height: auto; /* Maintains the aspect ratio */
+}
+
+
+</style>
 
 <title>PGJR Portfolio</title>
 
-<h1>Portfolio Page</h1>
-<h3>This is my Portfolio Home Page...</h3>
+<!-- <h1>Portfolio Page</h1>
+<h3>This is my Portfolio Home Page...</h3> -->
+
+ <div class="section" id="projects"><h1>My Projects</h1><hr></div>
+ <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of my personal projects</h2></div>
+
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+  
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">My Personal Website (this site!!)</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">A site created using the Django Web Framework with functionality creating using Python, HTML and Javascript, and styling from CSS and Bootstrap.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">Golf Statistics App</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS and Bootstrap.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+
+<!--     <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">Golf Statistics App</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS and Bootstrap.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
+      </div>
+    </div>
+  </div> -->
+
+</div>
+
+ <div class="section" id="work-examples"><h1>Work Examples</h1><hr></div>
+ <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of examples of things I have done in my career so far</h2></div>
+
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">SQL Experience</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fas fa-database fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">I began using SQL at the beginning of my career using Microsoft Access Databases and have used SQL for a range of tasks since. The majority of my SQL experience is interrogating ICT operational databases to report on ICT ticket management.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">Excel Experience</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fas fa-file-excel fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">I have used Excel extensively in my career for day-to-day analytics, regular reporting activities, financial modelling. I regularly coach colleagues on how to use Excel and have a good knowledge of the functions, capabilities and limitations of Excel.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">Data Visualisation</h3>
+          <img src="{% static 'resumeapp/assets/img/Power-BI.png' %}" alt="Power BI Icon" class="icon-size">
+
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fas fa-power-bi fa-2x"></i></li>
+            <!-- <li class="list-inline-item"><i class="fas fa-tableau fa-2x"></i></li> -->
+          </ul>
+        </div>
+        <p class="card-text">I have exerience with MS Power BI and continue to learn more about this as one of the more popular data visualisation tools.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">TBC</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fas fa-file-excel fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">TBC.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <center>
+
+<div class="card" style="width: 80%;">
+  <img src="{% static 'mainapp/assets/logo.png' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">My Projects</h5>
+    <p class="card-text">Here are some of my personal projects.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">This website</li>
+    <li class="list-group-item">Golf App</li>
+    <li class="list-group-item">Others TBC</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Link to somewhere?</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
 
 
 
@@ -30,10 +218,10 @@
             <div class="spacer"></div><div class="spacer"></div>
           </div>
         </div>
-      </div><!--/.row-->
-    </div><!--/.container-->
+      </div>
+    </div>
 
 
-
+</center> -->
 
 {% endblock %}
