@@ -1,8 +1,20 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
 {% block content%}
 
+
+<title>Golf App Login</title>
+
 <style>
+
+body {
+    background-image: url("{% static 'roundapp/images/RandomCourse.jpg' %}");
+    background-size: cover; /* Adjust to fit the image appropriately */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps the image fixed during scroll */
+    background-position: center;
+}
 
 .content-box {
     border: 2px solid #ccc;
@@ -33,7 +45,8 @@
     <input type="password" class="form-control" name="password">
   </div>
 
-	<input type="submit" value="Submit" class="btn btn-secondary">
+	<input type="submit" value="Submit" class="btn btn-secondary me-2">
+  <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
 </form>
 </form>
 </div>
