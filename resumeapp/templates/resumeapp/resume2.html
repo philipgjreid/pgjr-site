@@ -1,0 +1,713 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PGJR Resume</title>
+        <!-- <link rel="icon" type="image/x-icon" href="{% static 'resumeapp/assets/img/favicon.ico' %}" /> -->
+        <!-- Font Awesome icons (free version)-->
+        <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
+        <!-- Google fonts-->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" /> -->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- <link href="{% static 'resumeapp/css/styles.css' %}" rel="stylesheet" /> -->
+    </head>
+
+
+<style type="text/css">
+body {
+    overflow-x: hidden;
+}
+
+/* Toggle Styles */
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color: #495057 !important; /* Sidebar background colour. Was #312A25 */
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+}
+
+/* Sidebar Styles */
+
+/* Colours: Background = ; Main Font = ; Hover Font = ;*/
+
+.sidebar-nav {
+    position: relative;
+    top: 0;
+    right: 0px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #C0C0C0; /* Adjust the default link text color here */
+    font-size: 20px;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #FFFFFF; /* Adjust the link hover color here */
+    background: #495057; /* Adjust the link hover background color here */
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+    color: #FFFFFF; /* Add your active/focused color here */
+    background: #495057; /* Add your active/focused background color here if needed */
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #495057; /* Adjust the brand link color here */
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #FFFFFF; /* Adjust the brand link hover color here */
+    background: #495057; /* Adjust the brand link hover background color here */
+}
+
+@media (min-width: 768px) {
+    #wrapper {
+        padding-left: 220px;
+    }
+    #sidebar-wrapper {
+        width: 200px;
+    }
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+}
+
+@media (max-width: 992px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 50px;
+    }
+
+    #page-content-wrapper {
+        margin-left: 50px;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the icons */
+        width: 50px;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 20px; /* Space between icons */
+    }
+
+    .sidebar-nav li:first-child {
+        margin-top: 20px; /* Space at the top */
+    }
+
+    .sidebar-nav li span {
+        display: none;
+    }
+
+    .sidebar-nav li a {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        width: 100%;
+        text-align: center; /* Center text */
+    }
+
+    .sidebar-nav li a i {
+        float: none; /* Ensure icons are centered */
+        margin: 0 auto;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 414px) {
+    #sidebar-wrapper {
+        width: 50px;
+    }
+
+    #page-content-wrapper {
+        padding: 5px;
+        margin-left: 50px;
+    }
+
+    .sidebar-nav li span {
+        visibility: hidden;
+    }
+
+    .sidebar-nav li a {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        width: 100%;
+        text-align: center; /* Center text */
+    }
+
+    .sidebar-nav li a i {
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.sidebar-img {
+  width: 120px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image */
+}
+
+
+  .sidebar-img {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+  }
+
+
+.container {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+
+.main-content {
+    margin-left: 200px; /* Default left margin for larger screens */
+    margin-right: 0px;
+    max-width: 80%;
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        margin-left: 0px !important; /* Matches the collapsed sidebar width */
+/*        padding-left: 50px;
+        padding-right: 50px;*/
+/*        max-width: 90%;*/
+    }
+}
+
+
+
+/* Resume body formatting from here onwards - Only taking what I need from styles.css */
+
+.social-icons .social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  width: 3.5rem;
+  background-color: #495057;
+  color: #fff;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+.social-icons .social-icon:last-child {
+  margin-right: 0;
+}
+.social-icons .social-icon:hover {
+  background-color: #4580AD;
+}
+
+section.resume-section {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  margin-top: 0rem;
+  max-width: 75rem;
+}
+section.resume-section .resume-section-content {
+  width: 100%;
+}
+
+@media (min-width: 0px) {
+  section.resume-section {
+    min-height: 80vh; /* Was 100vh (100% viewport height, i.e. height of the screen) */
+    margin-left: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media (min-width: 992px) {
+  section.resume-section {
+    padding-left: 0rem;
+    padding-right: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+  }
+}
+
+</style>
+
+
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+<!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- <head><link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"></head> -->
+<!-- <div class="container">
+    <div class="row">
+        <h2>Some text</h2>
+        <hr/> -->
+    
+<div id="page-top"></div>    
+    <div id="wrapper">
+        
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <br>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                    <span class="d-block d-lg-none"></span>
+                    <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2 sidebar-img" src="{% static 'resumeapp/assets/img/phil_pebble2.jpg' %}" alt="..." /></span>
+                </a>
+                <li>
+                    <a href="#about"><i class="fa fa-info-circle" aria-hidden="true"> </i> <span>About</span></a>
+                </li>
+                <li>
+                    <a href="#skills"> <i class="fa fa-tools" aria-hidden="true"> </i> <span>Expertise</span></a>
+                </li>
+                <li>
+                    <a href="#experience"> <i class="fa fa-briefcase" aria-hidden="true"> </i> <span>Experience</span></a>
+                </li>
+                <li>
+                    <a href="#education"> <i class="fa fa-graduation-cap" aria-hidden="true"> </i> <span>Education</span></a>
+                </li>
+                <li>
+                    <a href="#interests"><i class="fa fa-heart" aria-hidden="true"> </i> <span>Interests</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>            
+                         
+  <!-- Page Content-->
+
+
+
+<!-- <div class="section" id="projects"><h1>My Projects</h1><hr></div>
+ <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of my personal projects</h2></div>
+
+
+<div class="row" style="margin-left: 0px; margin-right: 0px;">
+  
+  <div class="col-sm-12 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">My Personal Website (this site!!)</h3>
+        </div>
+        <p class="card-text">A site created using the Django Web Framework with functionality creating using Python, HTML and Javascript, and styling from CSS and Bootstrap.</p>
+        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+        <div class="container-fluid p-0 main-content">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Philip
+                        <span class="text-primary">Reid</span>
+                    </h1>
+                    <div class="subheading mb-5">
+                        169 Tirohanga Road · Tirohanga · Lower Hutt, 5010 · +64 21-130-4911 ·
+                        <a href="mailto:philipgjreid@yahoo.co.nz">philipgjreid@yahoo.co.nz</a>
+                    </div>
+                    <p class="lead mb-5">With over 20 years’ experience in data analysis and performance reporting roles, my passion is to support others do more through good use of data. My recent history has been in performance and risk advisory roles helping drive insights for decision makers. I like to be involved in technical analysis activities, working closely with a range of data and process improvements. This is where I feel the most energised and where my technical skills can shine.</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/philip-reid-921682329/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- <a class="social-icon" href="https://github.com/philipgjreid" target="_blank"><i class="fab fa-github"></i></a> -->
+                        <!-- <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a> -->
+                        <!-- <a class="social-icon" href="https://www.facebook.com/philip.reid.581" target="_blank"><i class="fab fa-facebook-f"></i></a> -->
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+                        <!-- Skills-->
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Expertise & Strengths (TO UPDATE)</h2>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Data Analysis</h3>
+                            <!-- <div class="subheading mb-3">Ministry of Justice - Business Resilience and Risk Team, Corporate Services (CS)</div> -->
+                            <!-- <h5>Achievements</h5> -->
+                              <ul>
+                                <li>Leveraged a range of analytical tools, including SQL, Excel, VBA and Power BI, to deliver actionable insights. Learned new tools quickly and currently learning Python, R and Tableau to enhance data analysis capabilities.</li>
+                                <li>Analysed Justice sector operational data at the Ministry of Justice and Department of Corrections. This provided insights for operational reports, government reporting, and ad hoc business process analysis, which aided decision making.</li>
+                                <li>Optimised data workflows at in the ICT group at the Department of Internal Affairs (DIA) by collaborating with DBAs and improving operational data handling. Performed data manipulation using SQL to support analytical tasks enabling insights into process efficiency and improved ICT incident response handling.</li>
+                                <li>Analysed and modelled ICT desktop device lifecycle options for an $8 million fleet at DIA. This informed more effective renewal planning and optimised operational management, resulting in better resource allocation and cost savings.</li>   
+                              </ul>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Data Visualisation</h3>
+                            <!-- <div class="subheading mb-3">Ministry of Justice - Business Resilience and Risk Team, Corporate Services (CS)</div> -->
+                            <!-- <h5>Achievements</h5> -->
+                              <ul>
+                                <li>Automated the creation of weekly and monthly performance reports for DIA using Excel and VBA, streamlining the process of generating PowerPoint reports. This enabled better visualisation of trends in ICT ticket management and provided managers with actionable insights for decision-making.</li>
+                                <li>Developed performance reports for the Ministry of Justice, incorporating intermediate and boundary target values to identify when District Court locations were not meeting workload timeliness targets. This enabled timely interventions which improved performance.</li>
+                                <li>Created a proof-of-concept Risk Management Tool in Power Apps and conceptual reporting in Power BI for the Ministry of Justice. This provided the basis for a business case for improved risk tooling and reporting and promoted the use of both Power Apps and Power BI.</li>  
+                              </ul>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Collaboration and Relationship Management</h3>
+                            <!-- <div class="subheading mb-3">Ministry of Justice - Business Resilience and Risk Team, Corporate Services (CS)</div> -->
+                            <!-- <h5>Achievements</h5> -->
+                              <ul>
+                                <li>Collaborated with ICT teams at DIA and the Ministry of Justice to implement an assessment framework for critical ICT assets. Engaged ICT managers and technical experts to gather insights. This supported long-term investment planning and ensured informed decision-making.</li>
+                                <li>Managed KPI performance with the key ICT supplier at DIA. Oversaw regular KPI reporting, developed new KPIs, and ensured accurate application of targets for performance payments.</li>
+                                <li>Supported staff with Excel, reporting, and process improvement across all roles and workplaces.</li>    
+                              </ul>
+                        </div>
+                    </div>
+
+                                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Process Improvement</h3>
+                            <!-- <div class="subheading mb-3">Ministry of Justice - Business Resilience and Risk Team, Corporate Services (CS)</div> -->
+                            <!-- <h5>Achievements</h5> -->
+                              <ul>
+                                <li>Enhanced operational reporting using SQL, Excel, VBA and automated data extracts to create a streamlined subset of data. This facilitated more efficient reporting and ad-hoc analysis.</li>    
+                              </ul>
+                        </div>
+                    </div>
+
+                    <div class="subheading mb-3">Programming Languages & Tools (TEMPLATE - TO DELETE)</div>
+                    <ul class="list-inline dev-icons">
+                        <li class="list-inline-item"><i class="fab fa-python"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-r-project"></i></li>
+                        <li class="list-inline-item"><i class="fas fa-file-excel"></i></li>
+                        <li class="list-inline-item"><i class="fas fa-database"></i></li>
+                        <li class="list-inline-item"><i class="fas fa-chart-bar"></i></li>
+                        <li class="list-inline-item"><i class="fas fa-chart-pie"></i></li>
+
+
+                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
+                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
+                    </ul>
+                    <div class="subheading mb-3">Workflow (TEMPLATE - TO DELETE)</div>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Mobile-First, Responsive Design
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Cross Browser Testing & Debugging
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Cross Functional Teams
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Agile Development & Scrum
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Experience</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Senior Risk Management Consultant</h3>
+                            <div class="subheading mb-3">Ministry of Justice - Business Resilience and Risk Team, Corporate Services (CS)</div>
+                            <h5>Achievements</h5>
+                              <ul>
+                                <li>Developed a risk assessment approach to assess critical digital asset risks to meet a cabinet circular directive aimed at ensuring effective long-term investment decisions.</li>
+                                <li>Researched new options for risk management tools and drafted a business case to support future potential improvements to existing processes, including the creation of a proof-of-concept risk tool in Microsoft Power Apps.</li>
+                                <li>Created an Assurance Framework to support the management and assessment of risk controls.</li>
+                                <li>Created risk and assurance guides and process documentation that supported engagements with customers and internal team coaching.</li>
+                                <li>Provided risk coaching to Corporate Services staff, team members, and ICT supplier staff.</li>
+                                <li>And this is the fourth sentence.</li>
+                              </ul>
+                            <p></p>
+                            <h5>Responsibilities</h5>
+                              <ul>
+                                <li>Provide high quality risk management advice and contribute to the development and implementation of fit-for-purpose risk processes.</li>        
+                              </ul>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">March 2022 - September 2024</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Senior Performance Assurance Advisor</h3>
+                            <div class="subheading mb-3">Department of Internal Affairs - Performance Assurance Team, Technology Services and Solutions (TSS)</div>
+                            <h5>Achievements</h5>
+                              <ul>
+                                <li>Supported the creation of an ICT current state health report that went to both investment and risk governance committees. This resulted in my general manager (the CIO) being appointed as the deputy chair of the Risk and Assurance Governance Committee, supported governance duties, and improved technology service investment planning.</li>
+                                <li>Refined an Excel based ICT Cost-to-Serve Financial Model to improve the annual Department budget update process for handling appropriations and provide cost transparency for ICT business owners to enable better business case justifications.</li>
+                                <li>Performed a review of desktop device asset lifecycle management, including modelling lifecycle management options, which helped secure funding and drive improvements in the management of the desktop fleet.</li>
+                                <li>Restructured operational reporting data and processes to better support operational reporting activities and improved response times for official reporting requests.</li>
+                                <li>Created semi-automated weekly and monthly reporting using Excel, Visual Basic for Applications (VBA) and PowerPoint to meet operational reporting requirements.</li>
+                                <li>Provided detailed analysis of ICT processes by using SQL queries to generate complex datasets and Excel to visualise findings to support various use cases.</li>
+                                <li>Managed supplier KPI reporting, including developing KPIs and applying KPIs in contractual compliance payments.</li>
+                                <li>Completed ITIL V3 and V4 Foundation courses and Agile training.</li>
+                              </ul>
+                            <p></p>
+                            <h5>Responsibilities</h5>
+                              <ul>
+                                <li>Support planning and performance frameworks and ensure key reporting activities are completed.</li>
+                                <li>Perform review activities across the ICT group to provide evidence based strategic and operational advice. </li>    
+                              </ul>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">June 2014 - March 2022</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Risk Analyst</h3>
+                            <div class="subheading mb-3">Department of Corrections - Quality and Performance Team, Corrections Services</div>
+                            <h5>Achievements</h5>
+                              <ul>
+                                <li>Improved Excel based quality assurance processes by automating data collation processes and making assessment templates more secure by using VBA to lock them when completed to improve data validity.</li>
+                                <li>Completed benefit realisation review reports and adhoc analysis using a mix of Oracle Discoverer and Oracle SQL Developer based reporting tools alongside Excel.</li>
+                                <li>Developed and managed a multi-stage review and analysis of the implementation of a change in prison property policy.</li>
+                                <li>Completed a review of the Prisoner Security Classification Rating System, which included a scoring algorithm to set an initial rating, that supported adjustments to the algorithm settings and the associated process.</li>
+                              </ul>
+                            <p></p>
+<!--                             <h5>Responsibilities</h5>
+                              <ul>
+                                <li>1</li>    
+                              </ul> -->
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">May 2011 - June 2014</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Business Analyst – Performance Monitoring</h3>
+                            <div class="subheading mb-3">Ministry of Justice - Performance and Improvement Team, District Courts</div>
+                            <h5>Achievements</h5>
+                              <ul>
+                                <li>Automation of Excel based reporting processes that enabled consistent delivery of information and reports.</li>
+                                <li>Created performance reports that included performance targets that made the reports more meaningful for use in business settings.</li>
+                                <li>Performed analysis of data to go into Annual Report, the production of Select Committee material and other strategic reports.</li>
+                                <li>Collated analysis to support District Court reviews and was involved in several court review visits meeting with Court staff, judges and lawyers.</li>
+                              </ul>
+                            <p></p>
+                  <!--           <h5>Responsibilities</h5>
+                              <ul>
+                                <li>1</li>    
+                              </ul> -->
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">December 2007 - May 2011</span></div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Education-->
+            <section class="resume-section" id="education">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Qualifications and Professional Development</h2>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Self-driven Learning</h3>
+                              <ul>
+                                <li><strong>Power BI and Tableau</strong> – Already have experience with Power BI and looking to build on this and become familiar with Tableau as the other most popular dashboarding tool.</li>
+                                <li><strong>Python and R</strong> – Introducing myself to these tools, including their use in statistical analysis, and using them in my own small test projects. Have built a golf statistics app in Python that I am currently working on deploying to the web using Django.</li>
+                                <li><strong>Statistical Methods</strong> – Reviewing regression and distribution methods that I have had previous experience with.</li>
+                                <li><strong>Machine Learning and AI</strong> – Introducing myself to concepts related to these subjects and building my foundation knowledge in relevant topics.</li>
+                              </ul>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">July 1999 - June 2001</span></div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Victoria University of Wellington</h3>
+                            <div class="subheading mb-3">Bachelor of Commerce and Administration (BCA)</div>
+                            <div>Double Major in Management and Industrial Relations</div>
+                            <!-- <p>Empty paragraph</p> -->
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">July 1999 - June 2001</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Hutt Valley Polytechnic</h3>
+                            <div class="subheading mb-3">New Zealand Diploma in Business</div>
+                            <!-- <div>Empty</div> -->
+                            <!-- <p>Empty paragraph</p> -->
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">1997 - 1998</span></div>
+                    </div>
+<!--                     <div class="d-flex flex-column flex-md-row justify-content-between">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">James Buchanan High School</h3>
+                            <div class="subheading mb-3">Technology Magnet Program</div>
+                            <p>GPA: 3.56</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">August 2002 - May 2006</span></div>
+                    </div> -->
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Other Qualifications</h3>
+                              <ul>
+                                <li><strong>ITIL Foundations V4</strong></li>
+                                <li><strong>Management of Risk Practitioner</strong></li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Interests-->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <p>TO UPDATE...Can look at deleting this from here and maybe add an "About" page with some more personal stuff to the site (golf stuff - links to Shandon Golf site, etc).</p>
+                    <p class="mb-0">Second sentence...</p>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Awards-->
+<!--             <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Awards & Certifications (PUT THIS UNDER QUALIFICATIONS SECTION)</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            ITIL V4 Foundation courses
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Management of Risk Practitioner
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Mobile Web Specialist - Google Certification
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2009
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            2
+                            <sup>nd</sup>
+                            Place - University of Colorado Boulder - Emerging Tech Competition 2008
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            1
+                            <sup>st</sup>
+                            Place - James Buchanan High School - Hackathon 2006
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            3
+                            <sup>rd</sup>
+                            Place - James Buchanan High School - Hackathon 2005
+                        </li>
+                    </ul>
+                </div>
+            </section> -->
+        </div>
+
+                    
+        
+        <!-- /#page-content-wrapper -->
+
+   
+    <!-- /#wrapper -->
+
+    
+<!--     <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script> -->
+
+
+    
+    <!-- </div> -->
+</div>
+
+{% endblock %}
