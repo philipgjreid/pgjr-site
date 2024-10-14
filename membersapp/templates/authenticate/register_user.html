@@ -31,10 +31,11 @@
 
 <div class="card" style="width: 35rem;">
   <div class="card-body">
-    <h5 class="card-title">Sorry! We Are Not Accepting New Users At The Moment...</h5>
+    <h5 class="card-title">Sorry! We are not accepting new users at the moment. Please login as a Guest if you want to check the app out.</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
     <p class="card-text"></p>
     <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a class="btn btn-secondary btn-lg mb-2" href="{% url 'guest-login' %}" role="button">Log In as Guest</a>
     <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
   </div>
 </div>

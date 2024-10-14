@@ -1,4 +1,5 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
 {% block content%}
 
@@ -31,6 +32,14 @@
 
 .mb-2 {
     margin-bottom: 10px; /* Adjust the spacing between buttons */
+}
+
+body {
+    background-image: url("{% static 'roundapp/images/RandomCourse.jpg' %}");
+    background-size: cover; /* Adjust to fit the image appropriately */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps the image fixed during scroll */
+    background-position: center;
 }
 
 </style>
