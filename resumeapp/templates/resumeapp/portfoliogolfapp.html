@@ -1,0 +1,425 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style type="text/css">
+
+body {
+    background-image: url("{% static 'roundapp/images/RandomCourse.jpg' %}");
+    background-size: cover; /* Adjust to fit the image appropriately */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps the image fixed during scroll */
+    background-position: center;
+}
+
+.heading-box {
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    padding: 10px; /* Adjust padding as needed */
+    border: 2px solid white; /* White border around the box */
+    border-radius: 5px; /* Rounded corners (optional) */
+}
+
+
+.dev-icons .fa-python { color: #306998; } /* Python Blue */
+.dev-icons .fa-r-project { color: #276DC3; } /* R Blue */
+.dev-icons .fa-file-excel { color: #207245; } /* Excel Green */
+.dev-icons .fa-database { color: #4DB33D; } /* Database Green */
+.dev-icons .fa-chart-bar { color: #EF6C00; } /* Chart Orange */
+.dev-icons .fa-chart-pie { color: #D32F2F; } /* Chart Red */
+.dev-icons .fa-js { color: #F7DF1E; } /* JavaScript Yellow */
+.dev-icons .fa-css3-alt { color: #1572B6; } /* CSS Blue */
+.dev-icons .fa-bootstrap { color: #563D7C; } /* Bootstrap Purple */
+.dev-icons .fa-github { color: #181717; } /* GitHub Black */
+
+.mb-3 {
+    margin-bottom: 15px !important; /* Set your preferred margin */
+}
+
+.icon-size-pbi {
+    width: 35px; /* Adjust to your preferred width */
+    padding-left: 10px;
+    height: auto; /* Maintains the aspect ratio */
+    vertical-align: middle;
+}
+
+.icon-size-django {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 10px;
+    height: 34px; /* Maintains the aspect ratio */
+}
+
+.icon-size-django-sm {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    height: 18px; /* Maintains the aspect ratio */
+}
+
+
+</style>
+
+<title>Golf App Project</title>
+
+
+ <div class="section" id="projects" style="margin-top: 15px;color: white;"><h1 class="heading-box">Golf Statistics App Project</h1></div>
+ <div class="section" style="margin-top: 0px; color: white;" id="projects-subheading">
+  <h2 class="heading-box" style="margin-top: 0px;">Project Overview</h2>
+</div>
+
+  
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">When I started learning Python I decided to build something that I could use myself. Being a keen golfer I decided that a golf statistics app would be a good idea. So, a golf stats app that I can use on my mobile... how hard could that be?</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>What I Did</h4>
+          <ul>
+            <li><strong>Created Requirements</strong> - Researched options for how to design and structure the app and tested initial concepts in Excel.
+            </li>
+            <li><strong>Developed Backend Functionality</strong> Set up models (data tables), views, URL routing, and user authentication using Python and Django
+            </li>
+            <li><strong>Designed and Implemented Frontend</strong> - Created responsive layouts with HTML, CSS, and JavaScript and integrated Bootstrap for styling
+            </li>
+            <li><strong>Deployed the Application</strong> - Set up version control using Git and managed updates to PythonAnywhere hosted site via GitHub
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4>Skills Used</h4>
+          <ul>
+            <li>
+              <i class="fab fa-python" style="color: #306998;"></i> <strong>Python</strong> - Data manipulation and backend development
+            </li>
+            <li>
+              <img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django-sm"> <strong>Django</strong> - Web framework and URL routing
+            </li>
+            <li>
+              <i class="fab fa-html5" style="color: #E34F26;"></i>
+              <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+              <i class="fab fa-js" style="color: #F7DF1E;"></i> <strong>HTML, CSS, JavaScript</strong> - Frontend development and responsive design
+            </li>
+            <li>
+              <i class="fab fa-bootstrap" style="color: #563D7C;"></i> <strong>Bootstrap</strong> - Styling and layout design
+            </li>
+            <li>
+              <i class="fab fa-github" style="color: #181717;"></i> <strong>GitHub</strong> - Version control
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <a href="{% url 'golf-home' %}" class="btn btn-primary">Go Have A Look At The Golf App</a>
+    </div>
+  </div>
+</div>
+
+
+ <div class="section" style="margin-top: 0px; color: white;" id="projects-subheading">
+  <h2 class="heading-box" style="margin-top: 0px;">Project Details</h2>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Requirements</h3>
+      </div>
+      <p class="card-text">The starting point, once I had decided to build something using Python, was to sketch out some requirements to help guide the build. This required answering two main questions:</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>What Statistics to Track?</h4>
+          <ul>
+              <li>Brainstormed potential statistics to collect, from basic to more advanced. Decided to design something to capture a little more than basic as this would provide some more opportunities to use different techniques.</li>
+              <li>Created mock stats in Excel to refine the data structure. This helped confirm the types of scenarios to be handled, such as where some stats would not be applicable and where handling of null values was going to be required.</li>
+              <li>Researched UI designs for inspiration, adopting ideas for navigation and button-based inputs into my design.</li>
+                  
+              
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>How to Make App Accessible on Any Device?</h4>
+          <ul>
+              <li>Being new to the concept of python applications, I consulted ChatGPT for mobile app development advice. It was recommended that building a web-based application using either Flask or Django was the best option for someone new to the area.</li>
+              <li>Decided to build towards a web-based app, which led to a few other considerations that I dealt with on my app building journey, including:
+                <ul>
+                  <li>How to manage the data that my app would be collecting</li>
+                  <li>How to host a web applicaton</li>
+                  <li>How to manage version control of my app</li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Development</h3>
+      </div>
+      <p class="card-text">With some idea of what I wanted to build the next thing was to get into actually building something. I initially used Flask to build a working prototype of my app, although it was missing a lot of things. After researching Django a bit more I decided to transition to use it as the web framework for my app.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Initial Prototype in Flask</h4>
+          <ul>
+              <li>Built an initial version using Flask that allowed me to get the fundamentals of the app created and running on my localhost.</li>
+              <li>Created functionality to allow a user to go through 18 holes and enter data by clicking buttons, as opposed to selecting from dropdown options, and being able to navigate back and forth to previously entered data.</li>
+              <li>Gained a better understanding of how Python can be used in a practical application.</li>
+              <li>Gained experience in HTML, CSS and Javascript through getting this version to work locally.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Improved Version on Django</h4>
+          <ul>
+              <li>After a steep learning curve in Flask I decided to look into using Django, which turned out to be a steeper learning curve!</li>
+              <li>After taking some time to learn Django, I benefitted from the built-in user authentication, simple data table creation, and code reusability of Django.</li>
+              <li>My previous experience with data structures and SQL came in handy as Django keeps this stuff in the background, but you still need to know how relational tables work to make sure any foreign keys are set up correctly!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Deployment</h3>
+      </div>
+      <p class="card-text">When I started out my focus was on Python and getting a practical project under my belt. Little did I know how far into web-development I would end up going (not that far for anyone who actually does this stuff, but a lot farther than I was expecting). So all my work on the app required me to get my head around this stuff so I could deploy my app and actually use it.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Hosting Options</h4>
+          <ul>
+              <li>Explored hosting options, selecting PythonAnywhere for its beginner-friendly environment (and the free-tier option in case everything went sideways on me).</li>
+              <li>Used some other practice projects and loaded them onto the site to get used to the process and find out the little tips and tricks for getting all the settings to line up.</li>
+              <li>Is now aligned to GitHub to allow me to manage my webpage more effectively.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Version Control</h4>
+          <ul>
+              <li>Utilized GitHub for version control, learning Git fundamentals to manage the project effectively.</li>
+              <li>Have gained experience across the range of tools and techniques required to get a webpage published.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Final Result</h3>
+      </div>
+      <p class="card-text">After all that, I now have a mobile-accessible golf stats app that I can use at the golf course. It has a guest login, so feel free to check it out.</p>
+      <a href="{% url 'golf-home' %}" class="btn btn-primary">Go Have A Look At The Golf App</a>
+      <hr>
+      <div class="row">
+          <div class="col-lg-8">
+              <h4>Login Page</h4>
+              <ul>
+                  <li>A login page that allows users to temporarily login as a guest to have a look at the app.</li>
+                  <li>There is a Registration page and associated functionality, but as I am keeping the app to my own use for now I have this functionality turned off.</li>
+                  <li>The user authentication aspect is made much easier by Django as it is built-in and requires only minor adjustments to incorporate into a project.</li>
+              </ul>
+          </div>
+          <div class="col-lg-4">
+              <img src="{% static 'roundapp/images/golfapplogin.jpg' %}" class="img-fluid" alt="Golf App Login">
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+          <div class="col-lg-8">
+              <h4>Round Page</h4>
+              <ul>
+                  <li>A page that allows users to enter the details for their round. This includes:
+                    <ul>
+                      <li>The course played, which in my case will normally be Shandon!! I can manually update the app with details for as many courses as I like.</li>
+                      <li>The tee, which is based on a subset of tee options for each course.</li>
+                      <li>Other details like the date of the round, the type of round, the weather and wind conditions, plus a free-text field for any other notes.</li>
+                    </ul>
+
+                  </li>
+                  <li>There is also a cancel button to allow a user to navigate back to the home screen for the app.</li>
+                  <li>This page is based on a Django Form, which takes care of most of the heavy lifting and Bootstrap provides the formatting. The most technical aspect is the script to return the list of tees based on the selected course.</li>
+              </ul>
+          </div>
+          <div class="col-lg-4">
+              <img src="{% static 'roundapp/images/golfapproundpage.jpg' %}" class="img-fluid" alt="Golf App Round">
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+          <div class="col-lg-8">
+              <h4>Stats Input Page</h4>
+              <ul>
+                  <li>This is where the bulk of the work is done. The key features to note are:
+                    <ul>
+                      <li><strong>Hole Details (number and par)</strong> - These are provided based on the course being played.</li>
+                      <li><strong>Score</strong> - This is set to the par of the hole to begin with and buttons are used to increase or decrease the score.</li>
+                      <li><strong>Clickable Buttons</strong> (Fairwar, Green, Putts, Up/Down, Sand Save, and Penalties) - These all allow one option to be selected, and deselected if necessary. Colour coding of the buttons indicate if the chosen option is good or not.</li>
+                      <li><strong>Numeric Options</strong> (Drive and First Putt Distance) - Values are manually entered with upper and lower limits for what can be entered.</li>
+                      <li><strong>Next / Back Navigation</strong> - These are used to move from one hole to another. Moving backwards will repopulate the previously entered data, where available. At the end of the round the 'Next' button turns into 'Complete' to finish the round and move to a summary page.</li>
+                      <li><strong>Fairway Values Removed on Par Threes</strong> - The two fairway related stats are not applicable for par threes so these get hidden when on a par three.</li>
+                    </ul>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-lg-4">
+              <img src="{% static 'roundapp/images/golfappstatspage.jpg' %}" class="img-fluid" alt="Golf App Stats">
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-lg-12">
+          <h4>Future Developments</h4>
+          <p>The main things I have in mind are:</p>
+          <ul>
+              <li>Improving the data summary views and analytical capabilities as more data is collected.</li>
+              <li>Consider a more detailed version of collecting stats on a shot-by-shot basis.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <!-- <div class="container-fluid p-0 main-content">
+        <div class="row">
+            <div class="col-sm-12 mb-3 mb-sm-0">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Golf Stats App</h3>
+                        <h4 class="mt-3">Overview</h4>
+                        <div class="row">
+                            <div class="col-12">
+                                <p>When I embarked on my Python journey, I wanted to create something useful and enjoyable. As an avid golfer, I envisioned a mobile-friendly golf statistics app. The challenge: how to bring this idea to life?</p>
+                            </div>
+                        </div>
+                        
+                        <h4>Situation</h4>
+                        <p>When I started learning Python I decided to build something that I could use myself. Being a keen golfer I decided that a simple golf statistics app would be a good idea. So, a golf stats app that I can use on my mobile... how hard could that be?</p>
+                        
+                        <h4>Task</h4>
+                        <ul>
+                            <li>Determine the specific statistics to track.</li>
+                            <li>Ensure mobile accessibility for the app.</li>
+                        </ul>
+                        
+                        <h4>Action</h4>
+                        <h5>Stats to Collect</h5>
+                        <ul>
+                            <li>Brainstormed potential statistics, from basic to advanced.
+                                <ul>
+                                    <li>Created mock stats in Excel to refine data structure.</li>
+                                    <li>Researched UI designs for inspiration, adopting intuitive navigation and button-based inputs.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h5>Accessibility</h5>
+                        <ul>
+                            <li>Consulted ChatGPT for mobile app development advice.
+                                <ul>
+                                    <li>Built an initial version using Flask, gaining experience in HTML and CSS.</li>
+                                    <li>Explored hosting options, selecting PythonAnywhere for its beginner-friendly environment.</li>
+                                    <li>Transitioned from Flask to Django, benefiting from user authentication, data table creation, and code reusability.</li>
+                                </ul>
+                            </li>
+                            <li>Utilized GitHub for version control, learning Git fundamentals to manage the project effectively.</li>
+                        </ul>
+                        
+                        <h4>Result</h4>
+                        <p>The final product is a mobile-accessible golf stats app that I can use at the course. It includes a guest login for broader access.</p>
+                        
+                        <h4>Future Developments</h4>
+                        <p>Plans include enhancing the app’s analytical capabilities and trend analysis as more data is collected.</p>
+                        
+                        <h4>Skills Used</h4>
+                        <ul class="list-inline dev-icons">
+                            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i> Python</li>
+                            <li class="list-inline-item"><img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django"> Django</li>
+                            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i> HTML</li>
+                            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i> CSS</li>
+                            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i> JavaScript</li>
+                            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i> Bootstrap</li>
+                            <li class="list-inline-item"><i class="fab fa-github fa-2x"></i> GitHub</li>
+                        </ul>
+                        
+                        <a href="{% url 'golf-home' %}" class="btn btn-primary">Go Have A Look At The Golf App</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+
+<!-- Overview of the Golf Stats App
+
+Situation: When I embarked on my Python journey, I wanted to create something useful and enjoyable. As an avid golfer, I envisioned a mobile-friendly golf statistics app. The challenge: how to bring this idea to life?
+
+Task: I had to clarify two main objectives:
+
+Determine the specific statistics to track.
+
+Ensure mobile accessibility for the app.
+
+Action:
+
+Stats to Collect:
+
+I brainstormed potential statistics, from basic (fairways, greens, putts) to advanced (shot-level data, GPS tracking).
+
+Settled on a balance between simplicity and detail.
+
+Created mock stats in Excel to refine data structure.
+
+Researched UI designs for inspiration, adopting intuitive navigation and button-based inputs.
+
+Accessibility:
+
+Consulted ChatGPT for mobile app development advice, leading to a choice between Flask and Django web frameworks.
+
+Built an initial version using Flask, gaining experience in HTML and CSS.
+
+Explored hosting options, selecting PythonAnywhere for its beginner-friendly environment.
+
+Transitioned from Flask to Django after further research, benefiting from user authentication, data table creation, and code reusability.
+
+Expanded the app to serve as my personal website, incorporating JavaScript for functionality and Bootstrap for styling.
+
+Utilized GitHub for version control, learning Git fundamentals to manage the project effectively.
+
+Result: The final product is a mobile-accessible golf stats app that I can use at the course. It includes a guest login for broader access.
+
+Future Developments: Plans include enhancing the app’s analytical capabilities and trend analysis as more data is collected.
+
+Skills Used:
+
+Python: Backend development, data manipulation.
+
+Django: Web framework, user authentication, data models.
+
+HTML, CSS, JavaScript: Frontend development, responsive design.
+
+Bootstrap: Styling and layout.
+
+GitHub: Version control, project management. -->
+
+
+{% endblock %}

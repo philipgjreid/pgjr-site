@@ -1,6 +1,31 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 
 {% block content %}
+
+<title>Golf App Registration</title>
+
+<style>
+
+body {
+    background-image: url("{% static 'roundapp/images/RandomCourse.jpg' %}");
+    background-size: cover; /* Adjust to fit the image appropriately */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps the image fixed during scroll */
+    background-position: center;
+}
+
+.card {
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 650px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+</style>
 
 {% if user.is_authenticated %}
 
@@ -31,10 +56,11 @@
 
 <div class="card" style="width: 35rem;">
   <div class="card-body">
-    <h5 class="card-title">Sorry! We Are Not Accepting New Users At The Moment...</h5>
+    <h5 class="card-title">Sorry! We are not accepting new users at the moment. Please login as a Guest if you want to check the app out.</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
     <p class="card-text"></p>
     <a href="{% url 'login' %}" class="btn btn-outline-primary">Login Here</a>
+    <a class="btn btn-secondary btn-lg mb-2" href="{% url 'guest-login' %}" role="button">Log In as Guest</a>
     <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
   </div>
 </div>

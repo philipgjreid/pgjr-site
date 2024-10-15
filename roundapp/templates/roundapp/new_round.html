@@ -1,4 +1,6 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
+
 
 {% block content%}
 
@@ -33,6 +35,15 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
 }
+
+body {
+    background-image: url("{% static 'roundapp/images/RandomCourse.jpg' %}");
+    background-size: cover; /* Adjust to fit the image appropriately */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional: keeps the image fixed during scroll */
+    background-position: center;
+}
+
 
 </style>
 
