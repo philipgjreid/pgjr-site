@@ -19,16 +19,25 @@
     margin-bottom: 15px !important; /* Set your preferred margin */
 }
 
-.icon-size {
+.icon-size-pbi {
     width: 35px; /* Adjust to your preferred width */
     padding-left: 10px;
     height: auto; /* Maintains the aspect ratio */
 }
 
-/*.col-sm-6.mb-3.mb-sm-0 {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
-}*/
+.icon-size-tableau {
+    width: 40px; /* Adjust to your preferred width */
+    padding-left: 10px;
+    height: auto; /* Maintains the aspect ratio */
+}
 
+.icon-size-django {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 5px;
+    height: 34px; /* Maintains the aspect ratio */
+    margin-bottom: .8em;
+}
 
 </style>
 
@@ -42,14 +51,15 @@
 
 
 <div class="row" style="margin-left: 0px; margin-right: 0px;">
-  
+
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center">
-          <h3 class="card-title">My Personal Website (this site!!)</h3>
+          <h3 class="card-title">My Personal Website</h3>
           <ul class="list-inline dev-icons mb-0 ms-2">
             <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django"></li>
             <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
@@ -69,6 +79,7 @@
           <h3 class="card-title">Golf Statistics App</h3>
           <ul class="list-inline dev-icons mb-0 ms-2">
             <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django"></li>
             <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
@@ -76,7 +87,7 @@
           </ul>
         </div>
         <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS and Bootstrap.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
+        <a href="{% url 'portfolio-golfapp' %}" class="btn btn-secondary">Go To Detail Page for This Project</a>
       </div>
     </div>
   </div>
@@ -150,7 +161,8 @@
       <div class="card-body">
         <div class="d-flex align-items-center">
           <h3 class="card-title">Data Visualisation</h3>
-          <img src="{% static 'resumeapp/assets/img/Power-BI.png' %}" alt="Power BI Icon" class="icon-size">
+          <img src="{% static 'resumeapp/assets/img/Power-BI.png' %}" alt="Power BI Icon" class="icon-size-pbi">
+          <img src="{% static 'resumeapp/assets/img/tableau-logo.png' %}" alt="Tableau Logo" class="icon-size-tableau">
 
           <ul class="list-inline dev-icons mb-0 ms-2">
             <li class="list-inline-item"><i class="fas fa-power-bi fa-2x"></i></li>
