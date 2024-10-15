@@ -5,6 +5,10 @@
 
 <style type="text/css">
 
+body {
+  background-color: #f2f3f8; /* Background colour for page. */
+}
+
 .dev-icons .fa-python { color: #306998; } /* Python Blue */
 .dev-icons .fa-r-project { color: #276DC3; } /* R Blue */
 .dev-icons .fa-file-excel { color: #207245; } /* Excel Green */
@@ -39,6 +43,44 @@
     margin-bottom: .8em;
 }
 
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100% !important;
+}
+
+.section {
+  background: #596b7d;
+  background-size: cover;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+.section h1,
+.section p {
+  color: #fff !important; /* Font colour for bottom section. #fff is white. */
+}
+.section a {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+.btn-default {
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #596b7d; /* Button background colour - links to CV and Portfolio. */
+  border: none;
+  color: #fff;
+  text-transform: capitalize;
+}
+.btn-default:hover,
+.btn-default:active {
+  background: #46627f; /* Button hover colour. */
+  color: #fff;
+}
+
 </style>
 
 <title>PGJR Portfolio</title>
@@ -47,30 +89,10 @@
 <h3>This is my Portfolio Home Page...</h3> -->
 
  <div class="section" id="projects"><h1>My Projects</h1><hr></div>
- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of my personal projects</h2></div>
+ <!-- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of my personal projects</h2></div> -->
 
 
 <div class="row" style="margin-left: 0px; margin-right: 0px;">
-
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <div class="d-flex align-items-center">
-          <h3 class="card-title">My Personal Website</h3>
-          <ul class="list-inline dev-icons mb-0 ms-2">
-            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
-            <li class="list-inline-item"><img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django"></li>
-            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
-            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
-            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
-            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
-          </ul>
-        </div>
-        <p class="card-text">A site created using the Django Web Framework with functionality creating using Python, HTML and Javascript, and styling from CSS and Bootstrap.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Project</a>
-      </div>
-    </div>
-  </div>
 
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
@@ -87,7 +109,27 @@
           </ul>
         </div>
         <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS and Bootstrap.</p>
-        <a href="{% url 'portfolio-golfapp' %}" class="btn btn-secondary">Go To Detail Page for This Project</a>
+        <a href="{% url 'portfolio-golfapp' %}" class="btn btn-default">Go To Detail Page for This Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex align-items-center">
+          <h3 class="card-title">My Personal Website</h3>
+          <ul class="list-inline dev-icons mb-0 ms-2">
+            <li class="list-inline-item"><i class="fab fa-python fa-2x"></i></li>
+            <li class="list-inline-item"><img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django"></li>
+            <li class="list-inline-item"><i class="fab fa-html5 fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+          </ul>
+        </div>
+        <p class="card-text">A site created using the Django Web Framework with functionality creating using Python, HTML and Javascript, and styling from CSS and Bootstrap.</p>
+        <a href="#" class="btn btn-default">Go To Detail Page for This Project</a>
       </div>
     </div>
   </div>
@@ -117,8 +159,8 @@
 
 </div>
 
- <div class="section" id="work-examples"><h1>Work Examples</h1><hr></div>
- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of examples of things I have done in my career so far</h2></div>
+ <div class="section" id="work-examples"><h1>Previous Experience</h1><hr></div>
+ <!-- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of examples of things I have done in my career so far</h2></div> -->
 
 
 <div class="row" style="margin-left: 0px; margin-right: 0px;">
@@ -133,7 +175,7 @@
           </ul>
         </div>
         <p class="card-text">I began using SQL at the beginning of my career using Microsoft Access Databases and have used SQL for a range of tasks since. The majority of my SQL experience is interrogating ICT operational databases to report on ICT ticket management.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+        <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>
   </div>
@@ -148,7 +190,7 @@
           </ul>
         </div>
         <p class="card-text">I have used Excel extensively in my career for day-to-day analytics, regular reporting activities, financial modelling. I regularly coach colleagues on how to use Excel and have a good knowledge of the functions, capabilities and limitations of Excel.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+        <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>
   </div>
@@ -169,8 +211,8 @@
             <!-- <li class="list-inline-item"><i class="fas fa-tableau fa-2x"></i></li> -->
           </ul>
         </div>
-        <p class="card-text">I have exerience with MS Power BI and continue to learn more about this as one of the more popular data visualisation tools.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+        <p class="card-text">I have experience with MS Power BI and continue to learn more about this as one of the more popular data visualisation tools.</p>
+        <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>
   </div>
@@ -185,7 +227,7 @@
           </ul>
         </div>
         <p class="card-text">TBC.</p>
-        <a href="#" class="btn btn-secondary">Go To Detail Page for This Subject</a>
+        <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>
   </div>
