@@ -10,6 +10,7 @@ def portfolio(request):
 	return render(request, 'resumeapp/portfolio.html', {})
 
 def portfolio_golfapp(request):
-	return render(request, 'resumeapp/portfoliogolfapp.html', {})
+	return render(request, 'resumeapp/portfolio-golfapp.html', {})
 
-
+def portfolio_website(request):
+	return render(request, 'resumeapp/portfolio-website.html', {})
