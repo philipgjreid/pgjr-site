@@ -3,6 +3,24 @@
 
 {% block content %}
 
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Personal Website Project</title>
+        <!-- <link rel="icon" type="image/x-icon" href="{% static 'resumeapp/assets/img/favicon.ico' %}" /> -->
+        <!-- Font Awesome icons (free version)-->
+        <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
+        <!-- Google fonts-->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" /> -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" /> -->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+    </head>
+
+
 <style type="text/css">
 
 body {
@@ -14,14 +32,14 @@ body {
     background-position: center;*/
 }
 
-.heading-box {
-/*    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+/*.heading-box {
     background-color: #596b7d;
-    padding: 10px; /* Adjust padding as needed */
-    border: 2px solid white; /* White border around the box */
-    border-radius: 5px; /* Rounded corners (optional) */
+    border: 2px solid white; 
+    border-radius: 5px; 
+    height: auto;
+    padding: 10px; 
     color: #fff;
-}
+}*/
 
 
 .dev-icons .fa-python { color: #306998; } /* Python Blue */
@@ -35,9 +53,9 @@ body {
 .dev-icons .fa-bootstrap { color: #563D7C; } /* Bootstrap Purple */
 .dev-icons .fa-github { color: #181717; } /* GitHub Black */
 
-.mb-3 {
-    margin-bottom: 15px !important; /* Set your preferred margin */
-}
+/*.mb-3 {
+    margin-bottom: 15px !important;
+}*/
 
 .icon-size-pbi {
     width: 35px; /* Adjust to your preferred width */
@@ -59,22 +77,38 @@ body {
 }
 
 
+
+/*   .section {
+      margin-top: 15px;
+      color: white;
+      background-color: #596b7d;
+      padding: 10px;
+    }*/
+
+/*    .card {
+      margin: 10px;
+    }*/
+
+
+
 </style>
 
-<title>Personal Website Project</title>
 
 
- <div class="section" id="projects" style="margin-top: 15px;color: white;"><h1 class="heading-box">My Personal Website Project</h1></div>
- <div class="section" style="margin-top: 0px; color: white;" id="projects-subheading">
-  <h2 class="heading-box" style="margin-top: 0px;">Project Overview</h2>
-</div>
+    <div class="section" id="projects">
+      <h1 class="heading-box">My Personal Website Project</h1>
+    </div>
 
-  
-<div class="col-sm-12 mb-3 mb-sm-0">
-  <div class="card">
+    <div class="section" id="projects-subheading">
+      <h2 class="heading-box">Project Overview</h2>
+    </div>
+    <div class="col-12 mb-3">
+
+
+    <div class="card">
     <div class="card-body">
       <p class="card-text">I built a golf stats app to help learn more about Python. Along the way this turned into a web-based app and I decided to extend that project into building myself a personal website.....this website!! Most of what I did is covered in my summary for my golf stats app project 
-      	(<span><a href="{% url 'portfolio-golfapp' %}">check it out here</a></span>), but here is a view of what building the website involved.</p>
+        (<span><a href="{% url 'portfolio-golfapp' %}">check it out here</a></span>), but here is a view of what building the website involved.</p>
       <hr>
       <div class="row">
         <div class="col-lg-8">
@@ -115,12 +149,16 @@ body {
       <a href="{% url 'golf-home' %}" class="btn btn-primary">Go Have A Look At The Golf App</a> -->
     </div>
   </div>
-</div>
 
 
- <div class="section" style="margin-top: 0px; color: white;" id="projects-subheading">
-  <h2 class="heading-box" style="margin-top: 0px;">Project Details</h2>
+    </div>
+ 
+
+
+ <div class="section" id="projects-subheading">
+  <h2 class="heading-box">Project Details</h2>
 </div>
+
 
 <div class="col-sm-12 mb-3 mb-sm-0">
   <div class="card">
@@ -135,10 +173,10 @@ body {
           <h4>What to Include</h4>
           <ul> <!--obvious stuff like resume and portfolio of things i have done. Looked for inspiration but largely followed my instinct. -->
               <li>The inspiration for creating my own site was to be able to represent myself in more detail than what a CV can. This meant that I wanted to start with:
-              	<ul>
-              		<li><strong>CV / Resume</strong> - To begin with I decided to recreate my CV in a digital format.</li>
-              		<li><strong>Portfolio</strong> - Creating a portfolio to exhibit things I have done, either personally or professionally, was the content that I was really interested in building and sharing. This obviously included the golf app as well as other things I have done and things I continue to work on.</li>
-              	</ul>
+                <ul>
+                  <li><strong>CV / Resume</strong> - To begin with I decided to recreate my CV in a digital format.</li>
+                  <li><strong>Portfolio</strong> - Creating a portfolio to exhibit things I have done, either personally or professionally, was the content that I was really interested in building and sharing. This obviously included the golf app as well as other things I have done and things I continue to work on.</li>
+                </ul>
               </li>              
           </ul>
         </div>
@@ -262,65 +300,228 @@ body {
               </ul>
           </div>
       </div>
-      
-<!--       <hr>
-      <div class="row">
-          <div class="col-lg-8">
-              <h4>Round Page</h4>
-              <ul>
-                  <li>A page that allows users to enter the details for their round. This includes:
-                    <ul>
-                      <li>The course played, which in my case will normally be Shandon!! I can manually update the app with details for as many courses as I like.</li>
-                      <li>The tee, which is based on a subset of tee options for each course.</li>
-                      <li>Other details like the date of the round, the type of round, the weather and wind conditions, plus a free-text field for any other notes.</li>
-                    </ul>
-
-                  </li>
-                  <li>There is also a cancel button to allow a user to navigate back to the home screen for the app.</li>
-                  <li>This page is based on a Django Form, which takes care of most of the heavy lifting and Bootstrap provides the formatting. The most technical aspect is the script to return the list of tees based on the selected course.</li>
-              </ul>
-          </div>
-          <div class="col-lg-4">
-              <img src="{% static 'roundapp/images/golfapproundpage.jpg' %}" class="img-fluid" alt="Golf App Round">
-          </div>
-      </div> -->
-
-<!--       <hr>
-      <div class="row">
-          <div class="col-lg-8">
-              <h4>Stats Input Page</h4>
-              <ul>
-                  <li>This is where the bulk of the work is done. The key features to note are:
-                    <ul>
-                      <li><strong>Hole Details (number and par)</strong> - These are provided based on the course being played.</li>
-                      <li><strong>Score</strong> - This is set to the par of the hole to begin with and buttons are used to increase or decrease the score.</li>
-                      <li><strong>Clickable Buttons</strong> (Fairwar, Green, Putts, Up/Down, Sand Save, and Penalties) - These all allow one option to be selected, and deselected if necessary. Colour coding of the buttons indicate if the chosen option is good or not.</li>
-                      <li><strong>Numeric Options</strong> (Drive and First Putt Distance) - Values are manually entered with upper and lower limits for what can be entered.</li>
-                      <li><strong>Next / Back Navigation</strong> - These are used to move from one hole to another. Moving backwards will repopulate the previously entered data, where available. At the end of the round the 'Next' button turns into 'Complete' to finish the round and move to a summary page.</li>
-                      <li><strong>Fairway Values Removed on Par Threes</strong> - The two fairway related stats are not applicable for par threes so these get hidden when on a par three.</li>
-                    </ul>
-                  </li>
-              </ul>
-          </div>
-          <div class="col-lg-4">
-              <img src="{% static 'roundapp/images/golfappstatspage.jpg' %}" class="img-fluid" alt="Golf App Stats">
-          </div>
-      </div> -->
-
-<!--       <hr>
-      <div class="row">
-        <div class="col-lg-12">
-          <h4>Future Developments</h4>
-          <p>The main things I have in mind are:</p>
-          <ul>
-              <li>Improving the data summary views and analytical capabilities as more data is collected.</li>
-              <li>Consider a more detailed version of collecting stats on a shot-by-shot basis.</li>
-          </ul>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>
+
+
+
+ <!-- End of new container, might not need this. -->
+<!-- OLD STUFF BELOW HERE -->
+
+<!-- <div class="section" id="projects">
+  <h1 class="heading-box">My Personal Website Project</h1>
+</div>
+
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Extended Site</h3>
+      </div> 
+    </div>
+  </div>
+</div>
+
+
+ <div class="section" id="projects-subheading">
+  <h2 class="heading-box">Project Overview</h2>
+</div>
+
+  
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">I built a golf stats app to help learn more about Python. Along the way this turned into a web-based app and I decided to extend that project into building myself a personal website.....this website!! Most of what I did is covered in my summary for my golf stats app project 
+      	(<span><a href="{% url 'portfolio-golfapp' %}">check it out here</a></span>), but here is a view of what building the website involved.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>What I Did</h4>
+          <ul>
+            <li><strong>Extended Backend and Frontend from Golf Stats App</strong> - Took the golf project base and extended to have a full personal website layout
+            </li>
+            <li><strong>Developed and Refined Content</strong> Created pages for the various types of content I wanted to include on my site and refined the content and styling
+            </li>
+            <li><strong>Deployed the Application</strong> - Set up version control using Git and managed updates to PythonAnywhere hosted site via GitHub
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4>Skills Used</h4>
+          <ul>
+            <li>
+              <i class="fab fa-python" style="color: #306998;"></i> <strong>Python</strong> - Backend development
+            </li>
+            <li>
+              <img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django-sm"> <strong>Django</strong> - Web framework and URL routing
+            </li>
+            <li>
+              <i class="fab fa-html5" style="color: #E34F26;"></i>
+              <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+              <i class="fab fa-js" style="color: #F7DF1E;"></i> <strong>HTML, CSS, JavaScript</strong> - Frontend development and responsive design
+            </li>
+            <li>
+              <i class="fab fa-bootstrap" style="color: #563D7C;"></i> <strong>Bootstrap</strong> - Styling and layout design
+            </li>
+            <li>
+              <i class="fab fa-github" style="color: #181717;"></i> <strong>GitHub</strong> - Version control
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div class="section" id="projects-subheading">
+  <h2 class="heading-box">Project Details</h2>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Extended Site</h3>
+      </div>
+      <p class="card-text">The golf app had already allowed me to create a Django project with several pages providing the basis to create more pages using similar techniques. The personal website was slightly easier to build due to being mainly static pages. I still needed to work out a few things:</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>What to Include</h4>
+          <ul>
+              <li>The inspiration for creating my own site was to be able to represent myself in more detail than what a CV can. This meant that I wanted to start with:
+              	<ul>
+              		<li><strong>CV / Resume</strong> - To begin with I decided to recreate my CV in a digital format.</li>
+              		<li><strong>Portfolio</strong> - Creating a portfolio to exhibit things I have done, either personally or professionally, was the content that I was really interested in building and sharing. This obviously included the golf app as well as other things I have done and things I continue to work on.</li>
+              	</ul>
+              </li>              
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>How to Format the Site</h4>
+          <ul>
+              <li><strong>Site Structure</strong> - The overall structure and layout was my first consideration. This largely flowed from the simple content that I was aiming to create. The Resume and Portfolio, plus a Home page...and the golf app of course.</li>
+              <li><strong>Content Formatting</strong> - The formatting was the more complicated aspect. To manage things like colour schemes, fonts, and general layout using techniques based in HTML, CSS, and Bootstrap required a lot of trial and error.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Developed Content</h3>
+      </div> 
+      <p class="card-text">With an idea of what I wanted to create I got into making it. Here is an overview of the key things I did.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Resume Page</h4>
+          <ul>
+              <li><strong>Resume Project</strong> - One of the projects I did to learn how to use Django was to create a resume site. This used a free HTML template with a lot of really good built-in functionality. I used this as my initial resume page and incorporated it into my overall project.</li>
+              <li><strong>Navbar Issues</strong> - While the resume template was good, it ran into problems as it had a navbar and so did my overall site. These did not play nicely together. To fix this I replaced the navbar with a sidebar that achieved a similar level of navigating functionality but also allowed my site navbar to display on the page.</li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <h4>Portfolio Page and Sub-page Structure</h4>
+          <ul> 
+              <li>The portfolio section needed a landing page and then a way to manage projects and examples as I add to the portfolio.</li>
+              <li><strong>Portfolio Landing Page</strong> - When I thought about the types of things I wanted to include in my portfolio, I decided that it fell into either personal projects (like the golf app) or examples from my career. This dictated splitting the landing page into two parts. I did this by:
+                <ul>
+                  <li>Splitting the page into two sections using a heading that spans the whole page.</li>
+                  <li>Using Bootstrap cards and other formatting features to store each of the projects or subjects to make it easy for the content to resize with the window size.</li>
+                </ul>
+              </li>
+              <li><strong>Portfolio Pages</strong> - Each project or example gets its own page. I have tried to keep the structures of the page fairly simple so they can be reused for multiple subjects without too much readjusting.</li>
+              <ul>
+                <li>Similar Bootstrap formatting was used to manage the content in sections that can resize with the size of the screen.</li>
+              </ul>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Home Page</h4>
+          <ul> 
+              <li>The concept of a home page got me looking around at overall themes for the site. I came across one that was fairly simple and suited the type of content I was trying to create. I incorporated this into my page by:
+                <ul>
+                  <li>Copying the example page HTML and CSS into my page.</li>
+                  <li>Working out the aspects of the example code that I wanted to keep in terms of functionality and theme.</li>
+                  <li>Created my own version of a home page using the techniques I found useful.</li>
+                </ul>
+              </li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+          <h4>General Techniques Used</h4>
+          <ul>
+              <li>Layout - There was a learning curve for how to use a mix of HTML, CSS and Bootstrap layout and formatting approaches and getting them to work together. Using HTML templates was a key tip to help shortcut creating the overall page, but I somewhat went against this. I did use other HTML, but I tried to manually adjust a lot of it to help learn how things work.</li>
+              <li>Theme - Getting the colours and overall consistency of the site working required finding where settings were coming from. As this was my first website attempt, it definitely has room for improvement, but this allowed me to learn more as I went.</li>
+              <li>AI Support - I leaned heavily on the likes of co-pilot and ChatGPT throughout the entire process to find out how to do things, trouble shoot code, and generally work on the components to be able to build the overall site.</li>
+              <li>Online Resources - I spent a lot of time watching instructional videos to both learn fundamentals and also to work on more specific techniques.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Deployed the Page</h3>
+      </div>
+      <p class="card-text">Before I deployed my page and started telling people about it, I needed to make sure that the content was at a level I was happy with and that I was going to be able to get the page hosted and support it into the future. The content was a matter of iterating and getting feedback, mostly from my wife! The ability to get the page out there came down to hosting and version control.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Hosting Options</h4>
+          <ul>
+              <li>Explored hosting options, selecting PythonAnywhere for its beginner-friendly environment (and the free-tier option in case everything went sideways on me).</li>
+              <li>Used some other practice projects and loaded them onto the site to get used to the process and find out the little tips and tricks for getting all the settings to line up.</li>
+              <li>My page is now aligned to GitHub to allow me to manage updates more effectively.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Version Control</h4>
+          <ul>
+              <li>Utilized GitHub for version control, learning Git fundamentals to manage the project effectively.</li>
+              <li>Have gained experience across the range of tools and techniques required to get a webpage published.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12 mb-3 mb-sm-0">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Final Result</h3>
+      </div>
+      <p class="card-text">I now have a web-page to help promote myself and store my projects. I also learned a lot of different disciplines along the way that will no doubt come in handy in other endeavours.</p>
+      <hr>
+      <div class="row">
+          <div class="col-lg-12">
+              <h4>Future Developments</h4>
+              <ul>
+                  <li>I intend to keep adding things to the page and refining the format and functionality.</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 
 {% endblock %}

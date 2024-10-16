@@ -1,202 +1,3 @@
-{% extends 'mainapp/base.html' %}
-{% load static %}
-
-
-{% block content %}
-
-
-<title>PGJR Home</title>
-
-<!-- <h1>Home Page</h1>
-<h3>This can be the landing page for my personal site...</h3>
-<p>To begin making updates to this content once GitHub is sorted...</p> -->
-
-
-<div class="jumbotron">
-  <div style="margin-top:0px">
-    <h1>Philip Reid</h1>
-    <div class="spacer"></div>
-    <h1>Analyst + Advisor</h1>
-    <div class="spacer"></div>
-    <hr><hr>
-    <h2 class="text-center">Passionate about making data usable and helping others do more</h2>
-  </div>
-</div>
-
-<div class="section" id="about">
-  <h1>About</h1>
-  <hr>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 mx-auto">
-      <div class="well">
-        <!-- <h3>Philip Reid</h3> -->
-        <p>I'm a Wellington based analyst who loves to tinker with data and business processes. From generating quick answers to curly questions to building long-term value through improved processes and use of data, this is where I thrive.</p>
-        <div class="d-flex justify-content-center align-items-center">
-            <p><a href="{% url 'resume' %}" class="btn btn-default me-4">See My Resume / CV</a></p>
-            <p><a href="{% url 'portfolio' %}" class="btn btn-default">See My Portfolio</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<!--     <div class="jumbotron">
-      <div style="margin-top:0px" class="container">
-        <h1>Philip Reid</h1>
-        <div class="spacer"></div>
-        <h1>Analyst + Advisor</h1>
-        <div class="spacer"></div>
-        <hr><hr>
-        <h2 class="text-center">Passionate about making data usable and helping others do more</h2>
-      </div>
-    </div>
-
-    <div class="section" id="about"><h1>About</h1><hr></div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="well">
-            <img src="{% static 'mainapp/assets/logo.png' %}" class="img-size">
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="well">
-            <h3>Philip Reid</h3>
-            <p>I'm a Wellington based... (TEST CONTENT TO REPLACE freelance full-stack web developer and I would love to help you with your project. Currently, I do all web related jobs and specialize in HTML5/CSS3, PHP, SQL. I can build any website, from huge dynamic apps to small static sites, on any budget. See my work below.)</p>
-            <p><a href="{% url 'resume' %}" class="btn btn-default">See My Resume / CV</a></p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-
-    <div class="section" id="what-i-do"><h1>What I Do</h1><hr></div>
-
-    <div class="container">
-      <div class="row">
-<!--         <div class="col-md-4">
-          <div class="well">
-            <h3>Skills</h3>
-            <div class="spacer"></div><div class="spacer"></div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="html"></div> <h4 style="font-weight: 400; display: inline;">SQL</h4><br>
-                <div class="css"></div> <h4 style="font-weight: 400; display: inline;">Excel</h4><br>
-                <div class="php"></div> <h4 style="font-weight: 400; display: inline;">Power BI</h4><br>
-                <div class="sql"></div> <h4 style="font-weight: 400; display: inline; margin-bottom:5px;">Python</h4>
-              </div>
-              <div class="col-md-8">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-html" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                    <span class="sr-only">HTML5 90%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-css" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
-                    <span class="sr-only">CSS3 90%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-php" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                    <span class="sr-only">PHP 70%</span>
-                  </div>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-sql" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                    <span class="sr-only">SQL 80%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <div class="col-md-6 mx-auto">
-          <div class="well">
-            <h3>Help Others Do More</h3>
-            <p>Everything I do is aimed at helping others do more. It is my purpose and I fulfil this through looking for improvement opportunities and ways to make best use of data. Whether I am improving a process, performing a piece of analysis and packaging it up, learning a new tool or technique, or training someone on tools and techniques in my repertoire, I'm always looking to help others do more.</p>
-          </div>
-        </div>
-        <div class="col-md-6 mx-auto">
-          <div class="well">
-            <h3>Make The Complex Simple</h3>
-            <p>I appreciate that most people are not numbers people. They baulk at the word "spreadsheet", so that is where I come in. Being an experienced analyst and advisor I can take a business problem and make use of data to help find a solution. From understanding the where data has come from, how fit-for-purpose the data is, and turning it into a format that is digestable to the "not-another-spreadsheet" people, this is what I do.</p>
-          </div>
-        </div>
-      </div><!--/.row-->
-    </div><!--/.container-->
-
-
-    <div class="work visible-lg" style="height:auto !important; padding-top: 0;">
-      <div class="container p-3">
-        <div class="row">
-          <div class="col-md-3">
-            <h3><i class="fas fa-search"></i>&nbsp; Analysis</h3>
-            <p>I analyse, interpret, and present findings using a range of techniques to suit the situation. My experience has allowed me to work in many different environments, so I appreciate the need for tailoring solutions to suit.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fas fa-chart-pie"></i>&nbsp; Visualisation</h3>
-            <p>I am experienced with visualisation methods that include Excel charts, PowerPoint presentations, A3 One-pagers, and dashboarding in tools like Power BI. My ability to pick up new tools and skillsets allows me to pivot to whatever options are available to me and make the most of the available mediums.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fas fa-users"></i>&nbsp; Collaboration</h3>
-            <p>My preference is to collaborate wherever possible as I believe it will always provide a better result. I enjoy working with others, so that I can learn from them and they can learn from me. Whether it is business stakeholders, senior executives, or my peers, I am comfortable with managing relationships to enhance collorative opportunities.</p>
-          </div>
-          <div class="col-md-3">
-            <h3><i class="fas fa-sync"></i>&nbsp; Improvement</h3>
-            <p>Always on the lookout for opportunities to improve. Improve the way things work, improve myself or others, improve how things will be done next time. I bring a mindset of challenging what is to consider what could be...and when the conditions are right, bringing those changes to fruition.</p>
-          </div>
-        </div><!--/.row-->
-      </div><!--/.container-->
-    </div><!--/.work-->
-
-
-<!-- <div class="container mt-5">
-    <div class="row">
-
-        <div class="col-md-6">
-            <div class="p-4 mb-4" style="background-color: #f8f9fa; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="d-flex align-items-center">
-                    <img src="{% static 'mainapp/assets/logo.png' %}" alt="logo" class="img-fluid" style="max-width: 300px; margin-right: 20px;">
-                    <div>
-                        <h1>Hi, I'm Philip, an experienced analyst and advisor who supports others to do more.</h1>
-                        <p>Hi, I'm Philip, an experienced analyst and advisor who supports others to do more.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="p-4 mb-4" style="background-color: #e9ecef; border: 1px solid #dee2e6; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon1.png' %}" alt="Icon 1" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 1.</p>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon2.png' %}" alt="Icon 2" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 2.</p>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <img src="{% static 'path/to/icon3.png' %}" alt="Icon 3" class="img-fluid" style="max-width: 50px; margin-right: 20px;">
-                    <p>Text related to icon 3.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-
-<style type="text/css">
-
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -390,7 +191,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 body {
-/*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 /*  font-size: 14px;*/
   line-height: 1.42857;
   color: #333;
@@ -479,7 +280,7 @@ h6,
   font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
-  color: #596b7d; /* Sub-heading font colour, so About, What I Do, Help Others Do More etc. */
+  color: #596b7d; /* Sub-heading font colour. */
 }
 h1 small,
 h1 .small,
@@ -2730,16 +2531,34 @@ input[type="button"].btn-block {
 .section {
   font-size: 56px;
   text-align: center;
-  margin-top: 35px;
   letter-spacing: 3px;
   font-weight: 500;
-  color: #596b7d; /* This colour does not do much. To check what section is used for. */
   text-transform: capitalize;
+  background: #596b7d;
+  background-size: cover;
+  margin: 15px;
+  color: #fff;
+  background-color: #596b7d;
+  padding: 10px;
+
+
 }
 .section hr {
   width: 100px;
   height: 30px;
 }
+
+.section h1,
+.section p {
+  color: #fff !important; /* Font colour for bottom section. #fff is white. */
+}
+.section a {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+
+
 .work {
   background: #596b7d;
   /*background: -webkit-linear-gradient(
@@ -3300,9 +3119,25 @@ a.list-group-item-danger.active:focus {
 }
 
 
-</style>
+/* MY OTHER THINGS FROM HERE ONWARDS */
 
+.card-title {
+  color: #596b7d;
+}
 
+.card {
+  margin: 10px;
+}
 
-{% endblock %}
+.heading-box {
+    background-color: #596b7d;
+/*    border: 2px solid white; 
+    border-radius: 5px; */
+/*    height: auto;*/
+    padding: 10px; 
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
