@@ -48,7 +48,6 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
-  color: #596b7d;
 }
 dfn {
   font-style: italic;
@@ -195,7 +194,7 @@ body {
 /*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 /*  font-size: 14px;*/
   line-height: 1.42857;
-  color: #596b7d; /*#333;*/
+  color: #333;
   background-color: #f2f3f8; /* Background colour for home page - colour behind content boxes and headings. */
 }
 input,
@@ -317,7 +316,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -507,8 +506,8 @@ ol ol {
 }
 .list-inline > li {
   display: inline-block;
-  padding-left: 2px;
-  padding-right: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 dl {
   margin-top: 0;
@@ -2533,10 +2532,10 @@ input[type="button"].btn-block {
 .section {
   font-size: 56px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 35px;
   letter-spacing: 3px;
   font-weight: 500;
-  color: #596b7d; /* This colour does not do much. To check what section is used for. */
+  color: #34495e; /* This colour does not do much. To check what section is used for. */
   text-transform: capitalize;
 }
 
@@ -2934,7 +2933,7 @@ a.list-group-item-danger.active:focus {
 .well {
   min-height: 20px;
   padding: 9px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   background-color: #fff;
   border-radius: 3px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -3113,11 +3112,6 @@ a.list-group-item-danger.active:focus {
 
 /* MY OTHER THINGS FROM HERE ONWARDS */
 
-.nav-item {
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
 .card-title {
   color: #596b7d;
 }
@@ -3128,57 +3122,13 @@ a.list-group-item-danger.active:focus {
 
 .heading-box {
     background-color: #596b7d;
-    padding: 15px; 
+/*    border: 2px solid white; 
+    border-radius: 5px; */
+/*    height: auto;*/
+    padding: 10px; 
     color: #fff;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.dev-icons .fa-python { color: #306998; } /* Python Blue */
-.dev-icons .fa-r-project { color: #276DC3; } /* R Blue */
-.dev-icons .fa-file-excel { color: #207245; } /* Excel Green */
-.dev-icons .fa-database { color: #4DB33D; } /* Database Green */
-.dev-icons .fa-chart-bar { color: #EF6C00; } /* Chart Orange */
-.dev-icons .fa-chart-pie { color: #D32F2F; } /* Chart Red */
-.dev-icons .fa-js { color: #F7DF1E; } /* JavaScript Yellow */
-.dev-icons .fa-css3-alt { color: #1572B6; } /* CSS Blue */
-.dev-icons .fa-bootstrap { color: #563D7C; } /* Bootstrap Purple */
-.dev-icons .fa-github { color: #181717; } /* GitHub Black */
-.dev-icons .fa-html5 { color: #E34F26; }
-
-.icon-size-pbi {
-    width: 35px; /* Adjust to your preferred width */
-    padding-left: 10px;
-    height: auto; /* Maintains the aspect ratio */
-    vertical-align: middle;
-}
-
-.icon-size-django {
-    width: auto; /* Adjust to your preferred width */
-    padding-left: 0px;
-    padding-right: 0px;
-    height: 34px; /* Maintains the aspect ratio */
-    margin-bottom: .8em;
-}
-
-.icon-size-django-sm {
-    width: auto; /* Adjust to your preferred width */
-    padding-left: 0px;
-    height: 18px; /* Maintains the aspect ratio */
-}
-
-.icon-size-tableau {
-    width: 40px; /* Adjust to your preferred width */
-    padding-left: 10px;
-    height: auto; /* Maintains the aspect ratio */
-}
-
-.icon-size-powerapps {
-    width: auto; /* Adjust to your preferred width */
-    padding-left: 0px;
-    padding-right: 0px;
-    height: 34px; /* Maintains the aspect ratio */
-    margin-bottom: .8em;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 

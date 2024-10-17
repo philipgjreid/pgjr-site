@@ -4,87 +4,30 @@
 {% block content %}
 
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>PGJR Portfolio</title>
-        <!-- <link rel="icon" type="image/x-icon" href="{% static 'resumeapp/assets/img/favicon.ico' %}" /> -->
-        <!-- Font Awesome icons (free version)-->
-        <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
-        <!-- Google fonts-->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" /> -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" /> -->
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>PGJR Portfolio</title>
+    <!-- <link rel="icon" type="image/x-icon" href="{% static 'resumeapp/assets/img/favicon.ico' %}" /> -->
+    <!-- Font Awesome icons (free version)-->
+    <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
+    <!-- Google fonts-->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" /> -->
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+</head>
 
 
 <style type="text/css">
-
-.dev-icons .fa-python { color: #306998; } /* Python Blue */
-.dev-icons .fa-r-project { color: #276DC3; } /* R Blue */
-.dev-icons .fa-file-excel { color: #207245; } /* Excel Green */
-.dev-icons .fa-database { color: #4DB33D; } /* Database Green */
-.dev-icons .fa-chart-bar { color: #EF6C00; } /* Chart Orange */
-.dev-icons .fa-chart-pie { color: #D32F2F; } /* Chart Red */
-.dev-icons .fa-js { color: #F7DF1E; } /* JavaScript Yellow */
-.dev-icons .fa-css3-alt { color: #1572B6; } /* CSS Blue */
-.dev-icons .fa-bootstrap { color: #563D7C; } /* Bootstrap Purple */
-
-/*.mb-3 {
-    margin-bottom: 15px !important; 
-}*/
-
-.icon-size-pbi {
-    width: 35px; /* Adjust to your preferred width */
-    padding-left: 10px;
-    height: auto; /* Maintains the aspect ratio */
-}
-
-.icon-size-tableau {
-    width: 40px; /* Adjust to your preferred width */
-    padding-left: 10px;
-    height: auto; /* Maintains the aspect ratio */
-}
-
-.icon-size-django {
-    width: auto; /* Adjust to your preferred width */
-    padding-left: 0px;
-    padding-right: 5px;
-    height: 34px; /* Maintains the aspect ratio */
-    margin-bottom: .8em;
-}
-
-/*.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 0px;
-  padding-right: 0px;
-  max-width: 100% !important;
-}*/
-
-/*.section {
-  background: #596b7d;
-  background-size: cover;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-.section h1,
-.section p {
-  color: #fff !important; 
-}
-.section a {
-  color: #fff !important;
-  text-decoration: underline;
-}*/
 
 .btn-default {
   padding: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: #596b7d; /* Button background colour - links to CV and Portfolio. */
+  background: #596b7d;
   border: none;
   color: #fff;
   text-transform: capitalize;
@@ -95,43 +38,19 @@
   color: #fff;
 }
 
-
-
-
-
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.1;
-  color: #596b7d; /* Sub-heading font colour, so About, What I Do, Help Others Do More etc. */
-}
-
-
-
-
 </style>
 
 
 <!-- <h1>Portfolio Page</h1>
 <h3>This is my Portfolio Home Page...</h3> -->
 
- <div class="section" id="projects"><h1>My Projects</h1><hr></div>
+  <div class="section" id="projects">
+    <h1 class="heading-box">My Projects</h1>
+  </div>
  <!-- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of my personal projects</h2></div> -->
 
 
-<div class="row" style="margin-left: 0px; margin-right: 0px;">
+<div class="row">
 
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
@@ -145,9 +64,10 @@ h6,
             <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-github fa-2x"></i></li>
           </ul>
         </div>
-        <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS and Bootstrap.</p>
+        <p class="card-text">A Python web-based app for collecting golf statistics built on the Django Web Framework. Includes databases for storing collected statistics, user authentication handling (login/logout and registration). Utilises HTML, Javascript, CSS, Bootstrap, and Git / GitHub.</p>
         <a href="{% url 'portfolio-golfapp' %}" class="btn btn-default">Go To Detail Page for This Project</a>
       </div>
     </div>
@@ -165,9 +85,10 @@ h6,
             <li class="list-inline-item"><i class="fab fa-js fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-css3-alt fa-2x"></i></li>
             <li class="list-inline-item"><i class="fab fa-bootstrap fa-2x"></i></li>
+            <li class="list-inline-item"><i class="fab fa-github fa-2x"></i></li>
           </ul>
         </div>
-        <p class="card-text">A site created using the Django Web Framework with functionality creating using Python, HTML and Javascript, and styling from CSS and Bootstrap.</p>
+        <p class="card-text">A site created using the Django Web Framework. Functionality created using Python, HTML and Javascript. Styling from CSS and Bootstrap. Version controlled with Git and GitHub.</p>
         <a href="{% url 'portfolio-website' %}" class="btn btn-default">Go To Detail Page for This Project</a>
       </div>
     </div>
@@ -198,11 +119,13 @@ h6,
 
 </div>
 
- <div class="section" id="work-examples"><h1>Previous Experience</h1><hr></div>
+  <div class="section" id="work-examples">
+    <h1 class="heading-box">Previous Experience</h1>
+  </div>
  <!-- <div class="section" style="margin-top: 0px;" id="projects-subheading"><h2 style="margin-top: 0px;">Here are some of examples of things I have done in my career so far</h2></div> -->
 
 
-<div class="row" style="margin-left: 0px; margin-right: 0px;">
+<div class="row">
 
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
@@ -234,9 +157,6 @@ h6,
     </div>
   </div>
 
-
-<div class="row" style="margin-left: 0px; margin-right: 0px;">
-
   <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
@@ -250,7 +170,7 @@ h6,
             <!-- <li class="list-inline-item"><i class="fas fa-tableau fa-2x"></i></li> -->
           </ul>
         </div>
-        <p class="card-text">I have experience with MS Power BI and continue to learn more about this as one of the more popular data visualisation tools.</p>
+        <p class="card-text">Experience with MS Power BI and continue to learn more about this and Tableau as the more popular data visualisation tools.</p>
         <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>
@@ -260,12 +180,12 @@ h6,
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center">
-          <h3 class="card-title">TBC</h3>
+          <h3 class="card-title">Power Apps</h3>
           <ul class="list-inline dev-icons mb-0 ms-2">
-            <li class="list-inline-item"><i class="fas fa-file-excel fa-2x"></i></li>
+            <img src="{% static 'resumeapp/assets/img/PowerApps_scalable.svg' %}" alt="Power Apps Logo" class="icon-size-powerapps">
           </ul>
         </div>
-        <p class="card-text">TBC.</p>
+        <p class="card-text">Created a proof-of-concept Risk and Assurance Management app.</p>
         <a href="#" class="btn btn-default">Go To Detail Page for This Subject</a>
       </div>
     </div>

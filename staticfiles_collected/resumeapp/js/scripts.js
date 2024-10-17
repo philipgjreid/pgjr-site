@@ -7,6 +7,8 @@
 // Scripts
 // 
 
+/* THIS IS ALL FOR THE OLD RESUME SO IS REDUNDANT. */
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
