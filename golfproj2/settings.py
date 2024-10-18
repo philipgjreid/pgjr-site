@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,7 +14,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zn$2=g6!j!-+%a$c=%z+=-gya)sckqvb&^=bts12m#c_q85ruu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False # Tried replacing with the code below to automatically set Debug to False in production but it broke the styling / static links.
+
+# load_dotenv()  # Load environment variables from .env file
+# print("DJANGO_DEBUG:", os.getenv('DJANGO_DEBUG'))  # Log the value of DJANGO_DEBUG to verify it
+# DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['localhost', 'philipgjreid.pythonanywhere.com'] # Add 'philipgjreid.pythonanywhere.com', to this when deploying.
 
@@ -110,9 +115,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected') # This worked to get PythonAnywhere to work.
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
