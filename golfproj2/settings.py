@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zn$2=g6!j!-+%a$c=%z+=-gya)sckqvb&^=bts12m#c_q85ruu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # Tried replacing with the code below to automatically set Debug to False in production but it broke the styling / static links.
+DEBUG = True # Tried replacing with the code below to automatically set Debug to False in production but it broke the styling / static links.
 
 # load_dotenv()  # Load environment variables from .env file
 # print("DJANGO_DEBUG:", os.getenv('DJANGO_DEBUG'))  # Log the value of DJANGO_DEBUG to verify it
