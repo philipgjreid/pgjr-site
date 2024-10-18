@@ -3126,6 +3126,10 @@ a.list-group-item-danger.active:focus {
   margin: 10px;
 }
 
+.card-body {
+  color: #596b7d;
+}
+
 .heading-box {
     background-color: #596b7d;
     padding: 15px; 

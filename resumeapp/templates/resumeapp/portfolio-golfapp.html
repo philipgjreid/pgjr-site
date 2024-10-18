@@ -56,7 +56,7 @@ body {
 <div class="col-12 mb-3">
   <div class="card">
     <div class="card-body">
-      <p class="card-text">When I started learning Python I decided to build something that I could use myself. Being a keen golfer I decided that a golf statistics app would be a good idea. So, a golf stats app that I can use on my mobile... how hard could that be?</p>
+      <p class="card-text">When I started learning Python I decided to build something that I could use myself. Being a keen golfer I decided that a golf statistics app would be a good idea, and why not build it so that I could use it on my cell phone.</p>
       <hr>
       <div class="row">
         <div class="col-lg-8">
@@ -92,12 +92,15 @@ body {
             <li class="dev-icons">
               <i class="fab fa-github"></i> <strong>GitHub</strong> - Version control
             </li>
+            <li class="dev-icons">
+              <i class="fas fa-database"></i> <strong>Databases</strong> - Table creation and management
+            </li>
           </ul>
         </div>
       </div>
       <hr>
       <div class="d-flex justify-content-center align-items-center" style="margin-top: 10px;">
-        <a href="{% url 'golf-home' %}" class="btn btn-default">Go Have A Look At The Golf App</a>
+        <a href="{% url 'golf-home' %}" class="btn btn-default">Check out my Golf App</a>
       </div>
     </div>
   </div>
@@ -171,9 +174,9 @@ body {
         <div class="col-lg-6">
           <h4>Improved Version on Django</h4>
           <ul>
-              <li>After a steep learning curve in Flask I decided to look into using Django, which turned out to be a steeper learning curve!</li>
+              <li>After a steep learning curve in Flask I decided to look into using Django, which turned out to be an even steeper learning curve!</li>
               <li>After taking some time to learn Django, I benefitted from the built-in user authentication, simple data table creation, and code reusability of Django.</li>
-              <li>My previous experience with data structures and SQL came in handy as Django keeps this stuff in the background, but you still need to know how relational tables work to make sure any foreign keys are set up correctly!</li>
+              <li>Using the built-in table creation capability I built the tables to store my data and set up the foreign keys to manage relationships between tables. My previous experience with data structures and SQL came in handy and made this relatively straight forward.</li>
           </ul>
         </div>
       </div>
@@ -188,7 +191,7 @@ body {
       <div class="d-flex align-items-center">
         <h3 class="card-title">Deployed to the Web</h3>
       </div>
-      <p class="card-text">When I started out my focus was on Python and getting a practical project under my belt. Little did I know how far into web-development I would end up going (not that far for anyone who actually does this stuff, but a lot farther than I was expecting). So all my work on the app required me to get my head around this stuff so I could deploy my app and actually use it.</p>
+      <p class="card-text">When I started out my focus was on Python and getting a practical project under my belt. Little did I know how far into web-development I would end up going. To get my app up and running I worked out how to host and manage it.</p>
       <hr>
       <div class="row">
         <div class="col-lg-6">
@@ -202,7 +205,7 @@ body {
         <div class="col-lg-6">
           <h4>Version Control</h4>
           <ul>
-              <li>Utilized GitHub for version control, learning Git fundamentals to manage the project effectively.</li>
+              <li>Used GitHub for version control, learning Git fundamentals to manage the project effectively.</li>
               <li>Have gained experience across the range of tools and techniques required to get a webpage published.</li>
           </ul>
         </div>
@@ -218,10 +221,10 @@ body {
       <div class="d-flex align-items-center">
         <h3 class="card-title">Final Result</h3>
       </div>
-      <p class="card-text">After all that, I now have a mobile-accessible golf stats app that I can use at the golf course. It has a guest login, so feel free to check it out.</p>
+      <p class="card-text">I now have a mobile-accessible golf stats app that I can use at the golf course. It has a guest login, so feel free to check it out.</p>
 
       <div class="d-flex justify-content-center align-items-center" style="margin: 10px;">
-        <a href="{% url 'golf-home' %}" class="btn btn-default">Go Have A Look At The Golf App</a>
+        <a href="{% url 'golf-home' %}" class="btn btn-default">Check out my Golf App</a>
       </div>
       <hr>
       <div class="row">
@@ -240,18 +243,18 @@ body {
       <hr>
       <div class="row">
           <div class="col-lg-8">
-              <h4>Round Page</h4>
+              <h4>Round Details Page</h4>
               <ul>
                   <li>A page that allows users to enter the details for their round. This includes:
                     <ul>
-                      <li>The course played, which in my case will normally be Shandon!! I can manually update the app with details for as many courses as I like.</li>
+                      <li>The course played, which in my case will normally be Shandon!! I can manually update the app with details for any course.</li>
                       <li>The tee, which is based on a subset of tee options for each course.</li>
                       <li>Other details like the date of the round, the type of round, the weather and wind conditions, plus a free-text field for any other notes.</li>
                     </ul>
 
                   </li>
-                  <li>There is also a cancel button to allow a user to navigate back to the home screen for the app.</li>
-                  <li>This page is based on a Django Form, which takes care of most of the heavy lifting and Bootstrap provides the formatting. The most technical aspect is the script to return the list of tees based on the selected course.</li>
+                  <li>There is also a cancel button to allow a user to navigate back to the home screen.</li>
+                  <li>This page is based on a Django Form, which takes care of most of the heavy lifting and Bootstrap provides the formatting. The most technical aspect is the javascript used to return the list of tees based on the selected course.</li>
               </ul>
           </div>
           <div class="col-lg-4">
