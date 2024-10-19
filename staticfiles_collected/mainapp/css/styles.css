@@ -3127,8 +3127,8 @@ a.list-group-item-danger.active:focus {
   margin: 10px;
 }
 
-.card-body {
-/*  color: #596b7d;*/
+.card-body ul li {
+    color: #596b7d;
 }
 
 .heading-box {
