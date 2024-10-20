@@ -3186,4 +3186,12 @@ a.list-group-item-danger.active:focus {
     margin-bottom: .8em;
 }
 
+.icon-size-powerapps-sm {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 18px; /* Maintains the aspect ratio */
+    margin-bottom: .8em;
+}
+
 

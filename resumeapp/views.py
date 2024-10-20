@@ -14,3 +14,6 @@ def portfolio_golfapp(request):
 
 def portfolio_website(request):
 	return render(request, 'resumeapp/portfolio-website.html', {})
+
+def portfolio_powerapps(request):
+	return render(request, 'resumeapp/portfolio-powerapps.html', {})

@@ -4,7 +4,7 @@
 {% block content %}
 
 <head>
-    <title>Personal Website Project</title>
+    <title>Power Apps PoC</title>
     <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
 </head>
 
@@ -27,7 +27,7 @@
 
 
 <div class="section" id="projects">
-  <h1 class="heading-box">My Personal Website Project</h1>
+  <h1 class="heading-box">Power Apps Risk Tool Project</h1>
 </div>
 
 <div class="section" id="projects-subheading">
@@ -38,40 +38,28 @@
 <div class="col-12 mb-3">
   <div class="card">
     <div class="card-body">
-      <p class="card-text">I built a golf stats app to help learn more about Python. Along the way this turned into a web-based app and I decided to extend that project into building myself a personal website.....this website!! Most of what I did is covered in my summary for my golf stats app project 
-        (<span style="font-weight: 600"><a href="{% url 'portfolio-golfapp' %}">check it out here</a></span>), but here is a view of what building the website involved.</p>
+      <p class="card-text">While I was working at the Ministry of Justice (circa 2024) as a risk consultant, I developed a proof-of-concept app using Power Apps for risk and assurance management. The existing risk tool had been created to move from using Excel based risk registers, but still had several limitations and missing functionality. My aim was to show what could be done using Power Apps as a potential future tooling option.</p>
       <hr>
       <div class="row">
         <div class="col-lg-8">
           <h3>What I Did</h3>
           <ul>
-            <li><strong>Extended Backend and Frontend from Golf Stats App</strong> - Took the golf project base and extended to have a full personal website layout
+            <li><strong>Current State Assessment</strong> - Assessed the current state and documented future state requirements as a baseline for creating the PoC app
             </li>
-            <li><strong>Developed and Refined Content</strong> Created pages for the various types of content I wanted to include on my site and refined the content and styling
+            <li><strong>Developed PoC Risk Tool</strong> Developed an app to showcase the potential functionality that could be built using Power Apps
             </li>
-            <li><strong>Deployed the Application</strong> - Set up version control using Git and managed updates to PythonAnywhere hosted site via GitHub
+            <li><strong>Business Case for Risk Tool</strong> - Presented the PoC app to my team and incorporated the option into a draft business case
             </li>
           </ul>
         </div>
         <div class="col-lg-4">
           <h3>Skills Used</h3>
           <ul>
-            <li class="dev-icons">
-              <i class="fab fa-python"></i> <strong>Python</strong> - Backend development
-            </li>
             <li>
-              <img src="{% static 'resumeapp/assets/img/django-logo.png' %}" alt="Django Logo" class="icon-size-django-sm"> <strong>Django</strong> - Web framework and URL routing
+              <img src="{% static 'resumeapp/assets/img/PowerApps_scalable.svg' %}" alt="Power Apps Logo" class="icon-size-powerapps-sm"> <strong>Power Apps</strong> - App development with DAX and Power Fx
             </li>
             <li class="dev-icons">
-              <i class="fab fa-html5"></i>
-              <i class="fab fa-css3-alt"></i>
-              <i class="fab fa-js"></i> <strong>HTML, CSS, JavaScript</strong> - Frontend development and responsive design
-            </li>
-            <li class="dev-icons">
-              <i class="fab fa-bootstrap"></i> <strong>Bootstrap</strong> - Styling and layout design
-            </li>
-            <li class="dev-icons">
-              <i class="fab fa-github"></i> <strong>GitHub</strong> - Version control
+              <i class="fas fa-database"></i> <strong>Databases</strong> - Database structure creation in Dataverse
             </li>
           </ul>
         </div>
@@ -95,9 +83,9 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex align-items-center">
-        <h3 class="card-title">Extended Site</h3>
+        <h3 class="card-title">Current State Assessment</h3>
       </div>
-      <p class="card-text">The golf app had already allowed me to create a Django project with several pages providing the basis to create more pages using similar techniques. The personal website was slightly easier to build due to being mainly static pages. I still needed to work out a few things:</p>
+      <p class="card-text">The existing solutions had previously moved from using Excel based risk registers to creating a risk tool in Oracle Application Express. While this tool provided a better central repository for managing risks, the solution had several major limitations was relatively simple with a single record for each risk. It tracked risk controls and risk treatments using free-text fields for each risk, which was one of the main drivers to consider a new solution. The main requirements were to create a Control Library and a Treatment Register so those activities could be tracked and linked to multiple risks, where required. An uplift in assurance processes also necessitated the tracking  of control assessments, which was going to have to be done using Excel spreadsheets.</p>
       <hr>
       <div class="row">
         <div class="col-lg-6">
