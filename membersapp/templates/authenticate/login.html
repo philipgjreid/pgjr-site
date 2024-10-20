@@ -33,20 +33,21 @@ body {
 	<form method="post">
     {% csrf_token %}
 
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
-    <input type="text" class="form-control" name="username">
-  </div>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password">
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <input type="submit" value="Log In" class="btn btn-secondary mb-3">
+        <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
+      </div>
+    </form>
 
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" name="password">
-  </div>
-
-	<input type="submit" value="Submit" class="btn btn-secondary me-2">
-  <a href="{% url 'golf-home' %}" class="btn btn-outline-primary">Return to Golf App Home Page</a>
-</form>
 </form>
 </div>
 {% endblock%}

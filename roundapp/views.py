@@ -802,8 +802,8 @@ def round_summary(request, round_number_id):
 	updown_yes = sum(1 for stat in round_stats if stat.updown == 'yes')
 	updown_no = sum(1 for stat in round_stats if stat.updown == 'no')
 
-	sandsave_yes = sum(1 for stat in round_stats if stat.updown == 'yes')
-	sandsave_no = sum(1 for stat in round_stats if stat.updown == 'no')
+	sandsave_yes = sum(1 for stat in round_stats if stat.sandsave == 'yes')
+	sandsave_no = sum(1 for stat in round_stats if stat.sandsave == 'no')
 
 	total_penalties = sum(stat.penalties for stat in round_stats)
 

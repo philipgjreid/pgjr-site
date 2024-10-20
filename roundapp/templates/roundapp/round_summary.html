@@ -56,8 +56,8 @@
     padding: 20px;
     margin: 20px auto;
     width: 100%;
-    max-width: 950px;
-    min-width: 950px;
+/*    max-width: 950px;
+    min-width: 950px;*/
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
 }
@@ -91,10 +91,10 @@
 
 <div class="content-box">
 
-<div class="container">
+<!-- <div class="container"> -->
 
-    <div style="display: flex; justify-content: space-between; margin-top: 8px;">
-        <a href="{% url 'round-csv' round_number.id%}" class="btn btn-primary">Download Round Stats CSV File</a>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 8px;">
+        <a href="{% url 'round-csv' round_number.id%}" class="btn btn-primary mb-2">Download Round Stats CSV File</a>
         <a href="{% url 'golf-home' %}" class="btn btn-success">Round Complete - Return Home</a>
     </div><br>
 
@@ -102,83 +102,84 @@
     <div class="row">
         <div class="col-md-6">
 
-<div class="card" style="width: 25rem;">
-  <div class="card-body">
-    <h4 class="card-title">Round Summary</h4>
-    <h5 class="card-title">Course: {{ round_number.course.name }}</h5>
-    <h5 class="card-title">Date: {{ round_number.date_played|date:"l jS M Y" }}</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">{{ round_number.round_type|get_label:round_type_choices }} round - {{ round_number.tee_name }} tees</h6>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Round Summary</h4>
+                <h5 class="card-title">Course: {{ round_number.course.name }}</h5>
+                <h5 class="card-title">Date: {{ round_number.date_played|date:"l jS M Y" }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ round_number.round_type|get_label:round_type_choices }} round - {{ round_number.tee_name }} tees</h6>
 
-    <p class="card-text"><strong>Score:</strong> {{ total_score }} ({% if total_score|subtract:total_par > 0 %}
-            +{{ total_score|subtract:total_par }}
-        {% elif total_score|subtract:total_par < 0 %}
-            -{{ total_score|subtract:total_par }}
-        {% else %}
-            Even
-        {% endif%})
-    </p>
+                <p class="card-text"><strong>Score:</strong> {{ total_score }} ({% if total_score|subtract:total_par > 0 %}
+                        +{{ total_score|subtract:total_par }}
+                    {% elif total_score|subtract:total_par < 0 %}
+                        -{{ total_score|subtract:total_par }}
+                    {% else %}
+                        Even
+                    {% endif%})
+                </p>
 
-    <p class="card-text"><strong>Weather:</strong> {{ round_number.weather|get_label:weather_choices }} and {{ round_number.wind|get_label:wind_choices }}</p>
+                <p class="card-text"><strong>Weather:</strong> {{ round_number.weather|get_label:weather_choices }} and {{ round_number.wind|get_label:wind_choices }}</p>
 
-    {% if round_number.comments == '' %}
-    {% else %}
-        <p class="card-text"><strong>Comments:</strong> {{ round_number.comments }}</p>
-    {% endif %}
-<!--     <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a> -->
-  </div>
-</div>
+                {% if round_number.comments == '' %}
+                {% else %}
+                    <p class="card-text"><strong>Comments:</strong> {{ round_number.comments }}</p>
+                {% endif %}
+            <!--     <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a> -->
+              </div>
+            </div>
 
-    </div>
-<div class="col-md-6">
+        </div>
+        <div class="col-md-6">
 
-<table class="table table-striped table-bordered w-auto">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Statistic</th>
-      <th scope="col">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Scores</td>
-      <td>Eagles: {{eagles}} / Birdies: {{birdies}} / Pars: {{pars}} / Bogeys: {{bogeys}} / Others: {{others}}</td>
-    </tr>
-    <tr>
-      <td>Driving</td>
-      <td>
-      <!-- Average Distance: {{drive_dist_total|divide:drive_dist_count}} -->
-      <!-- The avg dist below is from the javascript. The one above is based on passed through values-->
-        <div id="average-drive-distance"></div>
-        Direction: {{fairway_hit}} / {{fairway_wayleft|add_up:fairway_left|add_up:fairway_right |add_up:fairway_wayright|add_up:fairway_hit}} (Left: {{fairway_wayleft|add_up:fairway_left}} / Hit: {{fairway_hit}} / Right: {{fairway_wayright|add_up:fairway_right}})</td>
-    </tr>
-    <tr>
-      <td>Greens</td>
-      <td>{{green_hit}} / {{green_hit|add_up:green_small_miss|add_up:green_big_miss|add_up:green_notreach}} (Small: {{green_small_miss}} / Big: {{green_big_miss}} / Unreachable: {{green_notreach}})</td>
-    </tr>
-    <tr>
-      <td>Putts</td>
-      <td> {{ total_putts }}</td>
-    </tr>
-    <tr>
-      <td>U/D</td>
-      <td>{{updown_yes}} / {{updown_yes|add_up:updown_no}}</td>
-    </tr>
-    <tr>
-      <td>S/S</td>
-      <td>{{sandsave_yes}} / {{sandsave_yes|add_up:sandsave_no}}</td>
-    </tr>
-    <tr>
-      <td>Penalties</td>
-      <td> {{total_penalties}}</td>
-    </tr>
-    <!-- Add more rows as needed -->
-  </tbody>
-</table>
+            <table class="table table-striped table-bordered w-auto">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Statistic</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Scores</td>
+                  <td>Eagles: {{eagles}} / Birdies: {{birdies}} / Pars: {{pars}} / Bogeys: {{bogeys}} / Others: {{others}}</td>
+                </tr>
+                <tr>
+                  <td>Driving</td>
+                  <td>
+                  <!-- Average Distance: {{drive_dist_total|divide:drive_dist_count}} -->
+                  <!-- The avg dist below is from the javascript. The one above is based on passed through values-->
+                    <div id="average-drive-distance"></div>
+                    Direction: {{fairway_hit}} / {{fairway_wayleft|add_up:fairway_left|add_up:fairway_right |add_up:fairway_wayright|add_up:fairway_hit}} (Left: {{fairway_wayleft|add_up:fairway_left}} / Hit: {{fairway_hit}} / Right: {{fairway_wayright|add_up:fairway_right}})</td>
+                </tr>
+                <tr>
+                  <td>Greens</td>
+                  <td>{{green_hit}} / {{green_hit|add_up:green_small_miss|add_up:green_big_miss|add_up:green_notreach}} (Small: {{green_small_miss}} / Big: {{green_big_miss}} / Unreachable: {{green_notreach}})</td>
+                </tr>
+                <tr>
+                  <td>Putts</td>
+                  <td> {{ total_putts }}</td>
+                </tr>
+                <tr>
+                  <td>U/D</td>
+                  <td>{{updown_yes}} / {{updown_yes|add_up:updown_no}}</td>
+                </tr>
+                <tr>
+                  <td>S/S</td>
+                  <td>{{sandsave_yes}} / {{sandsave_yes|add_up:sandsave_no}}</td>
+                </tr>
+                <tr>
+                  <td>Penalties</td>
+                  <td> {{total_penalties}}</td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
 
         </div>
     </div>
 </div>
+<!-- </div> -->
 
 <!-- Test DataFrame - Use this for checking values -->
 <!--     <div class="container">
@@ -281,7 +282,7 @@
 <div id="sandsave-percentage"></div><br> -->
 
 
-</div>
+
 
 <script>
     // I can remove totalScore and totalPar from here as it is calculated in views by round_summary.
