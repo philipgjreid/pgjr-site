@@ -3194,4 +3194,9 @@ a.list-group-item-danger.active:focus {
     margin-bottom: .8em;
 }
 
+.img-border {
+    border: 2px solid #596b7d; /* Adjust border width and color as needed */
+    padding: 5px; /* Optional padding within the border */
+    margin: 3px;
+}
 

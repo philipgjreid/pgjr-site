@@ -23,6 +23,20 @@
     color: #596b7d; /* Custom color for bullet points */
 }
 
+.img-border {
+    border: 2px solid #596b7d; /* Adjust border width and color as needed */
+    padding: 5px; /* Optional padding within the border */
+    margin: 3px;
+}
+
+.icon-size-powerapps-sm {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 18px; /* Maintains the aspect ratio */
+    margin-bottom: .4em;
+}
+
 </style>
 
 
@@ -38,7 +52,7 @@
 <div class="col-12 mb-3">
   <div class="card">
     <div class="card-body">
-      <p class="card-text">While I was working at the Ministry of Justice (circa 2024) as a risk consultant, I developed a proof-of-concept app for risk and assurance management using Power Apps. The existing risk tool had been created to move away from using Excel based risk registers, but still had several limitations and missing functionality. My aim was to show what could be done using Power Apps as a potential future tooling option.</p>
+      <p class="card-text">While working at the Ministry of Justice in 2024 as a risk consultant, I developed a proof-of-concept (PoC) app for risk and assurance management using Power Apps. The existing risk tool had moved away from Excel-based risk registers but still faced several limitations and lacked essential functionality. My aim was to demonstrate the potential capabilities of Power Apps as a future tooling option.</p>
       <hr>
       <div class="row">
         <div class="col-lg-8">
@@ -46,7 +60,7 @@
           <ul>
             <li><strong>Current State Assessment</strong> - Assessed the current state and documented future state requirements as a baseline for creating the PoC app
             </li>
-            <li><strong>Developed PoC Risk Tool</strong> Developed an app to showcase the potential functionality that could be built using Power Apps
+            <li><strong>Developed PoC Risk Tool</strong> - Created an app to showcase the potential functionality that could be built using Power Apps
             </li>
             <li><strong>Business Case for Risk Tool</strong> - Presented the PoC app to my team and incorporated the option into a draft business case
             </li>
@@ -56,7 +70,7 @@
           <h3>Skills Used</h3>
           <ul>
             <li>
-              <img src="{% static 'resumeapp/assets/img/PowerApps_scalable.svg' %}" alt="Power Apps Logo" class="icon-size-powerapps"> <strong>Power Apps</strong> - App development with DAX and Power Fx
+              <img src="{% static 'resumeapp/assets/img/PowerApps_scalable.svg' %}" alt="Power Apps Logo" class="icon-size-powerapps-sm"> <strong>Power Apps</strong> - App development with DAX and Power Fx
             </li>
             <li class="dev-icons">
               <i class="fas fa-database"></i> <strong>Databases</strong> - Database structure creation in Dataverse
@@ -82,22 +96,22 @@
       <div class="d-flex align-items-center">
         <h3 class="card-title">Background</h3>
       </div>
-        <p class="card-text">The existing solution had previously moved from using Excel based risk registers to creating a risk tool in Oracle Application Express. While this tool provided a better central repository for managing risks, the solution had several major limitations. This was exacerbated by the extension of assurance processes that required additional details to be managed.
+        <p class="card-text">The existing solution had previously transitioned from Excel-based risk registers to a risk tool in Oracle Application Express. Although this tool provided a better central repository for managing risks, it had several major limitations. These issues were exacerbated by the extension of assurance processes, which required additional details to be managed.
         </p>
       <hr>
       <div class="row">
         <div class="col-lg-6">
           <h4>Limitations of Existing Tool</h4>
           <ul>
-              <li><strong>Tracking of Control and Treatment Details</strong> - The tool was relatively simple with a single record for each risk. It tracked risk controls and treatments using free-text fields for each risk. This made tracking of updates over time was highly dependent on consistent data entry and any trend reporting was unsupportable.</li>
-              <li><strong>User Access Management</strong> - The tool had three levels of access. View access allowed a user to see all the risks. Edit allowed a user to view and edit only risks where they were assigned as an owner. Admin allowed a user full access, which was meant for those supporting the tool only. The lack of flexibility in the View and Edit access options meant my team was left to update the tool to avoid confusion for staff.</li>             
+              <li><strong>Tracking of Control and Treatment Details</strong> - The tool was relatively simple, with a single record for each risk. It tracked risk controls and treatments using free-text fields, making tracking updates over time highly dependent on consistent data entry. Consequently, any trend reporting was unsupportable.</li>
+              <li><strong>User Access Management</strong> - The tool had three levels of access. View access allowed a user to see all risks. Edit access allowed a user to view and edit only risks where they were assigned as an owner. Admin access allowed full access, intended for those supporting the tool. The lack of flexibility in the View and Edit access options meant my team had to update the tool to avoid confusion for staff.</li>             
           </ul>
         </div>
         <div class="col-lg-6">
           <h4>Processes to Support</h4>
           <ul>
-              <li><strong>Assurance Process Extension</strong> - To support more consistent risk management, the assurance process was being matured to cover key risk controls across the group. This required risk controls to be better defined and the ability to track control assessments.</li>
-              <li><strong>Risk Process Maturity</strong> - The existing tool was intended to support access by staff from across the group, but this had not happened due to the user access limitations. This made the risk process more difficult to embed with staff and more manual to support by my team.</li>
+              <li><strong>Assurance Process Extension</strong> - To support more consistent risk management, the assurance process was matured to cover key risk controls across the group. This required better-defined risk controls and the ability to track control assessments.</li>
+              <li><strong>Risk Process Maturity</strong> - The existing tool was intended to support access by staff from across the group, but this had not happened due to user access limitations. This made the risk process more difficult to embed with staff and more manual for my team to support.</li>
           </ul>
         </div>
       </div>
@@ -113,17 +127,17 @@
       <div class="d-flex align-items-center">
         <h3 class="card-title">Current State Assessment</h3>
       </div>
-      <p class="card-text">To outline what functionality to include in the PoC I documented the current state and future requirements to help determine what to include. This was all part of a wider piece of work to consider what risk tooling options were available so they could be considered at a suitable time.</p>
+      <p class="card-text">To outline what functionality to include in the PoC, I documented the current state and future requirements to help determine what to include. This was part of a broader effort to consider available risk tooling options for future implementation.</p>
       <hr>
       <div class="row">
         <div class="col-lg-6">
           <h4>Current State</h4>
           <ul>
-            <li><strong>Current State Functionality</strong> - Documented the existing functionality so that if anyone else picked it up there would be a clear understanding of what had been reviewed.</li>
+            <li><strong>Current State Functionality</strong> - Documented existing functionality to ensure clear understanding if anyone else took over the project.</li>
             <li><strong>Future Requirements for PoC</strong> - Outlined the main requirements, which included:
               <ul>
-                <li>Control Library - Having a standalone register (or Control Library) for all the key risk controls was a key requirement to improve the current state and provide functionality similar to that found in an enterprise risk tool.</li>
-                <li>Treatment Register - Similar to the Control Library, have a separate register to track treatment activities would better support operational processes and be more like an enterprise risk tool.</li>
+                <li>Control Library - A standalone register (or Control Library) for all key risk controls, providing functionality similar to an enterprise risk tool.</li>
+                <li>Treatment Register - A separate register to track treatment activities, supporting operational processes and resembling an enterprise risk tool.</li>
               </ul> 
             </li>             
           </ul>
@@ -131,13 +145,13 @@
         <div class="col-lg-6">
           <h4>Business Case Options</h4>
           <ul>
-              <li><strong>Range of Options</strong> - To consider future tooling options for risk and assurance processes there were 3 levels to be considered:
+              <li><strong>Range of Options</strong> - To consider future tooling options for risk and assurance processes, three levels were explored:
                 <ul>
-                  <li>Enterprise Solution - An enterprise grade solution that would be sourced from an external supplier.</li>
-                  <li>In-house Solution - A solution built within the organisation with the support of the ICT group. This was where PowerApps was seen as being the logical choice for replacing existing Oracle Application Express based tools.</li>
-                  <li>Team-based Solution - Continue to improve processes by leveraging fully accessible Microsoft Office products like Excel and SharePoint to supplement the current tool.</li>
+                  <li>Enterprise Solution - An enterprise-grade solution from an external supplier.</li>
+                  <li>In-house Solution - A solution built within the organization with ICT group support, where PowerApps was the logical choice to replace existing Oracle Application Express tools.</li>
+                  <li>Team-based Solution - Improve processes using Microsoft Office products like Excel and SharePoint to supplement the current tool.</li>
                 </ul> </li>
-              <li><strong>Limitations on Power Apps</strong> - The ICT group was not completely ready to support the use of Power Apps, so drafting a business case was a way to store the findings of the PoC until a suitable time for consideration.</li>
+              <!-- <li><strong>Limitations on Power Apps</strong> - The ICT group was not completely ready to support the use of Power Apps, so drafting a business case was a way to store the findings of the PoC until a suitable time for consideration.</li> -->
           </ul>
         </div>
       </div>
@@ -152,63 +166,39 @@
       <div class="d-flex align-items-center">
         <h3 class="card-title">Developed PoC Risk Tool</h3>
       </div>
-      <p class="card-text">Developing the PoC required sketching out an overall view of the tables and workflows required to create that app. Then it was a matter of creating a simple layout that could technically meet the main requirements.</p>
+      <p class="card-text">Developing the PoC required sketching out an overall view of the tables and workflows needed to create the app. The goal was to create a simple layout that could technically meet the main requirements.</p>
       <hr>
       <div class="row">
         <div class="col-lg-4">
           <h4>Overall Structure</h4>
           <p>The data tables and screens (user interfaces) the app was going to need to collect and store the relevant data and allow users to view and edit the data as required. The main tables were:</p>
             <ul>
-              <li>Risk Register - Table for all of the risks.</li>
-              <li>Control Library - Table for all of the controls.</li>
-              <li>Risk to Control Link Table - A table to record the links between risks and controls. Note that this could be done automatically due to the Dataverse creating this type of table for many-to-many relationships, but I did this manually to have more control over the PoC approach.</li>
-              <li>Control Assessments - A table to store all control assessment details.</li>
-              <li>Treatment Register - A table to store all treatment details.</li>
+              <li><strong>Risk Register</strong> - Table for all risks.</li>
+              <li><strong>Control Library</strong> - Table for all controls.</li>
+              <li><strong>Risk to Control Link Table</strong> - Table to record links between risks and controls.</li>
+              <li><strong>Control Assessments</strong> - Table to store all control assessment details.</li>
+              <li><strong>Treatment Register</strong> - Table to store all treatment details.</li>
             </ul>
         </div>
         <div class="col-lg-4">
           <h4>Workflows</h4>
           <p>The screens and workflows to allow users to interact with and update details as required. The main workflows to manage were:</p>
             <ul>
-              <li>Viewing Details - How to provide users with the ability to view what they need to. This included functionality like searching and filtering tables.</li>
-              <li>Editing Details - How to allow users to create or modify data. This ranged from simple create or modify tasks to more complex updates to one-to-many relationships.</li>
-              <li>Deleting Details - How to allow users to delete elements with suitable protections in place, such as pop-up boxes to confirm the action being requested.</li>
+              <li><strong>Viewing Details</strong> - Allow users to view necessary information, including search and filter functionality.</li>
+              <li><strong>Editing Details</strong> - Enable users to create or modify data, from simple tasks to complex updates to one-to-many relationships.</li>
+              <li><strong>Deleting Details</strong> - Allow users to delete elements with appropriate protections, such as confirmation pop-ups.</li>
             </ul>
         </div>
                 <div class="col-lg-4">
           <h4>Technical Challenges</h4>
           <ul>
-            <li><strong>Linking Risks to Controls</strong> - This was the main requirement to fulfil. Having a many-to-many relationship between risks and controls was key to be able to create a tool that worked more like an enterprise tool. Creating a user interface where users could add and remove these links was achieved and showcased how this type of functionality makes the risk process much easier to engage with.
-            <li><strong>Updating Details</strong> - The basic approach in Power Apps is to use a Form (an input form that aligns directly to a table). This works well, but is inflexible. Using Patch commands is more flexible, so these were used in a couple of places to allow update interfaces to be more user-friendly.</li>
+            <li><strong>Linking Risks to Controls</strong> - Achieving a many-to-many relationship between risks and controls to create a more enterprise-like tool.
+            <li><strong>Updating Details</strong> - Using flexible Patch commands instead of basic Forms to create more user-friendly update interfaces.</li>
             </li>
-            <li><strong>App Formatting</strong> - While the formatting of the PoC was not a priority, using the built-in formatting still required some effort to get the PoC into a structure where it was presentable.</li>
+            <li><strong>App Formatting</strong> - Ensuring the PoC was presentable using built-in formatting, despite formatting not being the primary focus.</li>
           </ul>
         </div>
       </div>
-
-     <!--  <div class="row">
-        <div class="col-lg-4">
-          <h4>Home Page</h4>
-          <ul>
-              <li>The concept of a home page got me looking around at overall themes for the site. I came across one that was fairly simple and suited the type of content I was trying to create. I incorporated this into my page by:
-                <ul>
-                  <li>Copying the example page HTML and CSS into my page.</li>
-                  <li>Working out the aspects of the example code that I wanted to keep in terms of functionality and theme.</li>
-                  <li>Created my own version of a home page using the techniques I found useful.</li>
-                </ul>
-              </li>
-          </ul>
-        </div>
-        <div class="col-lg-8">
-          <h4>General Techniques Used</h4>
-          <ul>
-              <li><strong>Pre-made Layouts</strong> - A helpful tip I got was to use HTML templates to help shortcut creating pages. There was a learning curve for how to use a mix of HTML, CSS and Bootstrap layout and formatting approaches and getting them to work together. While I did copy HTML / CSS from various places to some extent, I tried to manually adjust a lot of it to help learn how things work.</li>
-              <li><strong>AI Support</strong> - I leaned heavily on the likes of Copilot and ChatGPT throughout the entire process to find out how to do things, trouble shoot code, and generally work on the components to be able to build the overall site.</li>
-              <li><strong>Online Resources</strong> - I spent a lot of time watching instructional videos to learn the fundamentals of things like Django and GitHub and also to help with more specific techniques and approaches.</li>
-          </ul>
-        </div>
-      </div> -->
-
     </div>
   </div>
 </div>
@@ -220,56 +210,53 @@
       <div class="d-flex align-items-center">
         <h3 class="card-title">Final Result</h3>
       </div>
-      <p class="card-text">I presented the PoC tool to my team, which was well received and helped give them a sense of what might be possible using Power Apps. The draft business case was updated for future reference.</p>
+      <p class="card-text">I presented the PoC tool to my team, which was well received. It demonstrated the potential of using Power Apps for risk and assurance management. The draft business case was updated to reflect the findings and for future reference.</p>
 
       <hr>
       <div class="row">
-          <div class="col-lg-3">
-              <h4>Risk Register TO UPDATE WITH SCREENSHOTS IF THIS SECTION / WHOLE PAGE IS A GOOD IDEA</h4>
-              <ul>
-                  <li>A Risk Register screen where risks can be searched and filtered. A risk can be selected and used to navigate to an individual risk view screen.</li>
-                  <li>Risk screen where more details on one risk can be viewed, including the controls that are linked to the risk. Navigation to controls can be done from here.</li>
-                  <li>An edit screen to update a risk.</li>
-              </ul>
+          <div class="col-lg-4">
+            <h4>Risk Register</h4>
+              <li>A Risk Register screen where risks can be searched and filtered. A risk can be selected and used to navigate to an individual risk view screen.</li>
+              <img src="{% static 'resumeapp/assets/img/riskregister.png' %}" class="img-fluid img-border" alt="Risk Register Screen">
           </div>
           <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
+            <li>A screen where more details on one risk can be viewed, including the controls that are linked to the risk. Navigation to controls can be done from here.</li>
+              <img src="{% static 'resumeapp/assets/img/riskdetail.png' %}" class="img-fluid img-border" alt="Risk Detail Screen">
           </div>
           <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
+             <li>An edit screen to update a risk.</li>
+              <img src="{% static 'resumeapp/assets/img/riskedit.png' %}" class="img-fluid img-border" alt="Risk Edit Screen">
           </div>
-          <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
-          </div>
-      </div>
-      <hr>
-      <div class="row">
-          <div class="col-lg-3">
-              <h4>Control Library TO UPDATE WITH SCREENSHOTS IF THIS SECTION / WHOLE PAGE IS A GOOD IDEA</h4>
-              <ul>
-                  <li>A Control Library screen where all controls can be searched and filtered. A control can be selected and used to navigate to an individual control view screen.</li>
-                  <li>Control screen where more details on one control can be viewed, including assessment history, and an edit screen to update control details.</li>
-                  <li>An assessment screen to input control assessments.</li>
-              </ul>
-          </div>
-          <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
-          </div>
-          <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
-          </div>
-          <div class="col-lg-3">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Login">
+          <div class="col-lg-2">
+            <li>A pop-up question box when editing content to help ensure changes are only made when intended.</li>
+              <img src="{% static 'resumeapp/assets/img/riskpopup.png' %}" class="img-fluid img-border" alt="Risk Popup Box">
           </div>
       </div>
       <hr>
       <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-4">
+            <h4>Control Library</h4>
+              <li>A Control Library screen where all controls can be searched and filtered. A control can be selected and used to navigate to an individual control view screen.</li>
+              <img src="{% static 'resumeapp/assets/img/controllibrary.png' %}" class="img-fluid img-border" alt="Control Library Screen">
+          </div>
+          <div class="col-lg-3">
+            <li>Control screen where more details on one control can be viewed, including assessment history, and an edit screen to update control details.</li>
+              <img src="{% static 'resumeapp/assets/img/controldetail.png' %}" class="img-fluid img-border" alt="Control Detail Screen">
+          </div>
+          <div class="col-lg-3">
+            <li>An assessment screen to input control assessments.</li>
+              <img src="{% static 'resumeapp/assets/img/controledit.png' %}" class="img-fluid img-border" alt="Control Edit Screen">
+          </div>
+      </div>
+      <hr>
+      <div class="row align-items-center">
+          <div class="col-lg-3">
               <h4>Risk / Control Link Page</h4>
-              <p>This page was created in a rudamentary form to prove that this can be done. In a more developed version the links would updated using something like check boxes.</p>
+              <li>A page to allow controls to be linked and delinked from a risk. In a more developed version the formatting would be tidied up and the links would updated using something like check boxes.</li>
+              <img src="{% static 'resumeapp/assets/img/risklinks.png' %}" class="img-fluid img-border" alt="Risk / Control Link Screen">
           </div>
-          <div class="col-lg-6">
-              <img src="{% static 'roundapp/images/golfapploginpage.jpg' %}" class="img-fluid" alt="Golf App Stats">
+          <div class="col-lg-3">
+
           </div>
       </div>
 
