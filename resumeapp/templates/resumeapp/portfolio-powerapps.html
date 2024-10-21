@@ -212,54 +212,86 @@
       </div>
       <p class="card-text">I presented the PoC tool to my team, which was well received. It demonstrated the potential of using Power Apps for risk and assurance management. The draft business case was updated to reflect the findings and for future reference.</p>
 
-      <hr>
+    <hr>
       <div class="row">
-          <div class="col-lg-4">
-            <h4>Risk Register</h4>
-              <li>A Risk Register screen where risks can be searched and filtered. A risk can be selected and used to navigate to an individual risk view screen.</li>
-              <img src="{% static 'resumeapp/assets/img/riskregister.png' %}" class="img-fluid img-border" alt="Risk Register Screen">
-          </div>
-          <div class="col-lg-3">
-            <li>A screen where more details on one risk can be viewed, including the controls that are linked to the risk. Navigation to controls can be done from here.</li>
-              <img src="{% static 'resumeapp/assets/img/riskdetail.png' %}" class="img-fluid img-border" alt="Risk Detail Screen">
-          </div>
-          <div class="col-lg-3">
-             <li>An edit screen to update a risk.</li>
-              <img src="{% static 'resumeapp/assets/img/riskedit.png' %}" class="img-fluid img-border" alt="Risk Edit Screen">
-          </div>
-          <div class="col-lg-2">
-            <li>A pop-up question box when editing content to help ensure changes are only made when intended.</li>
-              <img src="{% static 'resumeapp/assets/img/riskpopup.png' %}" class="img-fluid img-border" alt="Risk Popup Box">
-          </div>
+        <div class="col-lg-2">
+          <h4>Risk Register</h4>
+            <li>A Risk Register screen where risks can be searched and filtered. A risk can be selected and used to navigate to an individual risk view screen.</li>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'resumeapp/assets/img/riskregister.png' %}" class="img-fluid img-border" alt="Risk Register Screen">
+        </div>
       </div>
-      <hr>
+    <hr>
       <div class="row">
-          <div class="col-lg-4">
-            <h4>Control Library</h4>
-              <li>A Control Library screen where all controls can be searched and filtered. A control can be selected and used to navigate to an individual control view screen.</li>
-              <img src="{% static 'resumeapp/assets/img/controllibrary.png' %}" class="img-fluid img-border" alt="Control Library Screen">
-          </div>
-          <div class="col-lg-3">
-            <li>Control screen where more details on one control can be viewed, including assessment history, and an edit screen to update control details.</li>
-              <img src="{% static 'resumeapp/assets/img/controldetail.png' %}" class="img-fluid img-border" alt="Control Detail Screen">
-          </div>
-          <div class="col-lg-3">
-            <li>An assessment screen to input control assessments.</li>
-              <img src="{% static 'resumeapp/assets/img/controledit.png' %}" class="img-fluid img-border" alt="Control Edit Screen">
-          </div>
+        <div class="col-lg-2">
+          <h4>Risk Details</h4>
+          <li>A screen where more detail on one risk can be viewed, including the controls that are linked to the risk. Navigation to controls can be done from here.</li>
+        </div>
+        <div class="col-lg-3">
+            <img src="{% static 'resumeapp/assets/img/riskdetail.png' %}" class="img-fluid img-border" alt="Risk Detail Screen">
+        </div>
       </div>
-      <hr>
-      <div class="row align-items-center">
-          <div class="col-lg-3">
-              <h4>Risk / Control Link Page</h4>
-              <li>A page to allow controls to be linked and delinked from a risk. In a more developed version the formatting would be tidied up and the links would updated using something like check boxes.</li>
-              <img src="{% static 'resumeapp/assets/img/risklinks.png' %}" class="img-fluid img-border" alt="Risk / Control Link Screen">
-          </div>
-          <div class="col-lg-3">
-
-          </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Risk Editing</h4>
+           <li>An edit screen to update a risk.</li>
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static 'resumeapp/assets/img/riskedit.png' %}" class="img-fluid img-border" alt="Risk Edit Screen">
+        </div>
       </div>
-
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Update Pop-up Box</h4>
+          <li>A pop-up question box when editing content to help ensure changes are only made when intended.</li>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'resumeapp/assets/img/riskpopup.png' %}" class="img-fluid img-border" alt="Risk Popup Box">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Control Library</h4>
+            <li>A Control Library screen where all controls can be searched and filtered. A control can be selected and used to navigate to an individual control view screen.</li>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'resumeapp/assets/img/controllibrary.png' %}" class="img-fluid img-border" alt="Control Library Screen">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Control Details</h4>
+          <li>Control screen where more detail on one control can be viewed, including assessment history, and an edit screen to update control details.</li>
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static 'resumeapp/assets/img/controldetail.png' %}" class="img-fluid img-border" alt="Control Detail Screen">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Control Assessments</h4>
+          <li>An assessment screen to input control assessments.</li>
+        </div>
+        <div class="col-lg-3">
+          <img src="{% static 'resumeapp/assets/img/controledit.png' %}" class="img-fluid img-border" alt="Control Edit Screen">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-2">
+          <h4>Risk / Control Link Page</h4>
+          <li>A page to allow controls to be linked and delinked from a risk. In a more developed version the formatting would be tidied up. For example, the links could be check boxes and the full list of controls would be searchable.</li>
+        </div>
+        <div class="col-lg-4">
+          <img src="{% static 'resumeapp/assets/img/risklinks.png' %}" class="img-fluid img-border" alt="Risk / Control Link Screen">
+        </div>
+      </div>
     </div>
   </div>
 </div>
