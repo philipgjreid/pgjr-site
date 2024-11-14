@@ -1,0 +1,412 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <title>F1 Power BI Dashboard</title>
+    <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<style type="text/css">
+
+/* Custom styles for ul and li */
+.card-body ul {
+    color: #596b7d; /* Custom color for list text */
+}
+
+.card-body li {
+    color: #596b7d; /* Custom color for list items */
+}
+
+.card-body ul li::marker {
+    color: #596b7d; /* Custom color for bullet points */
+}
+
+.img-border {
+    border: 2px solid #596b7d; /* Adjust border width and color as needed */
+    padding: 5px; /* Optional padding within the border */
+    margin: 3px;
+}
+
+.icon-size-powerapps-sm {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 18px; /* Maintains the aspect ratio */
+    margin-bottom: .4em;
+}
+
+</style>
+
+
+<div class="section" id="projects">
+  <h1 class="heading-box">Formula One Power BI Dashboard Project</h1>
+</div>
+
+<div class="section" id="projects-subheading">
+  <h2>Project Overview</h2>
+  <hr style="height: 10px;">
+</div>
+
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <h3>Objective</h3>
+      <p class="card-text">To enhance my Power BI I created a comprehensive dashboard using Formula One data from <a href="https://ergast.com/mrd/db/">ergast.com</a>. The project involved data modeling, dashboard design, and advanced Power BI techniques.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-8">
+          <h3>What I Did</h3>
+          <h4><strong>Data Analysis and Requirement Setting</strong></h4>
+            <ul>
+              <li><strong>Reviewed the Data</strong> - Analysed the dataset to identify valuable insights and define dashboard requirements.
+              </li>
+              <li><strong>Requirements Gathering</strong> - Established key requirements based on potential user interests, focusing on historical F1 results, navigation ease, and performance metrics.
+              </li>
+            </ul>
+          <h4><strong>Dashboard Design and Layout</strong></h4>
+            <ul>
+              <li><strong>Dashboard Structure</strong> - Outlined the dashboard structure, ensuring it covers races, drivers, and circuits.
+              </li>
+              <li><strong>Layout Planning</strong> - Designed a landing page with detailed sub-pages, using space-saving techniques like collapsible filter panes and adjustable visuals. 
+              </li>
+              <li><strong>Dark Theme Implementation</strong> - Applied a dark theme to make the dashboard visually appealing and different from typical designs.
+              </li>
+            </ul>
+
+
+          <h4><strong>Data Modeling</strong></h4>
+          <ul>
+            <li><strong>Data Import and Setup</strong> - Imported 14 data tables from the ergast dataset into Power BI, maintaining integrity and accuracy.
+            </li>
+            <li><strong>Relationship Management</strong> - Leveraged Power BI’s auto-detection to set up relationships, refining where necessary. 
+            </li>
+            <li><strong>Calculated Columns and Measures</strong> - Created additional calculated columns and measures to support advanced visualizations (e.g., Pole Positions, Race Finish Categories, Flag Images).
+            </li>
+          </ul>
+
+
+          <h4><strong>Dashboard Development and Refinement</strong></h4>
+          <ul>
+            <li><strong>Visual Development</strong> - Designed and tested a variety of visuals to ensure they accurately displayed the required data.
+            </li>
+            <li><strong>Interactive Elements</strong> - Implemented bookmarks, buttons, and visual toggles to enhance user interactivity.
+            </li>
+            <li><strong>Final Formatting</strong> - Ensured consistent formatting, optimal usability, and a cohesive look across the dashboard.
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-lg-4">
+          <h3>Skills Used</h3>
+          <ul>
+            <li>
+              <img src="{% static 'resumeapp/assets/img/Power-BI.png' %}" alt="Power BI Logo" class="icon-size-powerbi-sm"> <strong>Power BI</strong> - Advanced dashboard creation using DAX, data modeling, and interactive visuals.
+            </li>
+            <li class="dev-icons">
+              <i class="fas fa-database"></i> <strong>Databases</strong> - Data modelling within Power BI.
+            </li>
+            <li class="dev-icons">
+              <i class="fa fa-table"></i> <strong>Data Analysis</strong> - Effective data exploration and requirement gathering.
+            </li>
+            <li class="dev-icons">
+              <i class="fa fa-paint-brush"></i> <strong>Design and Usability</strong> - User-centric design principles, space optimization, and interactive elements.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+ <div class="section" id="projects-subheading">
+  <h2>Project Details</h2>
+  <hr style="height: 10px;">
+</div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Data Analysis and Requirement Setting</h3>
+      </div>
+        <p class="card-text">The normal first step for creating any dashboard or performance reporting content is to start with user requirements. In this case I did not have any users, so I considered the available data to determine the requirements.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Reviewed Existing Data</h4>
+          <p>The data from the ergast dataset extends back to 1950 and has details on races, drivers, and circuits for each F1 season.</p>
+          <ul>
+              <li><strong>Amount of Data</strong> - The dataset was large and provided a lot of data to consider for inclusion from both the time period covered and the amount of detail available for each race, which extends down to lap times for each driver. Some data points were only available from more recent years, so this also had to be taken into account.</li>
+              <li><strong>Potential Data Views</strong> - The dataset provided several different ways to view the data, such as from a specific driver's perspective. This meant a range of views and levels of detail could be considered.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Requirements Gathering</h4>
+          <p>The requirements were based around what a typical person might like from the dashboard. The main requirements are:</p>
+          <ul>
+              <li><strong>Overview of F1 History</strong> - Provide access to an overview of F1 historical results.</li>
+              <li><strong>Easy Navigation to Points of Interest</strong> - Allow users to easily navigate into subject areas of interest.</li>
+              <li><strong>Key Performance Metrics</strong> - Provide key metrics, such as championship titles or race wins.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Dashboard Design and Layout</h3>
+      </div>
+      <p class="card-text">An outline of what the dashboard should include and how it should be structured was created as a starting point.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Dashboard Structure</h4>
+          <p>The available data had details on races, drivers, and circuits, so it made sense to build something that covered all these areas and allow both a high level view as well as more detailed views when required.</p>
+          <ul>
+            <li><strong>Landing Page with Multiple Detailed Pages</strong> - The structure was based around a landing page that provided an overview of all the available data that could then allow users to navigate to sub-pages that would provide additional details.</li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <h4>Layout Planning</h4>
+          <ul>
+            <li><strong>Page Designs</strong> - Each page was outlined to consider what content could be included. As many visuals that made sense were used to showcase the options that Power BI has. Due to there being so much information visuals like Matrix or Stacked Bar Charts as they allow a lot of information to be included.</li>
+
+            <li><strong>Space Saving Techniques</strong> - Due to the amount of information to include it was important to maximise the use of space. This meant the dashboard needed:
+              <ul>
+                <li>Collapsible Filter Pane - To allow most of the page to be used for visuals a collapsible filter pane would allow general filters to be included but hidden when not required.</li>
+                <li>Adjustable Visuals - Having visuals that can be toggled from one view to another in the same space on a page would allow for different views using the same page area.</li>
+              </ul> 
+            </li> 
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4>Dark Theme Implementation</h4>
+          <ul>
+              <li><strong>Dashboard Theme</strong> - The overall theme of the dashboard was a dark theme to showcase something slightly different. Power BI has plenty of theme options to pick from and these can be customised where required. In a work situation an organisation would typically have a colour scheme that would dictate what to use.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Data Modelling</h3>
+      </div>
+      <p class="card-text">The ergast dataset came with its own data model, so that made the initial set up much easier. The data model consists of 14 tables.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Data Import and Setup</h4>
+          <p>The 14 data tables were imported into Power BI and the relationships were set up.</p>
+            <ul>
+              <li><strong>Imported Data</strong> - The 14 data tables had been downloaded in CSV format from the ergast site. The tables were imported into Power BI with minimal changes. The data formats were generally good so did not need any adjustments. The main thing noted were some fields using text values for null values in columns that were otherwise integers.</li>
+              <li><strong>Relationship Management</strong> - Due to the model already being an established and well-modelled set of data, Power BI automatically identified the correct relationships most of the time.</li>
+            </ul>
+        </div>
+        <div class="col-lg-8">
+          <h4>Calculated Columns and Measures</h4>
+          <p>To support the visuals that needed to be created a range of additional calculated columns and measures were created.</p>
+            <ul>
+              <li><strong>Calculated Columns</strong> - New columns were created where additional values were required to filter or group records to support dashboard metrics. Some examples are:
+                <ul>
+                  <li><strong>Pole Positions</strong> - A new column in the qualifying table to denote the pole position so this could be easily filtered for in visuals.</li>
+                  <li><strong>Race Finish Categories</strong> - Several columns to help group race finishes into wins, podiums, top tens, finishes and DNFs. These worked in conjunction with calculated measures to make categorised counts easy to create.</li>
+                  <li><strong>Flag Images</strong> - To include flags in the dashboard a calculated column was created to reference to flag images from <a href="https://flagpedia.net/" target="_blank">flagpedia.net</a>.</li>
+                </ul>
+                </li>
+              <li><strong>Calculated Measures</strong> - New measures were created to support visuals, often using calculated columns. These included things like measures for race or season finish positions.</li>
+              
+            </ul>
+        </div>
+      <hr>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4><a href="https://ergast.com/images/ergast_db.png" target="_blank">Ergast Data Model</a></h4>
+            <a href="https://ergast.com/images/ergast_db.png" target="_blank">
+              <img src="{% static 'resumeapp/assets/img/ergastdatamodel.png' %}" class="img-fluid img-border" alt="Ergast Data Model">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <h4>Power BI Data Model</h4>
+              <img src="{% static 'resumeapp/assets/img/pbidatamodel.png' %}" class="img-fluid img-border" alt="Power BI Data Model">
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Dashboard Development and Refinement</h3>
+      </div>
+        <p class="card-text">The dashboard content was developed and iterated until the technical content was working and then the final formatting was touched up.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Refining Dashboard Content</h4>
+          <p>The visuals for the dashboard all required some form of technical development and testing. With a range of techniques being used, each one needed to be set up and tested and could then be reused as required across the dashboard.</p>
+          <ul>
+              <li><strong>Visual Data</strong> - Each visual required a certain value or set of values to be displayed. This required a mix of measures and filters to ensure each visual displayed the correct values.</li>
+              <li><strong>Changing Views with Bookmarks and Buttons</strong> - The collapsible filter pane, page navigation, and several visuals with multiple viewing options required the use of bookmarks and buttons. These were combined with layering of visual components that were toggled between being hidden and visible.</li>
+              <li><strong>Filter Settings</strong> - There are several different methods for filtering in Power BI. These all need checking, especially filtering from one visual to other on the same page.</li>
+              
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Final Formatting</h4>
+          <p>The final step was to make small adjustments to how the dashboard looked and feeled, including considering the usability. This is where having clear requirements and a good initial design makes it easier to assess if the final product is where it needs to be. Typically users or customers would be consulted through the entire design and development process and their feedback would help confirm what good looks like. In my case, it was just me so the final product is simply an example of what can be created.</p>
+          <ul>
+              <li><strong>Formatting</strong> - Getting all of the visuals to display with consistent fonts, sizing and spacing. This is important to make sure the dashboard is consistent and users can get used to similar design features.</li>
+              <li><strong>Usability</strong> - A review of how a user would navigate around and likely use the dashboard to make sure it makes sense and is easy to use. This is where user feedback would allow a better product to be designed.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Final Result</h3>
+      </div>
+      <p class="card-text">The Formula One Dashboard consists of 5 pages to allow users to drill into the data as they see fit.</p>
+      <p>I am using Power BI Desktop and do not have a Power BI license so cannot use Publish to Web to share my dashboard. Instead, some screenshots of the dashboard are provided below to describe how the dashboard works.</p>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Main Page</h4>
+            <p>The landing page for the dashboard provides:</p>
+              <ul>
+                <li>Tables for both the driver and constructor champions for each year.</li>
+                <li>The drivers and constructors with the most championships.</li>
+                <li>A map of all the circuits that have been raced at.</li>
+                <li>A chart that can be adjusted to show 5 different driver metrics.</li>
+              </ul>
+              <br>
+            <p>There are also other features that appear on all pages:</p>
+              <ul>
+                <li>Page Navigation - There are page navigation buttons in the header bar to allow a user to move from one page to another.</li>
+                <li>Collapsible Filter Pane - The filter pane is on the left side and is collapsed until the arrow button is selected.</li>
+              </ul>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-main.png' %}" class="img-fluid img-border" alt="F1 Dashboard Main">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Filter Pane</h4>
+          <li>When the filter pane is expanded it can house any filters that would be useful across the entire page. Once selected the filters are applied and the filter pane can be collapsed again by clicking on the button or anywhere on the screen.</li>
+        </div>
+        <div class="col-lg-6">
+            <img src="{% static 'resumeapp/assets/img/pbi-main-filterpane.png' %}" class="img-fluid img-border" alt="F1 Dashboard Filter Pane">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Main Page - Filtered Visuals</h4>
+            <li><strong>Circuit Map</strong> - The map can be filtered to regions, or the built in zoom and rectangle select options can be used to zoom in on particular parts of the world.</li>
+            <li><strong>Driver Stats Chart</strong> - This chart has 5 different metrics that can be selected and scrolled through.</li>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-main-visuals.png' %}" class="img-fluid img-border" alt="F1 Dashboard Main">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Drivers Page</h4>
+          <p>An overview of all drivers that provides:</p>
+              <ul>
+                <li>A bar chart that can be adjusted to show all races or the cumulative values up to certain placings.</li>
+                <li>A bar chart to display the nationalities of all F1 drivers.</li>
+                <li>Two tables for grand prix results and sprint race results for all drivers. The key metrics are provided and can be used to sort the lists.</li>
+              </ul>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-drivers.png' %}" class="img-fluid img-border" alt="F1 Dashboard Drivers">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Drivers Page - Toggled Visual</h4>
+            <li>The Driver Career Grand Prix Results chart can be adjusted to show cumulative values so they can be seen in more detail. This allows users to see things like the number of top ten finishes but also the breakdown of wins and podiums within those finishes.</li>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-drivers-visuals.png' %}" class="img-fluid img-border" alt="F1 Dashboard Drivers">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Driver Details</h4>
+            <p>A page where one driver can be selected at a time to view their career in more detail.</p>
+              <ul>
+                <li>Drop-down selector for the driver that then returns their nationality, age, and the first and most recent years racing in F1.</li>
+                <li>A table visual that can be toggled between grand prix and sprint race results.</li>
+                <li>Race history charts by year. The finishes column chart can be selected by finish type with multiple types selectable. The average points and finish per year are shown in a line chart.</li>
+                <li>Bar charts to display the average finish at circuits to show a drivers favourite circuits and a detailed breakdown of reasons for not finishing races.</li>
+              </ul>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-driverdetail.png' %}" class="img-fluid img-border" alt="F1 Dashboard Driver Details">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Driver Details - Adjusted Visuals</h4>
+          <li>The race history table can be toggled between grand prix and sprint race results.</li>
+          <li>The race history bar chart can be adjusted to show the finish positions in any combination.</li>
+        </div>
+        <div class="col-lg-6">
+          <img src="{% static 'resumeapp/assets/img/pbi-driverdetail-visuals.png' %}" class="img-fluid img-border" alt="F1 Dashboard Driver Details">
+        </div>
+      </div>
+    <hr>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Other Pages</h4>
+          <li><strong>Constructors</strong> - A page with details on constructors, similar to the Drivers page.</li>
+          <li><strong>Circuits</strong> - A page with details on circuits.</li>
+        </div>
+
+<!--         <div class="col-lg-4">
+          <h4>Future Development</h4>
+          <li>The main improvements that could be made to the dashboard would be based around refining the content based on some user feedback and making the overall structure of the data more streamlined. As I am using Power BI Desktop I do not have a Power BI license so cannot use Publish to Web to share my dashboard at all so any development would be of limited use.</li>
+        </div> -->
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
