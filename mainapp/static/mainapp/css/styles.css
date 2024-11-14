@@ -3151,13 +3151,6 @@ a.list-group-item-danger.active:focus {
 .dev-icons .fa-github { color: #181717; } /* GitHub Black */
 .dev-icons .fa-html5 { color: #E34F26; }
 
-.icon-size-pbi {
-    width: 35px; /* Adjust to your preferred width */
-    padding-left: 10px;
-    height: auto; /* Maintains the aspect ratio */
-    vertical-align: middle;
-}
-
 .icon-size-django {
     width: auto; /* Adjust to your preferred width */
     padding-left: 0px;
@@ -3192,6 +3185,22 @@ a.list-group-item-danger.active:focus {
     padding-right: 0px;
     height: 18px; /* Maintains the aspect ratio */
     margin-bottom: .8em;
+}
+
+.icon-size-powerbi {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 34px; /* Maintains the aspect ratio */
+    margin-bottom: .8em;
+}
+
+.icon-size-powerbi-sm {
+    width: auto; /* Adjust to your preferred width */
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 18px; /* Maintains the aspect ratio */
+    margin-bottom: .4em;
 }
 
 .img-border {

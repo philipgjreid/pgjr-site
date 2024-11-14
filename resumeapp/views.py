@@ -17,3 +17,6 @@ def portfolio_website(request):
 
 def portfolio_powerapps(request):
 	return render(request, 'resumeapp/portfolio-powerapps.html', {})
+
+def portfolio_powerbi(request):
+	return render(request, 'resumeapp/portfolio-powerbi.html', {})
