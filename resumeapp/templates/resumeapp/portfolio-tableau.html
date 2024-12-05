@@ -1,0 +1,364 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+    <title>Tableau BI Dashboard</title>
+    <link href="{% static 'mainapp/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<style type="text/css">
+
+/* Custom styles for ul and li */
+.card-body ul {
+    color: #596b7d; /* Custom color for list text */
+}
+
+.card-body li {
+    color: #596b7d; /* Custom color for list items */
+}
+
+.card-body ul li::marker {
+    color: #596b7d; /* Custom color for bullet points */
+}
+
+.img-border {
+    border: 2px solid #596b7d; /* Adjust border width and color as needed */
+    padding: 5px; /* Optional padding within the border */
+    margin: 3px;
+}
+
+</style>
+
+
+<div class="section" id="projects">
+  <h1 class="heading-box">Formula One Tableau Dashboard Project</h1>
+</div>
+
+<div class="section" id="projects-subheading">
+  <h2>Project Overview</h2>
+  <hr style="height: 10px;">
+</div>
+
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <h3>Objective</h3>
+      <p class="card-text">To enhance my Tableau knowledge, I created a comprehensive dashboard using Formula One data from <a href="https://ergast.com/mrd/db/" target="_blank">ergast.com</a>. The project involved data modelling, dashboard design, and a range of Tableau dashboarding techniques.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-8">
+          <h3>What I Did</h3>
+          <h4><strong>Data Analysis and Requirement Setting</strong></h4>
+            <ul>
+              <li><strong>Reviewed the Data</strong> - Analysed the dataset to identify valuable insights and define dashboard requirements.
+              </li>
+              <li><strong>Requirements Gathering</strong> - Established key requirements based on potential user interests, focusing on historical F1 results, navigation ease, and performance metrics.
+              </li>
+            </ul>
+          <h4><strong>Dashboard Design and Layout</strong></h4>
+            <ul>
+              <li><strong>Dashboard Structure</strong> - Outlined the dashboard structure, ensuring it covers races, drivers, and circuits.
+              </li>
+              <li><strong>Layout Planning</strong> - Designed a set of dashboards to allow easy navigation of the content and used space-saving techniques like a collapsible filter pane. 
+              </li>
+              <li><strong>Theme Implementation</strong> - Applied a consistent theme across the dashboards with good use of colour and spacing.
+              </li>
+            </ul>
+
+
+          <h4><strong>Data Modeling</strong></h4>
+          <ul>
+            <li><strong>Data Import and Setup</strong> - Imported 14 data tables from the ergast dataset into Tableau, maintaining integrity and accuracy.
+            </li>
+            <li><strong>Relationship Management</strong> - Adjusted the non-snowflake schema of the ergast dataset to work with the Tableau Logical / Physical data modelling approach. 
+            </li>
+            <li><strong>Calculated Measures</strong> - Created additional calculated measures to support the required visualisations (e.g., Pole Positions, Race Finish Categories, Flag Images).
+            </li>
+          </ul>
+
+
+          <h4><strong>Dashboard Development and Refinement</strong></h4>
+          <ul>
+            <li><strong>Visual Development</strong> - Designed and tested a variety of visuals to ensure they accurately displayed the required data.
+            </li>
+            <li><strong>Interactive Elements</strong> - Implemented buttons for dashboard navigation and the collapsible filter pane and included filters to enhance user interactivity.
+            </li>
+            <li><strong>Final Formatting</strong> - Ensured consistent formatting, optimal usability, and a cohesive look across all dashboards.
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-lg-4">
+          <h3>Skills Used</h3>
+          <ul>
+            <li>
+              <img src="{% static 'resumeapp/assets/img/tableau-logo.png' %}" alt="Tableau Logo" class="icon-size-tableau-sm"> <strong>Tableau</strong> - Dashboard creation using Tableau calculations, data modeling, and interactive visuals.
+            </li>
+            <li class="dev-icons">
+              <i class="fas fa-database"></i> <strong>Databases</strong> - Data modelling within Tableau.
+            </li>
+            <li class="dev-icons">
+              <i class="fa fa-table"></i> <strong>Data Analysis</strong> - Effective data exploration and requirement gathering.
+            </li>
+            <li class="dev-icons">
+              <i class="fa fa-paint-brush"></i> <strong>Design and Usability</strong> - User-centric design principles, space optimisation, and interactive elements.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+	<hr>
+	  <div class="row">
+        <div class="col-lg-12">
+          <h3>Check Out the Tableau F1 Dashboard</h3>
+			<div class="d-flex justify-content-start align-items-center" style="margin-top: 10px;">
+			    <a href="{% url 'portfolio-tableau-F1' %}" class="btn btn-default me-2" target="_blank">F1 Dashboard on my site</a>
+			    <a href="https://public.tableau.com/views/PGJR_F1_Dashboard/MainDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="btn btn-default" target="_blank">F1 Dashboard on Tableau</a>
+			</div>
+		</div>
+	  </div>
+
+
+    </div>
+  </div>
+</div>
+ 
+ <div class="section" id="projects-subheading">
+  <h2>Project Details</h2>
+  <hr style="height: 10px;">
+ </div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Data Analysis and Requirement Setting</h3>
+      </div>
+        <p class="card-text">The normal first step for creating any dashboard or performance reporting content is to start with user requirements. In this case I did not have any users, so I considered the available data to determine the requirements.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Reviewed Existing Data</h4>
+          <p>The data from the ergast dataset extends back to 1950 and has details on races, drivers, and circuits for each F1 season.</p>
+          <ul>
+              <li><strong>Amount of Data</strong> - The dataset was large and provided a lot of data to consider for inclusion from both the time period covered and the amount of detail available for each race, which extends down to lap times for each driver. Some data points were only available from more recent years, so this also had to be taken into account.</li>
+              <li><strong>Potential Data Views</strong> - The dataset provided several different ways to view the data, such as from a specific driver's perspective. This meant a range of views and levels of detail could be considered.</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Requirements Gathering</h4>
+          <p>The requirements were based around what someone interested in F1 might like to know. The main requirements are:</p>
+          <ul>
+              <li><strong>Overview of F1 History</strong> - Provide access to an overview of F1 historical results.</li>
+              <li><strong>Easy Navigation to Points of Interest</strong> - Allow users to easily navigate into subject areas of interest.</li>
+              <li><strong>Key Performance Metrics</strong> - Provide key metrics, such as championship titles or race wins.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Dashboard Design and Layout</h3>
+      </div>
+      <p class="card-text">An outline of what the dashboard should include and how it should be structured was created as a starting point.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Dashboard Structure</h4>
+          <p>The available data had details on races, drivers, and circuits, so it made sense to build something that covered all these areas and allow both a high level view as well as more detailed views when required.</p>
+          <ul>
+            <li><strong>Landing Page with Multiple Detailed Pages</strong> - The structure was based around a landing page that provided an overview of all the available data that could then allow users to navigate to sub-pages that would provide additional details.</li>
+          </ul>
+        </div>
+        <div class="col-lg-5">
+          <h4>Layout Planning</h4>
+          <ul>
+            <li><strong>Individual Dashboard Designs</strong> - Each dashboard was sketched out to consider what content could be included and how they could be organised on the page. The aim was to use Tableau visuals that made sense for the information being provided and ensure each page had a logical layout that was easy to view.</li>
+
+            <li><strong>Space Saving Techniques</strong> - Due to the amount of information to include it was important to maximise the use of space. This was mostly done via the inclusion of a collapsible filter pane.
+            </li> 
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h4>Theme Implementation</h4>
+          <ul>
+              <li><strong>Dashboard Theme</strong> - The overall theme of the dashboard was kept simple to focus on providing an uncluttered layout with consistent colouring.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Data Modelling</h3>
+      </div>
+      <p class="card-text">The ergast dataset came with its own data model, so that made the initial set up much easier. The data model consists of 14 tables.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Data Import and Setup</h4>
+          <p>The 14 data tables were imported into Tableau were not all used in the dashboard due to the tables not strictly following a snowflake schema.</p>
+            <ul>
+              <li><strong>Model Imported Data</strong> - 10 of the 14 data tables were modelled using the Tableau Logical and Physical layer approach. Tableau requires a star or snowflake schema, i.e. start with fact tables and link to dimension tables with downstream tables only having one relationship to a higher table. The F1 dataset did not hold to this, so a partial data model compared to the original was created.</li>
+              <li><strong>Relationship Management</strong> - The Tableau Logical layer does not work like traditional models, like what would be found in Power BI. Following the rule of keeping fact tables on the left and dimension tables on the right I was able to create a model that allowed me to create most of the content I required.</li>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Calculated Measures</h4>
+          <p>To support the visuals that needed to be created a range of additional calculated measures were created. The sorts of things created were:</p>
+            <ul>
+              <li><strong>Pole Positions</strong> - A countnew column in the qualifying table to denote the pole position so this could be easily filtered for in visuals.</li>
+              <li><strong>Race Finish Categories</strong> - Several measures to help group race finishes into wins, podiums, top tens, finishes and DNFs. These worked in conjunction with other calculated measures to make categorised counts easy to create.</li>
+              <li><strong>Flag Images</strong> - To include flags in the dashboard a calculated measure was created to reference flag images from <a href="https://flagpedia.net/" target="_blank">flagpedia.net</a>.</li>              
+            </ul>
+        </div>
+      <hr>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4><a href="https://ergast.com/images/ergast_db.png" target="_blank">Ergast Data Model</a></h4>
+            <a href="https://ergast.com/images/ergast_db.png" target="_blank">
+              <img src="{% static 'resumeapp/assets/img/ergastdatamodel.png' %}" class="img-fluid img-border" alt="Ergast Data Model">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <h4>Tableau Data Model</h4>
+              <img src="{% static 'resumeapp/assets/img/tableaudatamodel.png' %}" class="img-fluid img-border" alt="Tableau Data Model">
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Dashboard Development and Refinement</h3>
+      </div>
+        <p class="card-text">The dashboard content was developed and iterated until the technical content was working and then the final formatting was touched up.</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Refining Dashboard Content</h4>
+          <p>The visuals for the dashboard all required some form of technical development and testing. With a range of techniques being used, each one needed to be set up and tested and could then be reused as required across the dashboard.</p>
+          <ul>
+              <li><strong>Visual Data</strong> - Each visual required a certain value or set of values to be displayed. This required a mix of measures and filters to ensure each visual displayed the correct values.</li>
+              <li><strong>Changing Views Buttons</strong> - The collapsible filter pane and page navigation were creating using buttons and dashboard layout options.</li>              
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <h4>Final Formatting</h4>
+          <p>The final step was to make small adjustments to the look and feel of the dashboard to optimise usability. This is where having clear requirements and a good initial design makes it easier to assess if the final product is where it needs to be. Typically users or customers would be consulted through the entire design and development process and their feedback would help confirm what good looks like. In my case, it was just me so the final product is simply an example of what can be created.</p>
+          <ul>
+              <li><strong>Formatting</strong> - Getting all of the visuals to display with consistent fonts, sizing and spacing. This is important to make sure the dashboard is consistent and users can get used to similar design features.</li>
+              <li><strong>Usability</strong> - A review of how a user would navigate around and likely use the dashboard to make sure it makes sense and is easy to use. This is where user feedback would allow a better product to be designed.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="col-sm-12 mb-3 mb-sm-0"> -->
+<div class="col-12 mb-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex align-items-center">
+        <h3 class="card-title">Final Result</h3>
+      </div>
+      <p class="card-text">The Formula One Dashboard consists of 5 dashboards to allow users to drill into the data as they see fit.</p>
+      <p>The best way to see the result is to go and check out the dashboard.</p>
+      	<div class="d-flex justify-content-start align-items-center" style="margin-top: 10px;">
+		   <a href="{% url 'portfolio-tableau-F1' %}" class="btn btn-default me-2" target="_blank">F1 Dashboard on my site</a>
+		</div> <br>
+
+
+    <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Main Dashboard</h4>
+            <p>The landing page for the dashboard provides:</p>
+              <ul>
+                <li><strong>Championship Result Tables</strong> - Tables for both the driver and constructor champions for each year.</li>
+                <li><strong>Circuit Map</strong> - A map of all the circuits that have been raced at.</li>
+                <li><strong>Driver Grand Prix Appearances</strong> - A chart showing the results for all drivers.</li>
+              </ul>
+              <br>
+        </div>
+
+        <div class="col-lg-3">
+          <h4>Common Features</h4>
+            <p>There are also other features that appear on all dashboards:</p>
+              <ul>
+                <li><strong>Dashboard Navigation</strong> - There are dashboard navigation buttons in the header bar to allow a user to move around dashboards.</li>
+                <li><strong>Collapsible Filter Pane</strong> - The filter pane is on the right side and is collapsed until the filter button is selected and can then be hidden with a close button.</li>
+              </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h4>Drivers Dashboard</h4>
+          <p>An overview of all drivers that provides:</p>
+              <ul>
+              	<li><strong>Driver Nationalities</strong> - A bar chart to display the nationalities of all F1 drivers.</li>
+              	<li><strong>Driver Longevity</strong> - A histogram to show how many races drivers have competed in.</li>               
+                <li><strong>Result Tables</strong> - Two tables for grand prix results and sprint race results for all drivers. The key metrics are provided and can be used to sort the lists.</li>
+              </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h4>Driver Details</h4>
+            <p>A page where one driver can be selected at a time to view their career in more detail.</p>
+              <ul>
+                <li><strong>Driver Drop-down Selector</strong> - Drop-down selector for the driver that then returns their nationality, age, and the first and most recent years racing in F1.</li>
+                <li><strong>Race History Charts</strong> - A race history stacked column chart to show the finishes in each year and a line chart to show the average points and average finish position in each year.</li>
+                <li><strong>Additional Driver Stats</strong> - Bar charts to display the average finish at each circuit to show a drivers favourite circuits and a detailed breakdown of reasons for not finishing races.</li>
+              </ul>
+        </div>
+      </div>
+
+ <hr>
+      <div class="row">
+        <div class="col-lg-3">
+          <h4>Constructors Dashboard</h4>
+            <p>An overview of all constructors that provides:</p>
+              <ul>
+                <li><strong>Constructor Grand Prix Results</strong> - A chart and a table to provide a breakdown of results.</li>
+                <li><strong>Constructor Championships</strong> - A treemap or heatmap chart for all constructors based on how many championships they have won.</li>
+                <li><strong>Constructor Nationalities</strong> - A bar chart of constructors by nationality.</li>
+              </ul>
+              <br>
+        </div>
+
+        <div class="col-lg-3">
+          <h4>Circuits Dashboard</h4>
+            <p>An overview of all circuits that provides:</p>
+              <ul>
+              	<li><strong>Circuit Map</strong> - The same map visual from the Main Dashboard as a reference point for the circuits.</li>
+                <li><strong>Fastest Lap Details</strong> - A table of the available fastest lap details for each circuit.</li>
+                <li><strong>Circuit Grand Prix History</strong> - A char to display which years each circuit was raced at in F1. The tooltip that appears when the chart is hovered over summarises the details and also has a link to the wikipedia page for the circuit.</li>
+              </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

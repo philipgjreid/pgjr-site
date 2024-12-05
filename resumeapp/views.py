@@ -20,3 +20,9 @@ def portfolio_powerapps(request):
 
 def portfolio_powerbi(request):
 	return render(request, 'resumeapp/portfolio-powerbi.html', {})
+
+def portfolio_tableau(request):
+	return render(request, 'resumeapp/portfolio-tableau.html', {})
+
+def portfolio_tableau_F1(request):
+	return render(request, 'resumeapp/portfolio-tableau-F1.html', {})
